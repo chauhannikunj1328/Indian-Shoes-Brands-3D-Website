@@ -1,6 +1,6 @@
-import { useMemo } from 'react'
+import { useMemo, useState } from 'react'
 import * as THREE from 'three'
-import { useLoader } from '@react-three/fiber'
+import { useFrame, useLoader } from '@react-three/fiber'
 import { MeshReflectorMaterial, Text, useTexture } from '@react-three/drei'
 import {
   BRANDS,
@@ -879,7 +879,15 @@ function FloorLightBands({ strength = 0.22, color = '#fff4e2' }) {
 //   left  = the block's side wall (left as you face the back wall)
 //   backLeft / backRight = left / right half of the back wall
 //   right = the right side wall
+// 3D shoe models only start downloading once the camera comes within LOAD_AHEAD units of the bay
+// (the shoe photos stand in until then). Once loaded they stay loaded.
+const LOAD_AHEAD = 15
+
 function BayShelves({ shelves, slot }) {
+  const [loadModels, setLoadModels] = useState(false)
+  useFrame(({ camera }) => {
+    if (!loadModels && camera.position.x > slot.x0 - LOAD_AHEAD && camera.position.x < slot.x1 + LOAD_AHEAD) setLoadModels(true)
+  })
   const bw = slot.x1 - slot.x0
   const place = {
     left: { position: [slot.x0 + 0.01, 0, -BAY_DEPTH / 2 - 0.1], rotation: [0, Math.PI / 2, 0] },
@@ -890,7 +898,7 @@ function BayShelves({ shelves, slot }) {
   return Object.entries(shelves).map(([where, cfg]) =>
     place[where] ? (
       <group key={where} position={place[where].position} rotation={place[where].rotation}>
-        <ShoeWall {...cfg} />
+        <ShoeWall {...cfg} loadModels={loadModels} />
       </group>
     ) : null,
   )

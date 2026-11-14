@@ -238,6 +238,7 @@ export default function ShoeWall({
   labelColor = '#5b4630',
   heading, // text on the hanging sign, e.g. "WOMEN"
   sign = {}, // { bg, fg } colours of the hanging sign
+  loadModels = true, // false = show the photos only (3D models load once the visitor gets near)
 }) {
   const data = useLoader(THREE.FileLoader, list)
   const items = useMemo(() => JSON.parse(data), [data])
@@ -270,7 +271,7 @@ export default function ShoeWall({
                 <meshBasicMaterial map={ledgeShadow} transparent depthWrite={false} />
               </mesh>
               <group position={[0, 0, ledgeZ]}>
-                {item.model ? (
+                {item.model && loadModels ? (
                   // real 3D shoe; the photo shows while the model loads
                   <Suspense fallback={<Shoe item={item} width={shoeWidth} shadowTex={shadowTex} wallGap={ledgeZ - base} />}>
                     <ShoeModel url={item.model} width={shoeWidth} flip={item.modelFlip} />
