@@ -11,6 +11,7 @@
 export const AFFILIATE = {
   comet: { template: null },
   gullylabs: { template: null },
+  neemans: { template: null }, // listed on Cuelinks / vCommission / FlexOffers / Admitad: apply, then paste the link pattern here
 }
 
 // Where clicks are sent so you can count them / report them. null = only analytics events + local log.

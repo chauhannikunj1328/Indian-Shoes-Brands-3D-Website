@@ -16,6 +16,46 @@
 //   2. add an entry below. Its block + bay are appended on the right automatically.
 export const BRANDS = [
   {
+    id: 'neemans',
+    name: 'NEEMANS',
+    tabLabel: 'Neemans',
+    logo: '/brands/neemans/logo.png',
+    wallColor: '#ebe6dc',
+    accent: '#222222',
+    currency: 'INR',
+    // Warm stone block with the Neemans wordmark (traced from neemans.com's header) raised in charcoal.
+    // Assets: store/scripts/make-neemans-assets.py
+    block: {
+      baseboard: '#2b2b2b',
+      sign: {
+        shape: '/brands/neemans/logo_shape.json',
+        outline: '/brands/neemans/logo_outline_shape.json',
+        outlineColor: '#9a8f7c', // taupe piping so the dark letters read on the stone
+        glow: '/brands/neemans/logo_glow.png',
+        glowPad: 0.25,
+        widthRatio: 0.7,
+        color: '#2a2a2a',
+        glowStrength: 0.12,
+      },
+    },
+    // Bay: plain warm-white walls (minimal, so the shoes stand out) with a charcoal trim.
+    bay: {
+      backPlain: true,
+      back: '/brands/neemans/bay_plain.jpg',
+      sides: '/brands/neemans/bay_plain.jpg',
+      sidesTile: 10,
+      trim: '#2b2b2b',
+      label: '#9a9a96',
+      // 24 women + 24 men from neemans.com, same display as the other brands (photos only: no 3D models yet)
+      shelves: {
+        left: { list: '/brands/neemans/women_wall.json', heading: 'WOMEN', sign: { bg: '#2b2b2b' }, ledgeColor: '#d8cfbd', labelColor: '#3a3a38' },
+        backLeft: { list: '/brands/neemans/women_back.json', heading: 'WOMEN', sign: { bg: '#2b2b2b' }, ledgeColor: '#d8cfbd', labelColor: '#3a3a38' },
+        backRight: { list: '/brands/neemans/men_back.json', heading: 'MEN', sign: { bg: '#2b2b2b' }, ledgeColor: '#d8cfbd', labelColor: '#3a3a38' },
+        right: { list: '/brands/neemans/men_right.json', heading: 'MEN', sign: { bg: '#2b2b2b' }, ledgeColor: '#d8cfbd', labelColor: '#3a3a38' },
+      },
+    },
+  },
+  {
     id: 'comet',
     name: 'COMET',
     tabLabel: 'Comet', // label in the bottom tab bar
@@ -185,13 +225,13 @@ export const EXPERIMENTS = {
   gapsyLighting: true, // slotted light ceiling + wall-wash light, from gapsystudio.com (src/experiments/GapsyLighting.jsx)
 }
 
-// Entrance zone back wall (left of the first logo block): same royal dark blue concrete as the
-// Comet block's sides, so the block and this wall read as one blue corner at the start view.
+// Entrance zone back wall (left of the first logo block). Neemans is first now, so it is warm white with a
+// charcoal baseboard to match its block. If Comet goes first again: its blue concrete + '#141f42' baseboard.
 export const ENTRANCE = {
   leftWall: true, // close the left end with a wall (the front of the walkway stays open)
-  wallFinish: '/brands/comet/block_concrete_blue.jpg',
-  wallFinishTile: 5, // world units per texture tile
-  baseboard: '#141f42',
+  wallFinish: '/brands/neemans/bay_plain.jpg', // warm white, matches the first block (Neemans). Comet blue: /brands/comet/block_concrete_blue.jpg
+  wallFinishTile: 10, // world units per texture tile
+  baseboard: '#2b2b2b', // Comet blue: '#141f42'
 }
 
 // Floor finish. 'glass' = light grey polished glass that reflects the walls; 'concrete' = matte microcement.

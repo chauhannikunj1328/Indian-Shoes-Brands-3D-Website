@@ -60,7 +60,7 @@ def cutout(path, threshold=22):
 
 
 # how different from the backdrop a pixel must be to count as shoe (Gully's grey studio floor has stronger shadows)
-THRESHOLD = {'comet': 22, 'gullylabs': 34}
+THRESHOLD = {'comet': 22, 'gullylabs': 34, 'neemans': 30, 'bondstreet': 30}
 
 
 def main(brand, wall):
@@ -77,7 +77,7 @@ def main(brand, wall):
                       'aspect': round(img.width / img.height, 3),
                       # optional real 3D model (GLB) + flip, kept from list.json
                       **{k: it[k] for k in ('model', 'modelFlip') if k in it},
-                      'url': {'comet': 'https://www.wearcomet.com', 'gullylabs': 'https://gullylabs.com'}.get(brand, '') + f"/products/{it['handle']}"})
+                      'url': it.get('url') or {'comet': 'https://www.wearcomet.com', 'gullylabs': 'https://gullylabs.com'}.get(brand, '') + f"/products/{it['handle']}"})
         print(it['handle'], img.size)
     json.dump(shelf, open(os.path.join(ROOT, 'store', 'public', 'brands', brand, wall + '.json'), 'w'), indent=1)
 
