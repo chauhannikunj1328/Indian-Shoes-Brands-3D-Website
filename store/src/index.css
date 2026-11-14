@@ -220,36 +220,28 @@ canvas {
   overflow: hidden;
   cursor: default;
 }
-.intro__stage {
+.intro__gl {
   position: absolute;
-  left: 50%;
-  top: 46%;
-  width: 0;
-  height: 0;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
 }
-.intro__logo {
+.intro__final {
   position: absolute;
-  left: 0;
-  top: 0;
-  opacity: 0;
-  -webkit-mask-size: contain;
-  mask-size: contain;
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-  mask-position: center;
-  will-change: transform, opacity;
+  inset: 0;
+  pointer-events: none;
 }
 .intro__center {
   position: absolute;
-  left: 0;
-  top: 0;
-  opacity: 0;
+  left: 50%;
+  top: 44%;
+  transform: translate(-50%, -50%);
   text-align: center;
   white-space: nowrap;
 }
 .intro__center img {
-  width: min(42vw, 360px);
+  width: min(34vw, 280px);
   height: auto;
 }
 .intro__wordmark {
@@ -257,7 +249,7 @@ canvas {
   align-items: baseline;
   gap: 0.06em;
   font-family: 'Poppins', system-ui, sans-serif;
-  font-size: clamp(34px, 7vw, 84px);
+  font-size: clamp(26px, 4.6vw, 56px);
   font-weight: 800;
   line-height: 1.15;
   letter-spacing: -0.02em;
@@ -267,28 +259,42 @@ canvas {
   font-weight: 700;
   letter-spacing: 0;
 }
-.intro__loader {
+/* sliding number strip (like the Figma loader): current % big + sharp, neighbours small + blurred */
+.intro__strip-wrap {
   position: absolute;
   left: 50%;
-  bottom: clamp(36px, 9vh, 90px);
+  bottom: clamp(40px, 10vh, 100px);
   transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
-  opacity: 0;
+  gap: 14px;
 }
-.intro__number {
+.intro__strip {
+  position: relative;
+  height: clamp(52px, 8vw, 92px);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 22%, #000 78%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 22%, #000 78%, transparent);
+}
+.intro__digit {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -1.5ch;
+  width: 3ch;
+  margin-top: -0.6em;
+  text-align: center;
   font-family: 'Poppins', system-ui, sans-serif;
-  font-size: clamp(56px, 11vw, 132px);
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: -0.04em;
+  font-size: clamp(44px, 7vw, 80px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
   color: #ffffff;
   font-variant-numeric: tabular-nums;
+  will-change: transform, opacity, filter;
 }
 .intro__track {
-  width: min(40vw, 180px);
+  width: min(32vw, 150px);
   height: 3px;
   border-radius: 3px;
   background: rgba(255, 255, 255, 0.18);
@@ -298,6 +304,5 @@ canvas {
   width: 100%;
   height: 100%;
   background: #ffffff;
-  transform: scaleX(0);
   transform-origin: left center;
 }

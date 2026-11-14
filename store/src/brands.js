@@ -250,12 +250,13 @@ export async function loadProducts(brandId) {
   return list.map((p) => ({ ...p, image: `/brands/${brandId}/${p.file}` }))
 }
 
-// Intro / loading screen (src/Intro.jsx): six logos ride a wave in, turn into a ring, wave out,
-// then the site logo shows with the loading %. Logos are drawn in `color` using the PNG as a mask.
+// Intro / loading screen (src/Intro.jsx): six white logos travel one continuous 3D path (wave in,
+// tilted ring, wave out), then the IndianShoes wordmark shows with the sliding loading %.
+// worldWidth = logo width in the intro's 3D scene (about 80 px on a laptop screen).
 export const INTRO = {
   logos: [
-    { src: '/brands/comet/logo.png', aspect: '1036 / 468', width: 'min(13vw, 150px)', color: '#ffffff' },
-    { src: '/brands/gullylabs/logo.png', aspect: '1044 / 320', width: 'min(15vw, 175px)', color: '#ffffff' },
+    { white: '/brands/comet/logo_white.png', aspect: 512 / 229, worldWidth: 0.62 },
+    { white: '/brands/gullylabs/logo_white.png', aspect: 512 / 153, worldWidth: 0.74 },
   ],
   // black concrete, the same grain as the entrance walls (made from block_concrete_blue.jpg)
   background: '/textures/loader_concrete_black.jpg',
