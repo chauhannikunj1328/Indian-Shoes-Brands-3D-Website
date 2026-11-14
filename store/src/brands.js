@@ -230,17 +230,27 @@ export const STORE_LENGTH = ENTRANCE_WIDTH + BRANDS.length * (BLOCK_WIDTH + BAY_
 export const CTA_LABEL = 'Get Your 3D Store'
 
 // What the call-to-action wall says: an enquiry wall for brands that want a 3D store like this one.
-// The WhatsApp QR (public/textures/whatsapp_qr.png) opens `whatsapp.link`; if the number changes, remake it
-// (e.g. with macOS Core Image's CIQRCodeGenerator) from the new link.
+// The WhatsApp QR opens `whatsapp.link`. If the number changes: remake public/textures/whatsapp_qr.png from
+// the new link (macOS Core Image CIQRCodeGenerator), then run store/scripts/make-cta-assets.py for the raised QR.
 export const CTA = {
+  // embossed IndianShoes wordmark at the top (traced by store/scripts/make-cta-assets.py)
+  logo: {
+    shape: '/brands/indianshoes/logo_shape.json',
+    outline: '/brands/indianshoes/logo_outline_shape.json',
+    glow: '/brands/indianshoes/logo_glow.png',
+    color: '#1d4fc9', // Gully blue letters...
+    outlineColor: '#0b2280', // ...with navy piping, like the block logos
+    glowStrength: 0.12,
+  },
   eyebrow: 'FOR BRANDS',
-  headline: 'Want a 3D store\nlike this for your brand?',
+  headline: 'Want a 3D store like this for your brand?',
   text: 'We design and build immersive 3D stores for sneaker and fashion brands, just like the Comet and Gully Labs stores you just walked through.',
   whatsapp: {
     label: 'Chat on WhatsApp',
     number: '+91 84606 10813',
     link: 'https://wa.me/918460610813?text=Hi%21%20I%20saw%20theindianshoes.com%20and%20I%27d%20like%20a%203D%20store%20for%20my%20brand.',
-    qr: '/textures/whatsapp_qr.png',
+    qr: '/textures/whatsapp_qr.png', // flat QR image (kept for reference)
+    qrGrid: '/brands/indianshoes/whatsapp_qr.json', // QR modules, raised on the wall
     qrCaption: 'Scan to chat on WhatsApp',
   },
   email: 'sales@theindianshoes.com',
@@ -254,11 +264,12 @@ export const CTA_WALL = {
   z: CORRIDOR_DEPTH / 2, // centre of the walkway part
   y: WALL_HEIGHT / 2,
   width: CORRIDOR_DEPTH,
-  // same white stucco + blue baseboard as the Gully Labs bay wall next to it, but plain (no stitch lines)
-  // plain cream leather, no design (matches the Gully Labs bay next to it). Older: stucco_plain.jpg
-  finish: '/brands/gullylabs/mc_plain.jpg',
+  // same as the Gully Labs bay walls next to it: cream leather with the thin blue stitched frame,
+  // leather grain bump, and the same soft wall-wash light (older: plain mc_plain.jpg, stucco_plain.jpg)
+  finish: '/brands/gullylabs/mc_front_plain.jpg',
   bump: '/brands/gullylabs/leather_bump.png',
-  finishTile: 10, // world units per texture across
+  finishTile: null, // one image across the whole wall, so the stitched frame runs round its edges
+  wash: 0.2, // wall-wash light strength, same as the bay side walls
   trim: '#1d4fc9',
 }
 

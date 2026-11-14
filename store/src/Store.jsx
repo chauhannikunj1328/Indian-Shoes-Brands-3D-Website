@@ -271,7 +271,7 @@ function SignPiping({ url, width, color, depth = SIGN_DEPTH }) {
   )
 }
 
-function HaloSign({
+export function HaloSign({
   shapeUrl,
   outlineUrl,
   outlineColor,
@@ -788,7 +788,7 @@ function BrandBay({ brand, slot }) {
 //   wash:  an even glow, brightest under the ceiling, for walls that run along the slots (bay side walls).
 const SLOT_STEP = 5 // must match SLOT_SPACING in experiments/GapsyLighting.jsx
 
-function WallLight({ w, h, mode = 'pools', offset = SLOT_STEP / 2, strength = 0.4, color = '#fff4e2', position, rotationY = 0 }) {
+export function WallLight({ w, h, mode = 'pools', offset = SLOT_STEP / 2, strength = 0.4, color = '#fff4e2', position, rotationY = 0 }) {
   const tex = useMemo(() => {
     const W = 1024
     const H = Math.round((W * h) / w)
@@ -970,6 +970,16 @@ export default function Store() {
           w={CTA_WALL.width}
           h={WALL_HEIGHT}
           tile={CTA_WALL.finishTile}
+        />
+      )}
+      {CTA_WALL.wash > 0 && (
+        <WallLight
+          w={CTA_WALL.width}
+          h={WALL_HEIGHT}
+          mode="wash"
+          strength={CTA_WALL.wash}
+          position={[CTA_WALL.x - 0.009, CTA_WALL.y, CTA_WALL.z]}
+          rotationY={-Math.PI / 2}
         />
       )}
       {CTA_WALL.trim && (
