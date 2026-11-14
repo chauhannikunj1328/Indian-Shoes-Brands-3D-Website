@@ -102,6 +102,33 @@ function Shoe({ item, width, shadowTex, wallGap = 0 }) {
   )
 }
 
+// A square brand photo standing on the ledge in a thin frame, leaning back a touch (item.tile = true).
+const TILE_SCALE = 0.92
+const TILE_FRAME = 0.035
+
+function ShoeTile({ item, width, frame = '#ffffff' }) {
+  const tex = useTexture(item.image)
+  const map = useMemo(() => {
+    const t = tex.clone()
+    t.colorSpace = THREE.SRGBColorSpace
+    t.anisotropy = 8
+    t.needsUpdate = true
+    return t
+  }, [tex])
+  const outer = width + TILE_FRAME * 2
+  return (
+    <group position={[0, outer / 2, 0.04]} rotation={[-0.06, 0, 0]}>
+      <RoundedBox args={[outer, outer, 0.05]} radius={0.015} smoothness={3}>
+        <meshStandardMaterial color={frame} roughness={0.5} />
+      </RoundedBox>
+      <mesh position={[0, 0, 0.0265]}>
+        <planeGeometry args={[width, width]} />
+        <meshStandardMaterial map={map} roughness={0.7} />
+      </mesh>
+    </group>
+  )
+}
+
 // Real 3D shoe (low-poly GLB made from the product photo). Auto-fitted: its longest horizontal side
 // becomes `width`, it stands on the ledge (y = 0), centred, turned `turn` radians so it reads as 3D.
 // `flip` (item.modelFlip) turns it 180 degrees if the toe points the wrong way.
@@ -293,6 +320,7 @@ export default function ShoeWall({
   loadModels = true, // false = show the photos only (3D models load once the visitor gets near)
   brand, // brand id (e.g. 'comet'): needed for the click-to-buy card + affiliate link
   brandName, // shown on the card's Buy button
+  tileFrame = '#ffffff', // frame colour for photo tiles (items with tile: true)
 }) {
   const data = useLoader(THREE.FileLoader, list)
   const items = useMemo(() => JSON.parse(data), [data])
@@ -326,12 +354,15 @@ export default function ShoeWall({
               </mesh>
               <group position={[0, 0, ledgeZ]}>
                 <HoverLift
-                  width={shoeWidth}
-                  height={shoeWidth / (item.aspect || 2)}
+                  width={item.tile ? shoeWidth * TILE_SCALE : shoeWidth}
+                  height={item.tile ? shoeWidth * TILE_SCALE : shoeWidth / (item.aspect || 2)}
                   shadowTex={shadowTex}
                   onSelect={item.url && brand ? () => selectShoe({ brand, brandName, item }) : undefined}
                 >
-                {item.model && loadModels ? (
+                {item.tile ? (
+                  // brand photo shown as a framed tile (for brands without clean shoe cut-outs)
+                  <ShoeTile item={item} width={shoeWidth * TILE_SCALE} frame={tileFrame} />
+                ) : item.model && loadModels ? (
                   // real 3D shoe; the photo shows while the model loads
                   <Suspense fallback={<Shoe item={item} width={shoeWidth} shadowTex={shadowTex} wallGap={ledgeZ - base} />}>
                     <ShoeModel url={item.model} width={shoeWidth} flip={item.modelFlip} />

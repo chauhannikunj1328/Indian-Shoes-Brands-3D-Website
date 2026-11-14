@@ -218,6 +218,46 @@ export const BRANDS = [
       },
     },
   },
+  {
+    id: 'bondstreet',
+    name: 'BOND STREET',
+    tabLabel: 'Bond Street',
+    logo: '/brands/bondstreet/logo.png',
+    wallColor: '#1f3a9e',
+    accent: '#1f3a9e',
+    currency: 'INR',
+    // Royal-blue block with the white B + BOND STREET REDTAPE logo (cropped from their photos and traced).
+    // Assets: store/scripts/make-bondstreet-assets.py
+    block: {
+      baseboard: '#142a78',
+      sign: {
+        shape: '/brands/bondstreet/logo_shape.json',
+        outline: '/brands/bondstreet/logo_outline_shape.json',
+        outlineColor: '#0b1a5c', // navy piping
+        glow: '/brands/bondstreet/logo_glow.png',
+        glowPad: 0.25,
+        widthRatio: 0.6,
+        color: '#ffffff',
+        glowStrength: 0.25,
+      },
+    },
+    // Bay: cool-white walls, blue trim. Their photos are square marketing shots (no clean side views), so the
+    // shelves show them as framed photo tiles (tile: true in the lists) on blue ledges. 48 men's sneakers.
+    bay: {
+      backPlain: true,
+      back: '/brands/bondstreet/bay_plain.jpg',
+      sides: '/brands/bondstreet/bay_plain.jpg',
+      sidesTile: 10,
+      trim: '#1f3a9e',
+      label: '#9a9a96',
+      shelves: {
+        left: { list: '/brands/bondstreet/men_a.json', heading: 'MEN', sign: { bg: '#1f3a9e' }, ledgeColor: '#1f3a9e', labelColor: '#142a78' },
+        backLeft: { list: '/brands/bondstreet/men_b.json', heading: 'MEN', sign: { bg: '#1f3a9e' }, ledgeColor: '#1f3a9e', labelColor: '#142a78' },
+        backRight: { list: '/brands/bondstreet/men_c.json', heading: 'MEN', sign: { bg: '#1f3a9e' }, ledgeColor: '#1f3a9e', labelColor: '#142a78' },
+        right: { list: '/brands/bondstreet/men_d.json', heading: 'MEN', sign: { bg: '#1f3a9e' }, ledgeColor: '#1f3a9e', labelColor: '#142a78' },
+      },
+    },
+  },
 ]
 
 // Experiments that can be switched off (false) or deleted.

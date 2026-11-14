@@ -11,6 +11,7 @@
 export const AFFILIATE = {
   comet: { template: null },
   gullylabs: { template: null },
+  bondstreet: { template: null }, // Bond Street by Redtape advertises its own affiliate programme (flat 10% per sale): apply, then paste the link pattern here
   neemans: { template: null }, // listed on Cuelinks / vCommission / FlexOffers / Admitad: apply, then paste the link pattern here
 }
 
