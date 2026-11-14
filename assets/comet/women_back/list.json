@@ -1,0 +1,86 @@
+[
+ {
+  "handle": "x-lows-malibu",
+  "title": "X Lows MALIBU",
+  "type": "X Lows",
+  "price_inr": 4299,
+  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/Lateralnew.jpg"
+ },
+ {
+  "handle": "x-lows-starburst",
+  "title": "X Lows STARBURST",
+  "type": "X Lows",
+  "price_inr": 4299,
+  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/lateral-min_9981b4d4-a786-44f7-bce7-2c1aa16f07f9.jpg"
+ },
+ {
+  "handle": "x-lows-tiramisu",
+  "title": "X Lows TIRAMISU",
+  "type": "X Lows",
+  "price_inr": 4299,
+  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/tiramisu_lateral-min.jpg"
+ },
+ {
+  "handle": "x-lows-mad-scientist",
+  "title": "X Lows MAD SCIENTIST",
+  "type": "X Lows",
+  "price_inr": 4299,
+  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/lateral_3_-min_062b9ed9-3d8e-47c1-85e4-dd2772ed17f9.jpg"
+ },
+ {
+  "handle": "astra-pink-butter",
+  "title": "Astra PINK BUTTER",
+  "type": "Astra",
+  "price_inr": 4899,
+  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/1_10_b6cfc6e0-1ec3-432d-9ce5-f30e9f1d6ddc.jpg"
+ },
+ {
+  "handle": "astra-chrome-kiss",
+  "title": "Astra CHROME KISS",
+  "type": "Astra",
+  "price_inr": 4899,
+  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/1_3_8293a0e0-8a81-41ae-af06-a8398976837c.jpg"
+ },
+ {
+  "handle": "astra-matcha-cream",
+  "title": "Astra MATCHA CREAM",
+  "type": "Astra",
+  "price_inr": 4899,
+  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/1_6_61d9d058-ddfd-4b8b-8490-623701ecb3ea.jpg"
+ },
+ {
+  "handle": "astra-cocoa-puff",
+  "title": "Astra COCOA PUFF",
+  "type": "Astra",
+  "price_inr": 4899,
+  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/Untitled-5_1_fb774d2f-da2a-44c8-bb31-cc5ac854ee7f.jpg"
+ },
+ {
+  "handle": "aeon-v2-shortcake",
+  "title": "Aeon V2 SHORTCAKE",
+  "type": "Aeon V2",
+  "price_inr": 4499,
+  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/Pinklateral-min.png"
+ },
+ {
+  "handle": "aeon-v2-primrose",
+  "title": "Aeon V2 PRIMROSE",
+  "type": "Aeon V2",
+  "price_inr": 4499,
+  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/Lateral_5.jpg"
+ },
+ {
+  "handle": "aeon-v2-butternut",
+  "title": "Aeon v2 BUTTERNUT",
+  "type": "Aeon V2",
+  "price_inr": 4499,
+  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/LATERAL-min_a4118393-3003-4644-8505-a51821162688.jpg"
+ },
+ {
+  "handle": "aeon-v2-shadowcat",
+  "title": "Aeon v2 SHADOWCAT",
+  "type": "Aeon V2",
+  "price_inr": 4499,
+  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/LATEARL-min.jpg"
+ }
+]

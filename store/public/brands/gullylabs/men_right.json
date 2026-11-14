@@ -1,0 +1,110 @@
+[
+ {
+  "handle": "gully-number-003-loam-java",
+  "title": "Gully Number 003 - Loam Java",
+  "type": "Sneakers",
+  "price_inr": 7990,
+  "image": "/brands/gullylabs/men_right/gully-number-003-loam-java.png",
+  "aspect": 2.405,
+  "url": "https://gullylabs.com/products/gully-number-003-loam-java"
+ },
+ {
+  "handle": "gully-number-003-gerune-beige",
+  "title": "Gully Number 003 - Gerune Beige",
+  "type": "Sneakers",
+  "price_inr": 7990,
+  "image": "/brands/gullylabs/men_right/gully-number-003-gerune-beige.png",
+  "aspect": 2.469,
+  "url": "https://gullylabs.com/products/gully-number-003-gerune-beige"
+ },
+ {
+  "handle": "gully-number-001-baaz-baadal-blue",
+  "title": "Gully Number 001 - Baaz Baadal Blue",
+  "type": "Sneakers",
+  "price_inr": 4290,
+  "image": "/brands/gullylabs/men_right/gully-number-001-baaz-baadal-blue.png",
+  "aspect": 2.627,
+  "url": "https://gullylabs.com/products/gully-number-001-baaz-baadal-blue"
+ },
+ {
+  "handle": "gully-number-001-baaz-kora-white",
+  "title": "Gully Number 001 - Baaz Kora White",
+  "type": "Sneakers",
+  "price_inr": 4290,
+  "image": "/brands/gullylabs/men_right/gully-number-001-baaz-kora-white.png",
+  "aspect": 2.293,
+  "url": "https://gullylabs.com/products/gully-number-001-baaz-kora-white"
+ },
+ {
+  "handle": "gl001-kulfi-kesar-men",
+  "title": "Gully Number 001 - Kulfi Kesar",
+  "type": "Sneakers",
+  "price_inr": 3600,
+  "image": "/brands/gullylabs/men_right/gl001-kulfi-kesar-men.png",
+  "aspect": 2.396,
+  "url": "https://gullylabs.com/products/gl001-kulfi-kesar-men"
+ },
+ {
+  "handle": "gully-number-001-baaz-leila-navy-men",
+  "title": "Gully Number 001 - Baaz Leila Navy",
+  "type": "Sneakers",
+  "price_inr": 4290,
+  "image": "/brands/gullylabs/men_right/gully-number-001-baaz-leila-navy-men.png",
+  "aspect": 2.227,
+  "url": "https://gullylabs.com/products/gully-number-001-baaz-leila-navy-men"
+ },
+ {
+  "handle": "gully-number-001-saaj-orange-men",
+  "title": "Gully Number 001 - Saaj Orange",
+  "type": "Sneakers",
+  "price_inr": 8990,
+  "image": "/brands/gullylabs/men_right/gully-number-001-saaj-orange-men.png",
+  "aspect": 2.473,
+  "url": "https://gullylabs.com/products/gully-number-001-saaj-orange-men"
+ },
+ {
+  "handle": "gl001-kulfi-rabri-men",
+  "title": "Gully Number 001 - Kulfi Rabri",
+  "type": "Sneakers",
+  "price_inr": 6290,
+  "image": "/brands/gullylabs/men_right/gl001-kulfi-rabri-men.png",
+  "aspect": 2.382,
+  "url": "https://gullylabs.com/products/gl001-kulfi-rabri-men"
+ },
+ {
+  "handle": "gully-number-001-baaz-faris-black-men",
+  "title": "Gully Number 001 - Baaz Faris Black",
+  "type": "Sneakers",
+  "price_inr": 4290,
+  "image": "/brands/gullylabs/men_right/gully-number-001-baaz-faris-black-men.png",
+  "aspect": 2.225,
+  "url": "https://gullylabs.com/products/gully-number-001-baaz-faris-black-men"
+ },
+ {
+  "handle": "gully-number-001-falak-blue-men",
+  "title": "Gully Number 001 - Baaz Falak Blue",
+  "type": "Sneakers",
+  "price_inr": 4290,
+  "image": "/brands/gullylabs/men_right/gully-number-001-falak-blue-men.png",
+  "aspect": 2.256,
+  "url": "https://gullylabs.com/products/gully-number-001-falak-blue-men"
+ },
+ {
+  "handle": "gully-number-001-baaz-firozi-green-men",
+  "title": "Gully Number 001 - Baaz Firozi Green",
+  "type": "Sneakers",
+  "price_inr": 4290,
+  "image": "/brands/gullylabs/men_right/gully-number-001-baaz-firozi-green-men.png",
+  "aspect": 2.236,
+  "url": "https://gullylabs.com/products/gully-number-001-baaz-firozi-green-men"
+ },
+ {
+  "handle": "gully-number-001-naadu-men",
+  "title": "Gully Number 001 - Naadu",
+  "type": "Sneakers",
+  "price_inr": 5990,
+  "image": "/brands/gullylabs/men_right/gully-number-001-naadu-men.png",
+  "aspect": 2.242,
+  "url": "https://gullylabs.com/products/gully-number-001-naadu-men"
+ }
+]

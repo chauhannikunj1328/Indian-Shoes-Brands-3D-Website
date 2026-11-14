@@ -1,0 +1,110 @@
+[
+ {
+  "handle": "x-lows-malibu",
+  "title": "X Lows MALIBU",
+  "type": "X Lows",
+  "price_inr": 4299,
+  "image": "/brands/comet/women_back/x-lows-malibu.png",
+  "aspect": 2.023,
+  "url": "https://www.wearcomet.com/products/x-lows-malibu"
+ },
+ {
+  "handle": "x-lows-starburst",
+  "title": "X Lows STARBURST",
+  "type": "X Lows",
+  "price_inr": 4299,
+  "image": "/brands/comet/women_back/x-lows-starburst.png",
+  "aspect": 2.0,
+  "url": "https://www.wearcomet.com/products/x-lows-starburst"
+ },
+ {
+  "handle": "x-lows-tiramisu",
+  "title": "X Lows TIRAMISU",
+  "type": "X Lows",
+  "price_inr": 4299,
+  "image": "/brands/comet/women_back/x-lows-tiramisu.png",
+  "aspect": 2.179,
+  "url": "https://www.wearcomet.com/products/x-lows-tiramisu"
+ },
+ {
+  "handle": "x-lows-mad-scientist",
+  "title": "X Lows MAD SCIENTIST",
+  "type": "X Lows",
+  "price_inr": 4299,
+  "image": "/brands/comet/women_back/x-lows-mad-scientist.png",
+  "aspect": 2.002,
+  "url": "https://www.wearcomet.com/products/x-lows-mad-scientist"
+ },
+ {
+  "handle": "astra-pink-butter",
+  "title": "Astra PINK BUTTER",
+  "type": "Astra",
+  "price_inr": 4899,
+  "image": "/brands/comet/women_back/astra-pink-butter.png",
+  "aspect": 2.25,
+  "url": "https://www.wearcomet.com/products/astra-pink-butter"
+ },
+ {
+  "handle": "astra-chrome-kiss",
+  "title": "Astra CHROME KISS",
+  "type": "Astra",
+  "price_inr": 4899,
+  "image": "/brands/comet/women_back/astra-chrome-kiss.png",
+  "aspect": 2.232,
+  "url": "https://www.wearcomet.com/products/astra-chrome-kiss"
+ },
+ {
+  "handle": "astra-matcha-cream",
+  "title": "Astra MATCHA CREAM",
+  "type": "Astra",
+  "price_inr": 4899,
+  "image": "/brands/comet/women_back/astra-matcha-cream.png",
+  "aspect": 2.183,
+  "url": "https://www.wearcomet.com/products/astra-matcha-cream"
+ },
+ {
+  "handle": "astra-cocoa-puff",
+  "title": "Astra COCOA PUFF",
+  "type": "Astra",
+  "price_inr": 4899,
+  "image": "/brands/comet/women_back/astra-cocoa-puff.png",
+  "aspect": 2.383,
+  "url": "https://www.wearcomet.com/products/astra-cocoa-puff"
+ },
+ {
+  "handle": "aeon-v2-shortcake",
+  "title": "Aeon V2 SHORTCAKE",
+  "type": "Aeon V2",
+  "price_inr": 4499,
+  "image": "/brands/comet/women_back/aeon-v2-shortcake.png",
+  "aspect": 2.153,
+  "url": "https://www.wearcomet.com/products/aeon-v2-shortcake"
+ },
+ {
+  "handle": "aeon-v2-primrose",
+  "title": "Aeon V2 PRIMROSE",
+  "type": "Aeon V2",
+  "price_inr": 4499,
+  "image": "/brands/comet/women_back/aeon-v2-primrose.png",
+  "aspect": 2.206,
+  "url": "https://www.wearcomet.com/products/aeon-v2-primrose"
+ },
+ {
+  "handle": "aeon-v2-butternut",
+  "title": "Aeon v2 BUTTERNUT",
+  "type": "Aeon V2",
+  "price_inr": 4499,
+  "image": "/brands/comet/women_back/aeon-v2-butternut.png",
+  "aspect": 2.267,
+  "url": "https://www.wearcomet.com/products/aeon-v2-butternut"
+ },
+ {
+  "handle": "aeon-v2-shadowcat",
+  "title": "Aeon v2 SHADOWCAT",
+  "type": "Aeon V2",
+  "price_inr": 4499,
+  "image": "/brands/comet/women_back/aeon-v2-shadowcat.png",
+  "aspect": 2.222,
+  "url": "https://www.wearcomet.com/products/aeon-v2-shadowcat"
+ }
+]

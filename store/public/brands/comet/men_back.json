@@ -1,0 +1,110 @@
+[
+ {
+  "handle": "aeres-oakwood",
+  "title": "Aeres OAKWOOD",
+  "type": "Aeres",
+  "price_inr": 5299,
+  "image": "/brands/comet/men_back/aeres-oakwood.png",
+  "aspect": 2.249,
+  "url": "https://www.wearcomet.com/products/aeres-oakwood"
+ },
+ {
+  "handle": "aeres-burgundy",
+  "title": "Aeres BURGUNDY",
+  "type": "Aeres",
+  "price_inr": 5299,
+  "image": "/brands/comet/men_back/aeres-burgundy.png",
+  "aspect": 2.336,
+  "url": "https://www.wearcomet.com/products/aeres-burgundy"
+ },
+ {
+  "handle": "aeres-noir",
+  "title": "Aeres NOIR",
+  "type": "Aeres",
+  "price_inr": 5299,
+  "image": "/brands/comet/men_back/aeres-noir.png",
+  "aspect": 2.209,
+  "url": "https://www.wearcomet.com/products/aeres-noir"
+ },
+ {
+  "handle": "aeres-juniper",
+  "title": "Aeres JUNIPER",
+  "type": "Aeres",
+  "price_inr": 5299,
+  "image": "/brands/comet/men_back/aeres-juniper.png",
+  "aspect": 2.318,
+  "url": "https://www.wearcomet.com/products/aeres-juniper"
+ },
+ {
+  "handle": "x-lows-viper",
+  "title": "X Lows VIPER",
+  "type": "X Lows",
+  "price_inr": 4299,
+  "image": "/brands/comet/men_back/x-lows-viper.png",
+  "aspect": 2.1,
+  "url": "https://www.wearcomet.com/products/x-lows-viper"
+ },
+ {
+  "handle": "x-lows-snow",
+  "title": "X Lows SNOW",
+  "type": "X Lows",
+  "price_inr": 4299,
+  "image": "/brands/comet/men_back/x-lows-snow.png",
+  "aspect": 1.897,
+  "url": "https://www.wearcomet.com/products/x-lows-snow"
+ },
+ {
+  "handle": "x-lows-armstrong",
+  "title": "X Lows ARMSTRONG",
+  "type": "X Lows",
+  "price_inr": 4299,
+  "image": "/brands/comet/men_back/x-lows-armstrong.png",
+  "aspect": 2.089,
+  "url": "https://www.wearcomet.com/products/x-lows-armstrong"
+ },
+ {
+  "handle": "x-lows-tuscan",
+  "title": "X Lows TUSCAN",
+  "type": "X Lows",
+  "price_inr": 4299,
+  "image": "/brands/comet/men_back/x-lows-tuscan.png",
+  "aspect": 1.954,
+  "url": "https://www.wearcomet.com/products/x-lows-tuscan"
+ },
+ {
+  "handle": "apex-sub-zero",
+  "title": "Apex SUB-ZERO",
+  "type": "APEX",
+  "price_inr": 6299,
+  "image": "/brands/comet/men_back/apex-sub-zero.png",
+  "aspect": 2.174,
+  "url": "https://www.wearcomet.com/products/apex-sub-zero"
+ },
+ {
+  "handle": "apex-stratos",
+  "title": "Apex STRATOS",
+  "type": "APEX",
+  "price_inr": 6299,
+  "image": "/brands/comet/men_back/apex-stratos.png",
+  "aspect": 2.153,
+  "url": "https://www.wearcomet.com/products/apex-stratos"
+ },
+ {
+  "handle": "apex-hotrod",
+  "title": "Apex HOTROD",
+  "type": "APEX",
+  "price_inr": 6299,
+  "image": "/brands/comet/men_back/apex-hotrod.png",
+  "aspect": 2.022,
+  "url": "https://www.wearcomet.com/products/apex-hotrod"
+ },
+ {
+  "handle": "apex-red-velvet",
+  "title": "Apex RED VELVET",
+  "type": "APEX",
+  "price_inr": 6299,
+  "image": "/brands/comet/men_back/apex-red-velvet.png",
+  "aspect": 2.35,
+  "url": "https://www.wearcomet.com/products/apex-red-velvet"
+ }
+]

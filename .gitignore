@@ -1,0 +1,12 @@
+# dependencies / builds (reinstall with: npm --prefix store install)
+node_modules/
+dist/
+dist-ssr/
+
+# OS / editor / python
+.DS_Store
+__pycache__/
+*.pyc
+
+# third-party reference video (someone else's recording; kept local, not published)
+b66561534ac84d16846470d1e2295e05.MP4

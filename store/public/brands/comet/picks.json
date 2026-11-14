@@ -1,0 +1,98 @@
+[
+ {
+  "n": 1,
+  "file": "01-apex-argo.jpg",
+  "title": "Apex ARGO",
+  "collection": "APEX",
+  "price_inr": 6299,
+  "url": "https://www.wearcomet.com/products/apex-argo"
+ },
+ {
+  "n": 2,
+  "file": "02-apex-quicksilver.jpg",
+  "title": "Apex QUICKSILVER",
+  "collection": "APEX",
+  "price_inr": 6299,
+  "url": "https://www.wearcomet.com/products/apex-quicksilver"
+ },
+ {
+  "n": 3,
+  "file": "03-aeres-blizzard.jpg",
+  "title": "Aeres BLIZZARD",
+  "collection": "Aeres",
+  "price_inr": 5299,
+  "url": "https://www.wearcomet.com/products/aeres-blizzard"
+ },
+ {
+  "n": 4,
+  "file": "04-astra-cocoa-puff.jpg",
+  "title": "Astra COCOA PUFF",
+  "collection": "Astra",
+  "price_inr": 4899,
+  "url": "https://www.wearcomet.com/products/astra-cocoa-puff"
+ },
+ {
+  "n": 5,
+  "file": "05-astra-matcha-cream.jpg",
+  "title": "Astra MATCHA CREAM",
+  "collection": "Astra",
+  "price_inr": 4899,
+  "url": "https://www.wearcomet.com/products/astra-matcha-cream"
+ },
+ {
+  "n": 6,
+  "file": "06-aeon-v2-mustang.jpg",
+  "title": "Aeon V2 MUSTANG",
+  "collection": "Aeon V2",
+  "price_inr": 4499,
+  "url": "https://www.wearcomet.com/products/aeon-v2-mustang"
+ },
+ {
+  "n": 7,
+  "file": "07-alter-godfather.jpg",
+  "title": "Alter GODFATHER",
+  "collection": "Alter",
+  "price_inr": 4299,
+  "url": "https://www.wearcomet.com/products/alter-godfather"
+ },
+ {
+  "n": 8,
+  "file": "08-members-club-beige.jpg",
+  "title": "MEMBER'S CLUB Beige",
+  "collection": "Member's Club",
+  "price_inr": 6299,
+  "url": "https://www.wearcomet.com/products/members-club-beige"
+ },
+ {
+  "n": 9,
+  "file": "09-aeres-noir.jpg",
+  "title": "Aeres NOIR",
+  "collection": "Aeres",
+  "price_inr": 5299,
+  "url": "https://www.wearcomet.com/products/aeres-noir"
+ },
+ {
+  "n": 10,
+  "file": "10-apex-cyberpunk.jpg",
+  "title": "Apex CYBERPUNK",
+  "collection": "APEX",
+  "price_inr": 6299,
+  "url": "https://www.wearcomet.com/products/apex-cyberpunk"
+ },
+ {
+  "n": 11,
+  "file": "11-apex-evergreen.jpg",
+  "title": "Apex EVERGREEN",
+  "collection": "APEX",
+  "price_inr": 6299,
+  "url": "https://www.wearcomet.com/products/apex-evergreen"
+ },
+ {
+  "n": 12,
+  "file": "12-members-club-yellow.jpg",
+  "title": "MEMBER'S CLUB Yellow",
+  "collection": "Member's Club",
+  "price_inr": 6299,
+  "url": "https://www.wearcomet.com/products/members-club-yellow"
+ }
+]
