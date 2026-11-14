@@ -107,6 +107,7 @@ function LogoTrain({ train }) {
     const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 100)
     camera.position.set(0, 0, 10)
     const resize = () => {
+      if (!canvas.clientWidth || !canvas.clientHeight) return // 0 x 0 for now: wait for a real size
       renderer.setSize(canvas.clientWidth, canvas.clientHeight, false)
       camera.aspect = canvas.clientWidth / canvas.clientHeight
       camera.updateProjectionMatrix()
@@ -225,7 +226,9 @@ function NumberStrip({ value }) {
 // the path for the current window size (the logo canvas covers the whole window)
 function pathForWindow() {
   const hh = 10 * Math.tan(THREE.MathUtils.degToRad(35 / 2)) // half height of the view at z = 0
-  return buildPath((hh * window.innerWidth) / window.innerHeight, hh)
+  // a window can report 0 x 0 at first (background tab, hidden webview); use a laptop shape until it resizes
+  const aspect = window.innerWidth > 0 && window.innerHeight > 0 ? window.innerWidth / window.innerHeight : 16 / 10
+  return buildPath(hh * aspect, hh)
 }
 
 export default function Intro() {
