@@ -240,6 +240,9 @@ canvas {
   text-align: center;
   white-space: nowrap;
 }
+.intro__center-in {
+  display: inline-block;
+}
 .intro__center img {
   width: min(34vw, 280px);
   height: auto;
