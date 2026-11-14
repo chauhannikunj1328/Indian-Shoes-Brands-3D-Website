@@ -135,6 +135,49 @@ function ShoeModel({ url, width, turn = 0.35, flip = false }) {
   )
 }
 
+// Hover effect: the shoe floats up off its ledge (and turns a touch) while the pointer is over it,
+// then settles back. An invisible box catches the pointer, so hovering stays cheap with 96 models.
+// A soft shadow stays on the ledge and fades as the shoe rises.
+const LIFT = 0.22 // how high the shoe floats (world units)
+
+function HoverLift({ width, height, shadowTex, children }) {
+  const lift = useRef()
+  const shadow = useRef()
+  const [hovered, setHovered] = useState(false)
+  useFrame((_, dt) => {
+    if (!lift.current) return
+    const target = hovered ? LIFT : 0
+    lift.current.position.y = THREE.MathUtils.damp(lift.current.position.y, target, 8, dt)
+    lift.current.rotation.y = THREE.MathUtils.damp(lift.current.rotation.y, hovered ? 0.18 : 0, 6, dt)
+    if (shadow.current) {
+      const k = lift.current.position.y / LIFT // 0 resting .. 1 fully lifted
+      shadow.current.material.opacity = 0.55 * (1 - 0.6 * k)
+      shadow.current.scale.setScalar(1 - 0.25 * k)
+    }
+  })
+  return (
+    <group>
+      <mesh ref={shadow} position={[0, 0.004, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+        <planeGeometry args={[width * 1.05, LEDGE_DEPTH * 0.75]} />
+        <meshBasicMaterial map={shadowTex} transparent opacity={0.55} depthWrite={false} />
+      </mesh>
+      <group ref={lift}>{children}</group>
+      {/* pointer catcher (not drawn) */}
+      <mesh
+        position={[0, height / 2, 0]}
+        onPointerOver={(e) => {
+          e.stopPropagation()
+          setHovered(true)
+        }}
+        onPointerOut={() => setHovered(false)}
+      >
+        <boxGeometry args={[width * 1.05, height * 1.4, LEDGE_DEPTH]} />
+        <meshBasicMaterial transparent opacity={0} depthWrite={false} colorWrite={false} />
+      </mesh>
+    </group>
+  )
+}
+
 // Display letters that appear one by one, hold, then start again.
 // The full word is measured once (invisible) so each letter lands in its final place.
 const LETTER_STEP = 0.16 // seconds per letter
@@ -271,6 +314,7 @@ export default function ShoeWall({
                 <meshBasicMaterial map={ledgeShadow} transparent depthWrite={false} />
               </mesh>
               <group position={[0, 0, ledgeZ]}>
+                <HoverLift width={shoeWidth} height={shoeWidth / (item.aspect || 2)} shadowTex={shadowTex}>
                 {item.model && loadModels ? (
                   // real 3D shoe; the photo shows while the model loads
                   <Suspense fallback={<Shoe item={item} width={shoeWidth} shadowTex={shadowTex} wallGap={ledgeZ - base} />}>
@@ -279,6 +323,7 @@ export default function ShoeWall({
                 ) : (
                   <Shoe item={item} width={shoeWidth} shadowTex={shadowTex} wallGap={ledgeZ - base} />
                 )}
+                </HoverLift>
               </group>
               {/* name + price, on the wall just under the ledge */}
               <Text position={[0, -LEDGE_T - 0.13, base + 0.005]} fontSize={0.075} color={labelColor} anchorX="center" anchorY="middle" maxWidth={step * 0.95} textAlign="center">
