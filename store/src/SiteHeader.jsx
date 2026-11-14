@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
-import { CTA, INTRO } from './brands'
+import { CTA, CTA_LABEL, INTRO } from './brands'
 import { STOPS, subscribe, currentStop, getTarget, goTo } from './tour'
 
 // Top glass header (same frosted glass as the bottom tour bar):
 //   left:  the इंडियनShoes wordmark - back to the store entrance
-//   right: WhatsApp + email icons and a "For Brands" button that jumps to the enquiry wall
+//   right: WhatsApp + email icons and the main CTA button ("Get Your 3D Store") - jumps to the enquiry wall
 // It fades back a little while the camera is walking, so the 3D store stays the hero.
-// Phones: wordmark + WhatsApp icon only.
+// Phones: wordmark, WhatsApp icon and the CTA button.
 
 const CTA_STOP = STOPS.findIndex((s) => s.name === 'cta')
 const MAIL = `mailto:${CTA.email}?subject=${encodeURIComponent('3D store enquiry')}`
@@ -100,7 +100,7 @@ export default function SiteHeader() {
           className={`site-header__cta${stop === CTA_STOP ? ' is-active' : ''}`}
           onClick={() => goTo(CTA_STOP)}
         >
-          For Brands
+          {CTA_LABEL}
         </button>
       </nav>
     </header>
