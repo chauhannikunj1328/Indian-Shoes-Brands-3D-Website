@@ -249,3 +249,23 @@ export async function loadProducts(brandId) {
   const list = await res.json()
   return list.map((p) => ({ ...p, image: `/brands/${brandId}/${p.file}` }))
 }
+
+// Intro / loading screen (src/Intro.jsx): six logos ride a wave in, turn into a ring, wave out,
+// then the site logo shows with the loading %. Logos are drawn in `color` using the PNG as a mask.
+export const INTRO = {
+  logos: [
+    { src: '/brands/comet/logo.png', aspect: '1036 / 468', width: 'min(13vw, 150px)', color: '#ffffff' },
+    { src: '/brands/gullylabs/logo.png', aspect: '1044 / 320', width: 'min(15vw, 175px)', color: '#ffffff' },
+  ],
+  // black concrete, the same grain as the entrance walls (made from block_concrete_blue.jpg)
+  background: '/textures/loader_concrete_black.jpg',
+  // your logo on the last screen: "Indian" written in Hindi script (इंडियन - the English word, not भारतीय)
+  // + "Shoes" in English, drawn as text in Poppins (which has both alphabets).
+  // To use an image instead, set siteLogo to a file in store/public, e.g. '/site-logo.png'.
+  siteLogo: null,
+  siteName: 'IndianShoes',
+  wordmark: [
+    { text: 'इंडियन', lang: 'hi' },
+    { text: 'Shoes', lang: 'en' },
+  ],
+}
