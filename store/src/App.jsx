@@ -7,6 +7,7 @@ import ScrollCamera from './ScrollCamera'
 import TourNav from './TourNav'
 import ProductCard from './ProductCard'
 import Intro from './Intro'
+import SiteHeader from './SiteHeader'
 import { GAPSY_AMBIENT } from './experiments/GapsyLighting' // gapsy experiment
 
 const cx = STORE_LENGTH / 2
@@ -41,6 +42,7 @@ export default function App() {
           <Store />
         </Suspense>
       </Canvas>
+      <SiteHeader />
       <TourNav />
       <ProductCard />
       {/* intro + loading screen over everything while the store loads */}
