@@ -7,3 +7,6 @@ dist-ssr/
 .DS_Store
 __pycache__/
 *.pyc
+
+# original full-size 3D shoe downloads (~100 MB); the optimized copies live in store/public/brands/*/models
+assets/models_source/
