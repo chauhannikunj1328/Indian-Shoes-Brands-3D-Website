@@ -6,7 +6,9 @@
   "price_inr": 2499,
   "image": "/brands/neemans/women_wall/begin-walk-breeze-for-women-ecru.png",
   "aspect": 1.863,
-  "url": "https://neemans.com/products/begin-walk-breeze-for-women-ecru"
+  "url": "https://neemans.com/products/begin-walk-breeze-for-women-ecru",
+  "model": "/brands/neemans/models/begin-walk-breeze-for-women-ecru.glb",
+  "modelFlip": true
  },
  {
   "handle": "begin-walk-grace-for-women-goat",
@@ -15,7 +17,9 @@
   "price_inr": 3999,
   "image": "/brands/neemans/women_wall/begin-walk-grace-for-women-goat.png",
   "aspect": 2.362,
-  "url": "https://neemans.com/products/begin-walk-grace-for-women-goat"
+  "url": "https://neemans.com/products/begin-walk-grace-for-women-goat",
+  "model": "/brands/neemans/models/begin-walk-grace-for-women-goat.glb",
+  "modelFlip": true
  },
  {
   "handle": "begin-walk-grace-for-women-ivory",
@@ -24,7 +28,9 @@
   "price_inr": 3999,
   "image": "/brands/neemans/women_wall/begin-walk-grace-for-women-ivory.png",
   "aspect": 2.5,
-  "url": "https://neemans.com/products/begin-walk-grace-for-women-ivory"
+  "url": "https://neemans.com/products/begin-walk-grace-for-women-ivory",
+  "model": "/brands/neemans/models/begin-walk-grace-for-women-ivory.glb",
+  "modelFlip": true
  },
  {
   "handle": "athleisure-form-sneakers-for-women-blue",
@@ -33,7 +39,9 @@
   "price_inr": 4499,
   "image": "/brands/neemans/women_wall/athleisure-form-sneakers-for-women-blue.png",
   "aspect": 1.863,
-  "url": "https://neemans.com/products/athleisure-form-sneakers-for-women-blue"
+  "url": "https://neemans.com/products/athleisure-form-sneakers-for-women-blue",
+  "model": "/brands/neemans/models/athleisure-form-sneakers-for-women-blue.glb",
+  "modelFlip": true
  },
  {
   "handle": "active-lounge-sneakers-for-women-purple",
@@ -42,7 +50,9 @@
   "price_inr": 4499,
   "image": "/brands/neemans/women_wall/active-lounge-sneakers-for-women-purple.png",
   "aspect": 1.815,
-  "url": "https://neemans.com/products/active-lounge-sneakers-for-women-purple"
+  "url": "https://neemans.com/products/active-lounge-sneakers-for-women-purple",
+  "model": "/brands/neemans/models/active-lounge-sneakers-for-women-purple.glb",
+  "modelFlip": true
  },
  {
   "handle": "active-lounge-sneakers-for-women-lilac",
@@ -51,7 +61,9 @@
   "price_inr": 4499,
   "image": "/brands/neemans/women_wall/active-lounge-sneakers-for-women-lilac.png",
   "aspect": 2.045,
-  "url": "https://neemans.com/products/active-lounge-sneakers-for-women-lilac"
+  "url": "https://neemans.com/products/active-lounge-sneakers-for-women-lilac",
+  "model": "/brands/neemans/models/active-lounge-sneakers-for-women-lilac.glb",
+  "modelFlip": true
  },
  {
   "handle": "athleisure-form-sneakers-for-women-clay",
@@ -60,7 +72,9 @@
   "price_inr": 4499,
   "image": "/brands/neemans/women_wall/athleisure-form-sneakers-for-women-clay.png",
   "aspect": 1.852,
-  "url": "https://neemans.com/products/athleisure-form-sneakers-for-women-clay"
+  "url": "https://neemans.com/products/athleisure-form-sneakers-for-women-clay",
+  "model": "/brands/neemans/models/athleisure-form-sneakers-for-women-clay.glb",
+  "modelFlip": true
  },
  {
   "handle": "the-90s-duo-sneakers-for-women-brown-ivory",
@@ -69,7 +83,9 @@
   "price_inr": 2399,
   "image": "/brands/neemans/women_wall/the-90s-duo-sneakers-for-women-brown-ivory.png",
   "aspect": 2.233,
-  "url": "https://neemans.com/products/the-90s-duo-sneakers-for-women-brown-ivory"
+  "url": "https://neemans.com/products/the-90s-duo-sneakers-for-women-brown-ivory",
+  "model": "/brands/neemans/models/the-90s-duo-sneakers-for-women-brown-ivory.glb",
+  "modelFlip": true
  },
  {
   "handle": "cloud-flex-slip-ons-for-women-pink",
@@ -78,7 +94,9 @@
   "price_inr": 1699,
   "image": "/brands/neemans/women_wall/cloud-flex-slip-ons-for-women-pink.png",
   "aspect": 2.308,
-  "url": "https://neemans.com/products/cloud-flex-slip-ons-for-women-pink"
+  "url": "https://neemans.com/products/cloud-flex-slip-ons-for-women-pink",
+  "model": "/brands/neemans/models/cloud-flex-slip-ons-for-women-pink.glb",
+  "modelFlip": true
  },
  {
   "handle": "the-loaker-for-women-beige",
@@ -87,7 +105,9 @@
   "price_inr": 3999,
   "image": "/brands/neemans/women_wall/the-loaker-for-women-beige.png",
   "aspect": 2.426,
-  "url": "https://neemans.com/products/the-loaker-for-women-beige"
+  "url": "https://neemans.com/products/the-loaker-for-women-beige",
+  "model": "/brands/neemans/models/the-loaker-for-women-beige.glb",
+  "modelFlip": true
  },
  {
   "handle": "the-90s-duo-sneakers-for-women-black-ivory",
@@ -96,7 +116,9 @@
   "price_inr": 2399,
   "image": "/brands/neemans/women_wall/the-90s-duo-sneakers-for-women-black-ivory.png",
   "aspect": 2.19,
-  "url": "https://neemans.com/products/the-90s-duo-sneakers-for-women-black-ivory"
+  "url": "https://neemans.com/products/the-90s-duo-sneakers-for-women-black-ivory",
+  "model": "/brands/neemans/models/the-90s-duo-sneakers-for-women-black-ivory.glb",
+  "modelFlip": true
  },
  {
   "handle": "rapid-breeze-vigor-slip-ons-for-women-mauve-ivory",
@@ -105,6 +127,8 @@
   "price_inr": 3599,
   "image": "/brands/neemans/women_wall/rapid-breeze-vigor-slip-ons-for-women-mauve-ivory.png",
   "aspect": 1.879,
-  "url": "https://neemans.com/products/rapid-breeze-vigor-slip-ons-for-women-mauve-ivory"
+  "url": "https://neemans.com/products/rapid-breeze-vigor-slip-ons-for-women-mauve-ivory",
+  "model": "/brands/neemans/models/rapid-breeze-vigor-slip-ons-for-women-mauve-ivory.glb",
+  "modelFlip": true
  }
 ]

@@ -4,83 +4,107 @@
   "title": "Begin Walk Breeze For Men : Ecru",
   "type": "Slip On",
   "price_inr": 2499,
-  "url": "https://neemans.com/products/begin-walk-breeze-for-men-ecru"
+  "url": "https://neemans.com/products/begin-walk-breeze-for-men-ecru",
+  "model": "/brands/neemans/models/begin-walk-breeze-for-men-ecru.glb",
+  "modelFlip": true
  },
  {
   "handle": "begin-walk-endurance-for-men-black",
   "title": "Begin Walk Endurance For Men : Black",
   "type": "Slip On",
   "price_inr": 2799,
-  "url": "https://neemans.com/products/begin-walk-endurance-for-men-black"
+  "url": "https://neemans.com/products/begin-walk-endurance-for-men-black",
+  "model": "/brands/neemans/models/begin-walk-endurance-for-men-black.glb",
+  "modelFlip": true
  },
  {
   "handle": "begin-walk-endurance-for-men-blue",
   "title": "Begin Walk Endurance For Men : Blue",
   "type": "Slip On",
   "price_inr": 2799,
-  "url": "https://neemans.com/products/begin-walk-endurance-for-men-blue"
+  "url": "https://neemans.com/products/begin-walk-endurance-for-men-blue",
+  "model": "/brands/neemans/models/begin-walk-endurance-for-men-blue.glb",
+  "modelFlip": true
  },
  {
   "handle": "begin-walk-soothe-lace-ups-for-men-yellow",
   "title": "Begin Walk Soothe Lace Ups for Men : Yellow",
   "type": "Sneakers",
   "price_inr": 2599,
-  "url": "https://neemans.com/products/begin-walk-soothe-lace-ups-for-men-yellow"
+  "url": "https://neemans.com/products/begin-walk-soothe-lace-ups-for-men-yellow",
+  "model": "/brands/neemans/models/begin-walk-soothe-lace-ups-for-men-yellow.glb",
+  "modelFlip": true
  },
  {
   "handle": "adaptis-sneakers-for-men-ivory",
   "title": "Adaptis Sneakers For Men : Ivory",
   "type": "Sneakers",
   "price_inr": 4999,
-  "url": "https://neemans.com/products/adaptis-sneakers-for-men-ivory"
+  "url": "https://neemans.com/products/adaptis-sneakers-for-men-ivory",
+  "model": "/brands/neemans/models/adaptis-sneakers-for-men-ivory.glb",
+  "modelFlip": true
  },
  {
   "handle": "adaptis-sneakers-for-men-green",
   "title": "Adaptis Sneakers For Men : Green",
   "type": "Sneakers",
   "price_inr": 4999,
-  "url": "https://neemans.com/products/adaptis-sneakers-for-men-green"
+  "url": "https://neemans.com/products/adaptis-sneakers-for-men-green",
+  "model": "/brands/neemans/models/adaptis-sneakers-for-men-green.glb",
+  "modelFlip": true
  },
  {
   "handle": "the-90s-duo-sneakers-for-men-brown-ivory",
   "title": "The 90s Duo Sneakers for Men : Brown Ivory",
   "type": "Sneakers",
   "price_inr": 2399,
-  "url": "https://neemans.com/products/the-90s-duo-sneakers-for-men-brown-ivory"
+  "url": "https://neemans.com/products/the-90s-duo-sneakers-for-men-brown-ivory",
+  "model": "/brands/neemans/models/the-90s-duo-sneakers-for-men-brown-ivory.glb",
+  "modelFlip": true
  },
  {
   "handle": "begin-walk-all-day-for-men-black",
   "title": "Begin Walk All Day For Men : Black",
   "type": "Slip On",
   "price_inr": 2599,
-  "url": "https://neemans.com/products/begin-walk-all-day-for-men-black"
+  "url": "https://neemans.com/products/begin-walk-all-day-for-men-black",
+  "model": "/brands/neemans/models/begin-walk-all-day-for-men-black.glb",
+  "modelFlip": true
  },
  {
   "handle": "hexa-glide-sneakers-for-men-green",
   "title": "Hexa Glide Sneakers for Men : Green",
   "type": "Sneakers",
   "price_inr": 3699,
-  "url": "https://neemans.com/products/hexa-glide-sneakers-for-men-green"
+  "url": "https://neemans.com/products/hexa-glide-sneakers-for-men-green",
+  "model": "/brands/neemans/models/hexa-glide-sneakers-for-men-green.glb",
+  "modelFlip": true
  },
  {
   "handle": "the-loaker-for-men-ivory",
   "title": "The Loaker For Men : Ivory",
   "type": "Slip On",
   "price_inr": 3999,
-  "url": "https://neemans.com/products/the-loaker-for-men-ivory"
+  "url": "https://neemans.com/products/the-loaker-for-men-ivory",
+  "model": "/brands/neemans/models/the-loaker-for-men-ivory.glb",
+  "modelFlip": true
  },
  {
   "handle": "the-loaker-for-men-beige",
   "title": "The Loaker For Men : Beige",
   "type": "Slip On",
   "price_inr": 3999,
-  "url": "https://neemans.com/products/the-loaker-for-men-beige"
+  "url": "https://neemans.com/products/the-loaker-for-men-beige",
+  "model": "/brands/neemans/models/the-loaker-for-men-beige.glb",
+  "modelFlip": true
  },
  {
   "handle": "the-90s-duo-sneakers-for-men-black-ivory",
   "title": "The 90s Duo Sneakers for Men : Black Ivory",
   "type": "Sneakers",
   "price_inr": 2399,
-  "url": "https://neemans.com/products/the-90s-duo-sneakers-for-men-black-ivory"
+  "url": "https://neemans.com/products/the-90s-duo-sneakers-for-men-black-ivory",
+  "model": "/brands/neemans/models/the-90s-duo-sneakers-for-men-black-ivory.glb",
+  "modelFlip": true
  }
 ]

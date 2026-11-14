@@ -4,83 +4,107 @@
   "title": "Rapid Breeze Vigor Slip Ons For Women : Ivory",
   "type": "Slip On",
   "price_inr": 3599,
-  "url": "https://neemans.com/products/rapid-breeze-vigor-slip-ons-for-women-ivory"
+  "url": "https://neemans.com/products/rapid-breeze-vigor-slip-ons-for-women-ivory",
+  "model": "/brands/neemans/models/rapid-breeze-vigor-slip-ons-for-women-ivory.glb",
+  "modelFlip": true
  },
  {
   "handle": "remix-vintage-white",
   "title": "Remix Vintage : White",
   "type": "Sneakers",
   "price_inr": 4499,
-  "url": "https://neemans.com/products/remix-vintage-white"
+  "url": "https://neemans.com/products/remix-vintage-white",
+  "model": "/brands/neemans/models/remix-vintage-white.glb",
+  "modelFlip": true
  },
  {
   "handle": "begin-walk-breeze-for-women-yellow",
   "title": "Begin Walk Breeze For Women : Yellow",
   "type": "Slip On",
   "price_inr": 2499,
-  "url": "https://neemans.com/products/begin-walk-breeze-for-women-yellow"
+  "url": "https://neemans.com/products/begin-walk-breeze-for-women-yellow",
+  "model": "/brands/neemans/models/begin-walk-breeze-for-women-yellow.glb",
+  "modelFlip": true
  },
  {
   "handle": "begin-walk-rush-for-women-grey",
   "title": "Begin Walk Rush For Women : Grey",
   "type": "Slip On",
   "price_inr": 4499,
-  "url": "https://neemans.com/products/begin-walk-rush-for-women-grey"
+  "url": "https://neemans.com/products/begin-walk-rush-for-women-grey",
+  "model": "/brands/neemans/models/begin-walk-rush-for-women-grey.glb",
+  "modelFlip": true
  },
  {
   "handle": "begin-walk-all-day-for-women-black",
   "title": "Begin Walk All Day For Women : Black",
   "type": "Slip On",
   "price_inr": 2599,
-  "url": "https://neemans.com/products/begin-walk-all-day-for-women-black"
+  "url": "https://neemans.com/products/begin-walk-all-day-for-women-black",
+  "model": "/brands/neemans/models/begin-walk-all-day-for-women-black.glb",
+  "modelFlip": true
  },
  {
   "handle": "lush-glider-for-women-beige",
   "title": "Lush Glider For Women : Beige",
   "type": "Sneakers",
   "price_inr": 4299,
-  "url": "https://neemans.com/products/lush-glider-for-women-beige"
+  "url": "https://neemans.com/products/lush-glider-for-women-beige",
+  "model": "/brands/neemans/models/lush-glider-for-women-beige.glb",
+  "modelFlip": true
  },
  {
   "handle": "lush-glider-for-women-blue",
   "title": "Lush Glider For Women : Blue",
   "type": "Sneakers",
   "price_inr": 4299,
-  "url": "https://neemans.com/products/lush-glider-for-women-blue"
+  "url": "https://neemans.com/products/lush-glider-for-women-blue",
+  "model": "/brands/neemans/models/lush-glider-for-women-blue.glb",
+  "modelFlip": true
  },
  {
   "handle": "sole-max-cush-slip-ons-for-women-beige",
   "title": "Sole Max Cush Slip Ons for Women : Beige",
   "type": "Slip On",
   "price_inr": 1599,
-  "url": "https://neemans.com/products/sole-max-cush-slip-ons-for-women-beige"
+  "url": "https://neemans.com/products/sole-max-cush-slip-ons-for-women-beige",
+  "model": "/brands/neemans/models/sole-max-cush-slip-ons-for-women-beige.glb",
+  "modelFlip": true
  },
  {
   "handle": "sole-max-cush-slip-ons-for-women-olive",
   "title": "Sole Max Cush Slip Ons for Women : Olive",
   "type": "Slip On",
   "price_inr": 1599,
-  "url": "https://neemans.com/products/sole-max-cush-slip-ons-for-women-olive"
+  "url": "https://neemans.com/products/sole-max-cush-slip-ons-for-women-olive",
+  "model": "/brands/neemans/models/sole-max-cush-slip-ons-for-women-olive.glb",
+  "modelFlip": true
  },
  {
   "handle": "begin-walk-flow-for-women-ivory",
   "title": "Begin Walk Flow for Women : Ivory",
   "type": "Sneakers",
   "price_inr": 2499,
-  "url": "https://neemans.com/products/begin-walk-flow-for-women-ivory"
+  "url": "https://neemans.com/products/begin-walk-flow-for-women-ivory",
+  "model": "/brands/neemans/models/begin-walk-flow-for-women-ivory.glb",
+  "modelFlip": true
  },
  {
   "handle": "begin-walk-lite-for-women",
   "title": "Begin Walk Lite For Women : Black",
   "type": "Sneakers",
   "price_inr": 3699,
-  "url": "https://neemans.com/products/begin-walk-lite-for-women"
+  "url": "https://neemans.com/products/begin-walk-lite-for-women",
+  "model": "/brands/neemans/models/begin-walk-lite-for-women.glb",
+  "modelFlip": true
  },
  {
   "handle": "begin-walk-pulse-for-women-red",
   "title": "Begin Walk Pulse For Women : Red",
   "type": "Sneakers",
   "price_inr": 2599,
-  "url": "https://neemans.com/products/begin-walk-pulse-for-women-red"
+  "url": "https://neemans.com/products/begin-walk-pulse-for-women-red",
+  "model": "/brands/neemans/models/begin-walk-pulse-for-women-red.glb",
+  "modelFlip": true
  }
 ]

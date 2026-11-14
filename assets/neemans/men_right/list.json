@@ -4,83 +4,107 @@
   "title": "Begin Walk Breeze For Men : Green",
   "type": "Slip On",
   "price_inr": 2499,
-  "url": "https://neemans.com/products/begin-walk-breeze-for-men-green"
+  "url": "https://neemans.com/products/begin-walk-breeze-for-men-green",
+  "model": "/brands/neemans/models/begin-walk-breeze-for-men-green.glb",
+  "modelFlip": true
  },
  {
   "handle": "begin-walk-expression-slip-ons-for-men-grey",
   "title": "Begin Walk Expression Slip Ons For Men : Grey",
   "type": "Slip On",
   "price_inr": 2599,
-  "url": "https://neemans.com/products/begin-walk-expression-slip-ons-for-men-grey"
+  "url": "https://neemans.com/products/begin-walk-expression-slip-ons-for-men-grey",
+  "model": "/brands/neemans/models/begin-walk-expression-slip-ons-for-men-grey.glb",
+  "modelFlip": true
  },
  {
   "handle": "begin-walk-expression-slip-ons-for-men-lime",
   "title": "Begin Walk Expression Slip Ons For Men : Lime",
   "type": "Slip On",
   "price_inr": 2599,
-  "url": "https://neemans.com/products/begin-walk-expression-slip-ons-for-men-lime"
+  "url": "https://neemans.com/products/begin-walk-expression-slip-ons-for-men-lime",
+  "model": "/brands/neemans/models/begin-walk-expression-slip-ons-for-men-lime.glb",
+  "modelFlip": true
  },
  {
   "handle": "everyday-rise-sneakers-for-men-white",
   "title": "Everyday Rise Sneakers For Men : White",
   "type": "Sneakers",
   "price_inr": 1399,
-  "url": "https://neemans.com/products/everyday-rise-sneakers-for-men-white"
+  "url": "https://neemans.com/products/everyday-rise-sneakers-for-men-white",
+  "model": "/brands/neemans/models/everyday-rise-sneakers-for-men-white.glb",
+  "modelFlip": true
  },
  {
   "handle": "begin-walk-lite-for-men-grey",
   "title": "Begin Walk Lite For Men : Grey",
   "type": "Sneakers",
   "price_inr": 3699,
-  "url": "https://neemans.com/products/begin-walk-lite-for-men-grey"
+  "url": "https://neemans.com/products/begin-walk-lite-for-men-grey",
+  "model": "/brands/neemans/models/begin-walk-lite-for-men-grey.glb",
+  "modelFlip": true
  },
  {
   "handle": "textural-accent-knits-for-men-brown",
   "title": "Textural Accent Knits For Men : Brown",
   "type": "Sneakers",
   "price_inr": 2499,
-  "url": "https://neemans.com/products/textural-accent-knits-for-men-brown"
+  "url": "https://neemans.com/products/textural-accent-knits-for-men-brown",
+  "model": "/brands/neemans/models/textural-accent-knits-for-men-brown.glb",
+  "modelFlip": true
  },
  {
   "handle": "textural-accent-knits-for-men-ivory",
   "title": "Textural Accent Knits For Men : Ivory",
   "type": "Sneakers",
   "price_inr": 2499,
-  "url": "https://neemans.com/products/textural-accent-knits-for-men-ivory"
+  "url": "https://neemans.com/products/textural-accent-knits-for-men-ivory",
+  "model": "/brands/neemans/models/textural-accent-knits-for-men-ivory.glb",
+  "modelFlip": true
  },
  {
   "handle": "begin-walk-lite-for-men",
   "title": "Begin Walk Lite For Men : Blue",
   "type": "Sneakers",
   "price_inr": 3699,
-  "url": "https://neemans.com/products/begin-walk-lite-for-men"
+  "url": "https://neemans.com/products/begin-walk-lite-for-men",
+  "model": "/brands/neemans/models/begin-walk-lite-for-men.glb",
+  "modelFlip": true
  },
  {
   "handle": "begin-walk-pulse-for-men-ivory-brown",
   "title": "Begin Walk Pulse For Men : Ivory Brown",
   "type": "Sneakers",
   "price_inr": 2599,
-  "url": "https://neemans.com/products/begin-walk-pulse-for-men-ivory-brown"
+  "url": "https://neemans.com/products/begin-walk-pulse-for-men-ivory-brown",
+  "model": "/brands/neemans/models/begin-walk-pulse-for-men-ivory-brown.glb",
+  "modelFlip": true
  },
  {
   "handle": "the-urban-riffs-for-men-yellow",
   "title": "The Urban Riffs For Men : Yellow",
   "type": "Sneakers",
   "price_inr": 2499,
-  "url": "https://neemans.com/products/the-urban-riffs-for-men-yellow"
+  "url": "https://neemans.com/products/the-urban-riffs-for-men-yellow",
+  "model": "/brands/neemans/models/the-urban-riffs-for-men-yellow.glb",
+  "modelFlip": true
  },
  {
   "handle": "begin-walk-revive-for-men-black",
   "title": "Begin Walk Revive For Men : Black",
   "type": "Sneakers",
   "price_inr": 1999,
-  "url": "https://neemans.com/products/begin-walk-revive-for-men-black"
+  "url": "https://neemans.com/products/begin-walk-revive-for-men-black",
+  "model": "/brands/neemans/models/begin-walk-revive-for-men-black.glb",
+  "modelFlip": true
  },
  {
   "handle": "klaa-kicks-for-men-green",
   "title": "\u0915\u0932\u093e Kicks For Men: Green",
   "type": "Sneakers",
   "price_inr": 4499,
-  "url": "https://neemans.com/products/klaa-kicks-for-men-green"
+  "url": "https://neemans.com/products/klaa-kicks-for-men-green",
+  "model": "/brands/neemans/models/klaa-kicks-for-men-green.glb",
+  "modelFlip": true
  }
 ]

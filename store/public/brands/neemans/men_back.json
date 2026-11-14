@@ -6,7 +6,9 @@
   "price_inr": 2499,
   "image": "/brands/neemans/men_back/begin-walk-breeze-for-men-ecru.png",
   "aspect": 1.863,
-  "url": "https://neemans.com/products/begin-walk-breeze-for-men-ecru"
+  "url": "https://neemans.com/products/begin-walk-breeze-for-men-ecru",
+  "model": "/brands/neemans/models/begin-walk-breeze-for-men-ecru.glb",
+  "modelFlip": true
  },
  {
   "handle": "begin-walk-endurance-for-men-black",
@@ -15,7 +17,9 @@
   "price_inr": 2799,
   "image": "/brands/neemans/men_back/begin-walk-endurance-for-men-black.png",
   "aspect": 2.278,
-  "url": "https://neemans.com/products/begin-walk-endurance-for-men-black"
+  "url": "https://neemans.com/products/begin-walk-endurance-for-men-black",
+  "model": "/brands/neemans/models/begin-walk-endurance-for-men-black.glb",
+  "modelFlip": true
  },
  {
   "handle": "begin-walk-endurance-for-men-blue",
@@ -24,7 +28,9 @@
   "price_inr": 2799,
   "image": "/brands/neemans/men_back/begin-walk-endurance-for-men-blue.png",
   "aspect": 2.278,
-  "url": "https://neemans.com/products/begin-walk-endurance-for-men-blue"
+  "url": "https://neemans.com/products/begin-walk-endurance-for-men-blue",
+  "model": "/brands/neemans/models/begin-walk-endurance-for-men-blue.glb",
+  "modelFlip": true
  },
  {
   "handle": "begin-walk-soothe-lace-ups-for-men-yellow",
@@ -33,7 +39,9 @@
   "price_inr": 2599,
   "image": "/brands/neemans/men_back/begin-walk-soothe-lace-ups-for-men-yellow.png",
   "aspect": 1.863,
-  "url": "https://neemans.com/products/begin-walk-soothe-lace-ups-for-men-yellow"
+  "url": "https://neemans.com/products/begin-walk-soothe-lace-ups-for-men-yellow",
+  "model": "/brands/neemans/models/begin-walk-soothe-lace-ups-for-men-yellow.glb",
+  "modelFlip": true
  },
  {
   "handle": "adaptis-sneakers-for-men-ivory",
@@ -42,7 +50,9 @@
   "price_inr": 4999,
   "image": "/brands/neemans/men_back/adaptis-sneakers-for-men-ivory.png",
   "aspect": 2.118,
-  "url": "https://neemans.com/products/adaptis-sneakers-for-men-ivory"
+  "url": "https://neemans.com/products/adaptis-sneakers-for-men-ivory",
+  "model": "/brands/neemans/models/adaptis-sneakers-for-men-ivory.glb",
+  "modelFlip": true
  },
  {
   "handle": "adaptis-sneakers-for-men-green",
@@ -51,7 +61,9 @@
   "price_inr": 4999,
   "image": "/brands/neemans/men_back/adaptis-sneakers-for-men-green.png",
   "aspect": 2.059,
-  "url": "https://neemans.com/products/adaptis-sneakers-for-men-green"
+  "url": "https://neemans.com/products/adaptis-sneakers-for-men-green",
+  "model": "/brands/neemans/models/adaptis-sneakers-for-men-green.glb",
+  "modelFlip": true
  },
  {
   "handle": "the-90s-duo-sneakers-for-men-brown-ivory",
@@ -60,7 +72,9 @@
   "price_inr": 2399,
   "image": "/brands/neemans/men_back/the-90s-duo-sneakers-for-men-brown-ivory.png",
   "aspect": 2.233,
-  "url": "https://neemans.com/products/the-90s-duo-sneakers-for-men-brown-ivory"
+  "url": "https://neemans.com/products/the-90s-duo-sneakers-for-men-brown-ivory",
+  "model": "/brands/neemans/models/the-90s-duo-sneakers-for-men-brown-ivory.glb",
+  "modelFlip": true
  },
  {
   "handle": "begin-walk-all-day-for-men-black",
@@ -69,7 +83,9 @@
   "price_inr": 2599,
   "image": "/brands/neemans/men_back/begin-walk-all-day-for-men-black.png",
   "aspect": 2.055,
-  "url": "https://neemans.com/products/begin-walk-all-day-for-men-black"
+  "url": "https://neemans.com/products/begin-walk-all-day-for-men-black",
+  "model": "/brands/neemans/models/begin-walk-all-day-for-men-black.glb",
+  "modelFlip": true
  },
  {
   "handle": "hexa-glide-sneakers-for-men-green",
@@ -78,7 +94,9 @@
   "price_inr": 3699,
   "image": "/brands/neemans/men_back/hexa-glide-sneakers-for-men-green.png",
   "aspect": 1.948,
-  "url": "https://neemans.com/products/hexa-glide-sneakers-for-men-green"
+  "url": "https://neemans.com/products/hexa-glide-sneakers-for-men-green",
+  "model": "/brands/neemans/models/hexa-glide-sneakers-for-men-green.glb",
+  "modelFlip": true
  },
  {
   "handle": "the-loaker-for-men-ivory",
@@ -87,7 +105,9 @@
   "price_inr": 3999,
   "image": "/brands/neemans/men_back/the-loaker-for-men-ivory.png",
   "aspect": 2.535,
-  "url": "https://neemans.com/products/the-loaker-for-men-ivory"
+  "url": "https://neemans.com/products/the-loaker-for-men-ivory",
+  "model": "/brands/neemans/models/the-loaker-for-men-ivory.glb",
+  "modelFlip": true
  },
  {
   "handle": "the-loaker-for-men-beige",
@@ -96,7 +116,9 @@
   "price_inr": 3999,
   "image": "/brands/neemans/men_back/the-loaker-for-men-beige.png",
   "aspect": 2.426,
-  "url": "https://neemans.com/products/the-loaker-for-men-beige"
+  "url": "https://neemans.com/products/the-loaker-for-men-beige",
+  "model": "/brands/neemans/models/the-loaker-for-men-beige.glb",
+  "modelFlip": true
  },
  {
   "handle": "the-90s-duo-sneakers-for-men-black-ivory",
@@ -105,6 +127,8 @@
   "price_inr": 2399,
   "image": "/brands/neemans/men_back/the-90s-duo-sneakers-for-men-black-ivory.png",
   "aspect": 2.19,
-  "url": "https://neemans.com/products/the-90s-duo-sneakers-for-men-black-ivory"
+  "url": "https://neemans.com/products/the-90s-duo-sneakers-for-men-black-ivory",
+  "model": "/brands/neemans/models/the-90s-duo-sneakers-for-men-black-ivory.glb",
+  "modelFlip": true
  }
 ]
