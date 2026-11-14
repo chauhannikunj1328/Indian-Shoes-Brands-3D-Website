@@ -227,7 +227,25 @@ export function brandSlots(index) {
 export const STORE_LENGTH = ENTRANCE_WIDTH + BRANDS.length * (BLOCK_WIDTH + BAY_WIDTH)
 
 // Text on the highlighted CTA button in the bottom tab bar (jumps to the CTA wall).
-export const CTA_LABEL = 'Shop Now'
+export const CTA_LABEL = 'Get Your 3D Store'
+
+// What the call-to-action wall says: an enquiry wall for brands that want a 3D store like this one.
+// The WhatsApp QR (public/textures/whatsapp_qr.png) opens `whatsapp.link`; if the number changes, remake it
+// (e.g. with macOS Core Image's CIQRCodeGenerator) from the new link.
+export const CTA = {
+  eyebrow: 'FOR BRANDS',
+  headline: 'Want a 3D store\nlike this for your brand?',
+  text: 'We design and build immersive 3D stores for sneaker and fashion brands, just like the Comet and Gully Labs stores you just walked through.',
+  whatsapp: {
+    label: 'Chat on WhatsApp',
+    number: '+91 84606 10813',
+    link: 'https://wa.me/918460610813?text=Hi%21%20I%20saw%20theindianshoes.com%20and%20I%27d%20like%20a%203D%20store%20for%20my%20brand.',
+    qr: '/textures/whatsapp_qr.png',
+    qrCaption: 'Scan to chat on WhatsApp',
+  },
+  email: 'sales@theindianshoes.com',
+  colors: { heading: '#1b2a6e', accent: '#1d4fc9', text: '#3a3a38', whatsapp: '#25D366' },
+}
 
 // Call-to-action area: the part of the store's end wall beside the walkway (z = 0 .. CORRIDOR_DEPTH).
 // The scroll tour ends here.

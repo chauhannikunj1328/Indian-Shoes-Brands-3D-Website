@@ -148,6 +148,33 @@ body,
     box-shadow: 0 0 0 0 rgba(39, 101, 250, 0);
   }
 }
+/* phones: compact bar so every tab + the CTA fit; the walls' dots are left out (the arrows still step through them) */
+@media (max-width: 480px) {
+  .tour-nav {
+    bottom: 14px;
+    gap: 2px;
+    padding: 4px;
+    font-size: 12px;
+    letter-spacing: 0.01em;
+  }
+  .tour-nav__dots {
+    display: none;
+  }
+  .tour-nav__arrow {
+    width: 28px;
+    height: 30px;
+  }
+  .tour-nav__tab {
+    height: 30px;
+    padding: 0 10px;
+  }
+  .tour-nav__cta {
+    height: 30px;
+    padding: 0 12px;
+    margin-left: 2px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .tour-nav__cta {
     animation: none;

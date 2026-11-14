@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { Suspense, useMemo } from 'react'
 import * as THREE from 'three'
 import { useLoader } from '@react-three/fiber'
 import { MeshReflectorMaterial, Text, useTexture } from '@react-three/drei'
@@ -19,6 +19,7 @@ import {
 import { GapsyCeiling, GapsySun } from './experiments/GapsyLighting' // gapsy experiment
 import HangingSneaker from './Sneaker3D'
 import ShoeWall from './ShoeWall'
+import CtaWall from './CtaWall'
 
 // Coordinates: x runs left (entrance, x = 0) to right; z = 0 is the line where the
 // block fronts / bay openings meet the walkway; the back wall is at z = -BAY_DEPTH
@@ -980,17 +981,10 @@ export default function Store() {
         />
       )}
 
-      {/* call-to-action placeholder on the walkway part of the end wall (last stop of the tour) */}
-      <Text
-        position={[CTA_WALL.x - 0.03, CTA_WALL.y, CTA_WALL.z]}
-        rotation={[0, -Math.PI / 2, 0]}
-        fontSize={0.4}
-        color="#9a9a96"
-        anchorX="center"
-        anchorY="middle"
-      >
-        CTA goes here
-      </Text>
+      {/* enquiry wall for brands (WhatsApp QR, WhatsApp button, sales email) - last stop of the tour */}
+      <Suspense fallback={null}>
+        <CtaWall />
+      </Suspense>
 
       {BRANDS.map((brand, i) => {
         const slots = brandSlots(i)
