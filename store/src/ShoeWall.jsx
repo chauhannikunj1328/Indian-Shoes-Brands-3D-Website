@@ -3,6 +3,7 @@ import * as THREE from 'three'
 import { useFrame, useLoader } from '@react-three/fiber'
 import { RoundedBox, Text, useGLTF, useTexture } from '@react-three/drei'
 import { WALL_HEIGHT } from './brands'
+import { selectShoe } from './ProductCard'
 
 // A shoe display like the reference store video: a raised light-oak backboard on the wall,
 // one short white ledge per shoe in a neat grid, and a sign hanging from the ceiling above it.
@@ -140,7 +141,7 @@ function ShoeModel({ url, width, turn = 0.35, flip = false }) {
 // A soft shadow stays on the ledge and fades as the shoe rises.
 const LIFT = 0.22 // how high the shoe floats (world units)
 
-function HoverLift({ width, height, shadowTex, children }) {
+function HoverLift({ width, height, shadowTex, onSelect, children }) {
   const lift = useRef()
   const shadow = useRef()
   const [hovered, setHovered] = useState(false)
@@ -168,8 +169,16 @@ function HoverLift({ width, height, shadowTex, children }) {
         onPointerOver={(e) => {
           e.stopPropagation()
           setHovered(true)
+          if (onSelect) document.body.style.cursor = 'pointer'
         }}
-        onPointerOut={() => setHovered(false)}
+        onPointerOut={() => {
+          setHovered(false)
+          document.body.style.cursor = ''
+        }}
+        onClick={(e) => {
+          e.stopPropagation()
+          onSelect?.()
+        }}
       >
         <boxGeometry args={[width * 1.05, height * 1.4, LEDGE_DEPTH]} />
         <meshBasicMaterial transparent opacity={0} depthWrite={false} colorWrite={false} />
@@ -282,6 +291,8 @@ export default function ShoeWall({
   heading, // text on the hanging sign, e.g. "WOMEN"
   sign = {}, // { bg, fg } colours of the hanging sign
   loadModels = true, // false = show the photos only (3D models load once the visitor gets near)
+  brand, // brand id (e.g. 'comet'): needed for the click-to-buy card + affiliate link
+  brandName, // shown on the card's Buy button
 }) {
   const data = useLoader(THREE.FileLoader, list)
   const items = useMemo(() => JSON.parse(data), [data])
@@ -314,7 +325,12 @@ export default function ShoeWall({
                 <meshBasicMaterial map={ledgeShadow} transparent depthWrite={false} />
               </mesh>
               <group position={[0, 0, ledgeZ]}>
-                <HoverLift width={shoeWidth} height={shoeWidth / (item.aspect || 2)} shadowTex={shadowTex}>
+                <HoverLift
+                  width={shoeWidth}
+                  height={shoeWidth / (item.aspect || 2)}
+                  shadowTex={shadowTex}
+                  onSelect={item.url && brand ? () => selectShoe({ brand, brandName, item }) : undefined}
+                >
                 {item.model && loadModels ? (
                   // real 3D shoe; the photo shows while the model loads
                   <Suspense fallback={<Shoe item={item} width={shoeWidth} shadowTex={shadowTex} wallGap={ledgeZ - base} />}>

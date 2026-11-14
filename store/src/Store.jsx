@@ -765,7 +765,7 @@ function BrandBay({ brand, slot }) {
         </>
       )}
       {theme?.shelves ? (
-        <BayShelves shelves={theme.shelves} slot={slot} />
+        <BayShelves shelves={theme.shelves} slot={slot} brand={brand.id} brandName={brand.tabLabel ?? brand.name} />
       ) : (
         <Text
           position={[slot.cx, WALL_HEIGHT * 0.45, -BAY_DEPTH + 0.02]}
@@ -883,7 +883,7 @@ function FloorLightBands({ strength = 0.22, color = '#fff4e2' }) {
 // (the shoe photos stand in until then). Once loaded they stay loaded.
 const LOAD_AHEAD = 15
 
-function BayShelves({ shelves, slot }) {
+function BayShelves({ shelves, slot, brand, brandName }) {
   const [loadModels, setLoadModels] = useState(false)
   useFrame(({ camera }) => {
     if (!loadModels && camera.position.x > slot.x0 - LOAD_AHEAD && camera.position.x < slot.x1 + LOAD_AHEAD) setLoadModels(true)
@@ -898,7 +898,7 @@ function BayShelves({ shelves, slot }) {
   return Object.entries(shelves).map(([where, cfg]) =>
     place[where] ? (
       <group key={where} position={place[where].position} rotation={place[where].rotation}>
-        <ShoeWall {...cfg} loadModels={loadModels} />
+        <ShoeWall {...cfg} loadModels={loadModels} brand={brand} brandName={brandName} />
       </group>
     ) : null,
   )

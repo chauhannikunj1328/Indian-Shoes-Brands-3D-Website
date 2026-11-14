@@ -5,6 +5,7 @@ import { STORE_LENGTH, CORRIDOR_DEPTH, EXPERIMENTS } from './brands'
 import Store from './Store'
 import ScrollCamera from './ScrollCamera'
 import TourNav from './TourNav'
+import ProductCard from './ProductCard'
 import { GAPSY_AMBIENT } from './experiments/GapsyLighting' // gapsy experiment
 
 const cx = STORE_LENGTH / 2
@@ -40,6 +41,7 @@ export default function App() {
         </Suspense>
       </Canvas>
       <TourNav />
+      <ProductCard />
     </>
   )
 }
