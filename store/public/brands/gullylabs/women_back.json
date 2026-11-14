@@ -6,7 +6,8 @@
   "price_inr": 2700,
   "image": "/brands/gullylabs/women_back/gully-labs-x-nivia-sova-white.png",
   "aspect": 2.055,
-  "url": "https://gullylabs.com/products/gully-labs-x-nivia-sova-white"
+  "url": "https://gullylabs.com/products/gully-labs-x-nivia-sova-white",
+  "model": "/brands/gullylabs/models/gully-labs-x-nivia-sova-white.glb"
  },
  {
   "handle": "gl001-khoj-green-for-women",
@@ -15,7 +16,8 @@
   "price_inr": 8490,
   "image": "/brands/gullylabs/women_back/gl001-khoj-green-for-women.png",
   "aspect": 2.186,
-  "url": "https://gullylabs.com/products/gl001-khoj-green-for-women"
+  "url": "https://gullylabs.com/products/gl001-khoj-green-for-women",
+  "model": "/brands/gullylabs/models/gl001-khoj-green-for-women.glb"
  },
  {
   "handle": "gully-number-001-manik-red-for-women",
@@ -24,7 +26,8 @@
   "price_inr": 6990,
   "image": "/brands/gullylabs/women_back/gully-number-001-manik-red-for-women.png",
   "aspect": 2.212,
-  "url": "https://gullylabs.com/products/gully-number-001-manik-red-for-women"
+  "url": "https://gullylabs.com/products/gully-number-001-manik-red-for-women",
+  "model": "/brands/gullylabs/models/gully-number-001-manik-red-for-women.glb"
  },
  {
   "handle": "gl001-kulfi-badaam-women",
@@ -33,7 +36,8 @@
   "price_inr": 6290,
   "image": "/brands/gullylabs/women_back/gl001-kulfi-badaam-women.png",
   "aspect": 2.199,
-  "url": "https://gullylabs.com/products/gl001-kulfi-badaam-women"
+  "url": "https://gullylabs.com/products/gl001-kulfi-badaam-women",
+  "model": "/brands/gullylabs/models/gl001-kulfi-badaam-women.glb"
  },
  {
   "handle": "gl001-kulfi-pista-women",
@@ -42,7 +46,8 @@
   "price_inr": 6290,
   "image": "/brands/gullylabs/women_back/gl001-kulfi-pista-women.png",
   "aspect": 2.34,
-  "url": "https://gullylabs.com/products/gl001-kulfi-pista-women"
+  "url": "https://gullylabs.com/products/gl001-kulfi-pista-women",
+  "model": "/brands/gullylabs/models/gl001-kulfi-pista-women.glb"
  },
  {
   "handle": "gully-number-001-baaz-noor-yellow-women",
@@ -51,7 +56,8 @@
   "price_inr": 4290,
   "image": "/brands/gullylabs/women_back/gully-number-001-baaz-noor-yellow-women.png",
   "aspect": 2.526,
-  "url": "https://gullylabs.com/products/gully-number-001-baaz-noor-yellow-women"
+  "url": "https://gullylabs.com/products/gully-number-001-baaz-noor-yellow-women",
+  "model": "/brands/gullylabs/models/gully-number-001-baaz-noor-yellow-women.glb"
  },
  {
   "handle": "gully-number-001-baaz-parni-white-women",
@@ -60,7 +66,8 @@
   "price_inr": 4290,
   "image": "/brands/gullylabs/women_back/gully-number-001-baaz-parni-white-women.png",
   "aspect": 2.066,
-  "url": "https://gullylabs.com/products/gully-number-001-baaz-parni-white-women"
+  "url": "https://gullylabs.com/products/gully-number-001-baaz-parni-white-women",
+  "model": "/brands/gullylabs/models/gully-number-001-baaz-parni-white-women.glb"
  },
  {
   "handle": "gully-number-001-barfi-burgundy-women",
@@ -69,7 +76,8 @@
   "price_inr": 5990,
   "image": "/brands/gullylabs/women_back/gully-number-001-barfi-burgundy-women.png",
   "aspect": 2.325,
-  "url": "https://gullylabs.com/products/gully-number-001-barfi-burgundy-women"
+  "url": "https://gullylabs.com/products/gully-number-001-barfi-burgundy-women",
+  "model": "/brands/gullylabs/models/gully-number-001-barfi-burgundy-women.glb"
  },
  {
   "handle": "gully-number-001-dvaita-calico-white-women",
@@ -78,7 +86,8 @@
   "price_inr": 5990,
   "image": "/brands/gullylabs/women_back/gully-number-001-dvaita-calico-white-women.png",
   "aspect": 2.313,
-  "url": "https://gullylabs.com/products/gully-number-001-dvaita-calico-white-women"
+  "url": "https://gullylabs.com/products/gully-number-001-dvaita-calico-white-women",
+  "model": "/brands/gullylabs/models/gully-number-001-dvaita-calico-white-women.glb"
  },
  {
   "handle": "gully-number-002-1948-victory-blue-unisex",
@@ -87,7 +96,8 @@
   "price_inr": 7490,
   "image": "/brands/gullylabs/women_back/gully-number-002-1948-victory-blue-unisex.png",
   "aspect": 2.274,
-  "url": "https://gullylabs.com/products/gully-number-002-1948-victory-blue-unisex"
+  "url": "https://gullylabs.com/products/gully-number-002-1948-victory-blue-unisex",
+  "model": "/brands/gullylabs/models/gully-number-002-1948-victory-blue-unisex.glb"
  },
  {
   "handle": "gully-number-002-1928-turf-olive-unisex",
@@ -96,7 +106,8 @@
   "price_inr": 7490,
   "image": "/brands/gullylabs/women_back/gully-number-002-1928-turf-olive-unisex.png",
   "aspect": 2.259,
-  "url": "https://gullylabs.com/products/gully-number-002-1928-turf-olive-unisex"
+  "url": "https://gullylabs.com/products/gully-number-002-1928-turf-olive-unisex",
+  "model": "/brands/gullylabs/models/gully-number-002-1928-turf-olive-unisex.glb"
  },
  {
   "handle": "gully-number-001-x-royal-enfield-hunter-350-kaalshire-uk",
@@ -105,6 +116,7 @@
   "price_inr": 5990,
   "image": "/brands/gullylabs/women_back/gully-number-001-x-royal-enfield-hunter-350-kaalshire-uk.png",
   "aspect": 2.228,
-  "url": "https://gullylabs.com/products/gully-number-001-x-royal-enfield-hunter-350-kaalshire-uk"
+  "url": "https://gullylabs.com/products/gully-number-001-x-royal-enfield-hunter-350-kaalshire-uk",
+  "model": "/brands/gullylabs/models/gully-number-001-x-royal-enfield-hunter-350-kaalshire-uk.glb"
  }
 ]

@@ -74,6 +74,13 @@ export default function ScrollCamera() {
     const f = ease(s - i)
     pos.current.lerpVectors(STOPS[i].pos, STOPS[i + 1].pos, f)
     look.current.lerpVectors(STOPS[i].look, STOPS[i + 1].look, f)
+    // dev only: window.__camOverride = { pos: [x, y, z], look: [x, y, z] } freezes the camera there (for screenshots)
+    const o = import.meta.env.DEV && window.__camOverride
+    if (o) {
+      camera.position.set(...o.pos)
+      camera.lookAt(...o.look)
+      return
+    }
     camera.position.copy(pos.current)
     camera.lookAt(look.current)
   })

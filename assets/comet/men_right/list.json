@@ -4,83 +4,95 @@
   "title": "Aeres BLIZZARD",
   "type": "Aeres",
   "price_inr": 5299,
-  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/1lateral__1_760121ae-731c-46f0-88d6-aa3531a5931f.jpg"
+  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/1lateral__1_760121ae-731c-46f0-88d6-aa3531a5931f.jpg",
+  "model": "/brands/comet/models/aeres-blizzard.glb"
  },
  {
   "handle": "aeres-mist",
   "title": "Aeres MIST",
   "type": "Aeres",
   "price_inr": 5299,
-  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/NewLateral_2.jpg"
+  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/NewLateral_2.jpg",
+  "model": "/brands/comet/models/aeres-mist.glb"
  },
  {
   "handle": "aeres-moonstone",
   "title": "Aeres MOONSTONE",
   "type": "Aeres",
   "price_inr": 5299,
-  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/1lateral.jpg"
+  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/1lateral.jpg",
+  "model": "/brands/comet/models/aeres-moonstone.glb"
  },
  {
   "handle": "apex-quicksilver",
   "title": "Apex QUICKSILVER",
   "type": "APEX",
   "price_inr": 6299,
-  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/1lateral__3.jpg"
+  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/1lateral__3.jpg",
+  "model": "/brands/comet/models/apex-quicksilver.glb"
  },
  {
   "handle": "x-lows-greyscale",
   "title": "X Lows GREYSCALE",
   "type": "X Lows",
   "price_inr": 4299,
-  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/1_9f0b1363-782b-43fd-8319-ddb8b82a7e71.jpg"
+  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/1_9f0b1363-782b-43fd-8319-ddb8b82a7e71.jpg",
+  "model": "/brands/comet/models/x-lows-greyscale.glb"
  },
  {
   "handle": "x-lows-dawn",
   "title": "X Lows DAWN",
   "type": "X Lows",
   "price_inr": 5299,
-  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/NEW_0001_lateral_1.jpg"
+  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/NEW_0001_lateral_1.jpg",
+  "model": "/brands/comet/models/x-lows-dawn.glb"
  },
  {
   "handle": "x-lows-rewind",
   "title": "X Lows REWIND",
   "type": "X Lows",
   "price_inr": 4299,
-  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/Lateral_4_1_da4a0672-4105-402c-8c09-79e65b7b668a.jpg"
+  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/Lateral_4_1_da4a0672-4105-402c-8c09-79e65b7b668a.jpg",
+  "model": "/brands/comet/models/x-lows-rewind.glb"
  },
  {
   "handle": "x-lows-walnut",
   "title": "X Lows WALNUT",
   "type": "X Lows",
   "price_inr": 5299,
-  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/suedes_2.jpg"
+  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/suedes_2.jpg",
+  "model": "/brands/comet/models/x-lows-walnut.glb"
  },
  {
   "handle": "aeon-v2-bumblebee",
   "title": "Aeon v2 BUMBLEBEE",
   "type": "Aeon V2",
   "price_inr": 4499,
-  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/LATERAL-min_94be1037-1183-4743-a6da-0654c2112d04.jpg"
+  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/LATERAL-min_94be1037-1183-4743-a6da-0654c2112d04.jpg",
+  "model": "/brands/comet/models/aeon-v2-bumblebee.glb"
  },
  {
   "handle": "aeon-v2-nimbus",
   "title": "Aeon V2 NIMBUS",
   "type": "Aeon V2",
   "price_inr": 4499,
-  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/lateral-min.png"
+  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/lateral-min.png",
+  "model": "/brands/comet/models/aeon-v2-nimbus.glb"
  },
  {
   "handle": "aeon-v2-carbon",
   "title": "Aeon V2 CARBON",
   "type": "Aeon V2",
   "price_inr": 4499,
-  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/FINAL_LATERAL.jpg"
+  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/FINAL_LATERAL.jpg",
+  "model": "/brands/comet/models/aeon-v2-carbon.glb"
  },
  {
   "handle": "apex-rocky-road",
   "title": "Apex ROCKY ROAD",
   "type": "APEX",
   "price_inr": 6299,
-  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/3_1_6aa308fb-1301-47c3-812c-ae7fc40b421f.jpg"
+  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/3_1_6aa308fb-1301-47c3-812c-ae7fc40b421f.jpg",
+  "model": "/brands/comet/models/apex-rocky-road.glb"
  }
 ]

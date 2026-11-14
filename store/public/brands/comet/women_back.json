@@ -6,7 +6,8 @@
   "price_inr": 4299,
   "image": "/brands/comet/women_back/x-lows-malibu.png",
   "aspect": 2.023,
-  "url": "https://www.wearcomet.com/products/x-lows-malibu"
+  "url": "https://www.wearcomet.com/products/x-lows-malibu",
+  "model": "/brands/comet/models/x-lows-malibu.glb"
  },
  {
   "handle": "x-lows-starburst",
@@ -15,7 +16,8 @@
   "price_inr": 4299,
   "image": "/brands/comet/women_back/x-lows-starburst.png",
   "aspect": 2.0,
-  "url": "https://www.wearcomet.com/products/x-lows-starburst"
+  "url": "https://www.wearcomet.com/products/x-lows-starburst",
+  "model": "/brands/comet/models/x-lows-starburst.glb"
  },
  {
   "handle": "x-lows-tiramisu",
@@ -24,7 +26,8 @@
   "price_inr": 4299,
   "image": "/brands/comet/women_back/x-lows-tiramisu.png",
   "aspect": 2.179,
-  "url": "https://www.wearcomet.com/products/x-lows-tiramisu"
+  "url": "https://www.wearcomet.com/products/x-lows-tiramisu",
+  "model": "/brands/comet/models/x-lows-tiramisu.glb"
  },
  {
   "handle": "x-lows-mad-scientist",
@@ -33,7 +36,8 @@
   "price_inr": 4299,
   "image": "/brands/comet/women_back/x-lows-mad-scientist.png",
   "aspect": 2.002,
-  "url": "https://www.wearcomet.com/products/x-lows-mad-scientist"
+  "url": "https://www.wearcomet.com/products/x-lows-mad-scientist",
+  "model": "/brands/comet/models/x-lows-mad-scientist.glb"
  },
  {
   "handle": "astra-pink-butter",
@@ -42,7 +46,8 @@
   "price_inr": 4899,
   "image": "/brands/comet/women_back/astra-pink-butter.png",
   "aspect": 2.25,
-  "url": "https://www.wearcomet.com/products/astra-pink-butter"
+  "url": "https://www.wearcomet.com/products/astra-pink-butter",
+  "model": "/brands/comet/models/astra-pink-butter.glb"
  },
  {
   "handle": "astra-chrome-kiss",
@@ -51,7 +56,8 @@
   "price_inr": 4899,
   "image": "/brands/comet/women_back/astra-chrome-kiss.png",
   "aspect": 2.232,
-  "url": "https://www.wearcomet.com/products/astra-chrome-kiss"
+  "url": "https://www.wearcomet.com/products/astra-chrome-kiss",
+  "model": "/brands/comet/models/astra-chrome-kiss.glb"
  },
  {
   "handle": "astra-matcha-cream",
@@ -60,7 +66,8 @@
   "price_inr": 4899,
   "image": "/brands/comet/women_back/astra-matcha-cream.png",
   "aspect": 2.183,
-  "url": "https://www.wearcomet.com/products/astra-matcha-cream"
+  "url": "https://www.wearcomet.com/products/astra-matcha-cream",
+  "model": "/brands/comet/models/astra-matcha-cream.glb"
  },
  {
   "handle": "astra-cocoa-puff",
@@ -69,7 +76,8 @@
   "price_inr": 4899,
   "image": "/brands/comet/women_back/astra-cocoa-puff.png",
   "aspect": 2.383,
-  "url": "https://www.wearcomet.com/products/astra-cocoa-puff"
+  "url": "https://www.wearcomet.com/products/astra-cocoa-puff",
+  "model": "/brands/comet/models/astra-cocoa-puff.glb"
  },
  {
   "handle": "aeon-v2-shortcake",
@@ -78,7 +86,8 @@
   "price_inr": 4499,
   "image": "/brands/comet/women_back/aeon-v2-shortcake.png",
   "aspect": 2.153,
-  "url": "https://www.wearcomet.com/products/aeon-v2-shortcake"
+  "url": "https://www.wearcomet.com/products/aeon-v2-shortcake",
+  "model": "/brands/comet/models/aeon-v2-shortcake.glb"
  },
  {
   "handle": "aeon-v2-primrose",
@@ -87,7 +96,8 @@
   "price_inr": 4499,
   "image": "/brands/comet/women_back/aeon-v2-primrose.png",
   "aspect": 2.206,
-  "url": "https://www.wearcomet.com/products/aeon-v2-primrose"
+  "url": "https://www.wearcomet.com/products/aeon-v2-primrose",
+  "model": "/brands/comet/models/aeon-v2-primrose.glb"
  },
  {
   "handle": "aeon-v2-butternut",
@@ -96,7 +106,8 @@
   "price_inr": 4499,
   "image": "/brands/comet/women_back/aeon-v2-butternut.png",
   "aspect": 2.267,
-  "url": "https://www.wearcomet.com/products/aeon-v2-butternut"
+  "url": "https://www.wearcomet.com/products/aeon-v2-butternut",
+  "model": "/brands/comet/models/aeon-v2-butternut.glb"
  },
  {
   "handle": "aeon-v2-shadowcat",
@@ -105,6 +116,7 @@
   "price_inr": 4499,
   "image": "/brands/comet/women_back/aeon-v2-shadowcat.png",
   "aspect": 2.222,
-  "url": "https://www.wearcomet.com/products/aeon-v2-shadowcat"
+  "url": "https://www.wearcomet.com/products/aeon-v2-shadowcat",
+  "model": "/brands/comet/models/aeon-v2-shadowcat.glb"
  }
 ]

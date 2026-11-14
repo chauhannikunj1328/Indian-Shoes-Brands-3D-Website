@@ -6,7 +6,8 @@
   "price_inr": 5299,
   "image": "/brands/comet/men_right/aeres-blizzard.png",
   "aspect": 2.284,
-  "url": "https://www.wearcomet.com/products/aeres-blizzard"
+  "url": "https://www.wearcomet.com/products/aeres-blizzard",
+  "model": "/brands/comet/models/aeres-blizzard.glb"
  },
  {
   "handle": "aeres-mist",
@@ -15,7 +16,8 @@
   "price_inr": 5299,
   "image": "/brands/comet/men_right/aeres-mist.png",
   "aspect": 2.264,
-  "url": "https://www.wearcomet.com/products/aeres-mist"
+  "url": "https://www.wearcomet.com/products/aeres-mist",
+  "model": "/brands/comet/models/aeres-mist.glb"
  },
  {
   "handle": "aeres-moonstone",
@@ -24,7 +26,8 @@
   "price_inr": 5299,
   "image": "/brands/comet/men_right/aeres-moonstone.png",
   "aspect": 2.54,
-  "url": "https://www.wearcomet.com/products/aeres-moonstone"
+  "url": "https://www.wearcomet.com/products/aeres-moonstone",
+  "model": "/brands/comet/models/aeres-moonstone.glb"
  },
  {
   "handle": "apex-quicksilver",
@@ -33,7 +36,8 @@
   "price_inr": 6299,
   "image": "/brands/comet/men_right/apex-quicksilver.png",
   "aspect": 2.041,
-  "url": "https://www.wearcomet.com/products/apex-quicksilver"
+  "url": "https://www.wearcomet.com/products/apex-quicksilver",
+  "model": "/brands/comet/models/apex-quicksilver.glb"
  },
  {
   "handle": "x-lows-greyscale",
@@ -42,7 +46,8 @@
   "price_inr": 4299,
   "image": "/brands/comet/men_right/x-lows-greyscale.png",
   "aspect": 2.058,
-  "url": "https://www.wearcomet.com/products/x-lows-greyscale"
+  "url": "https://www.wearcomet.com/products/x-lows-greyscale",
+  "model": "/brands/comet/models/x-lows-greyscale.glb"
  },
  {
   "handle": "x-lows-dawn",
@@ -51,7 +56,8 @@
   "price_inr": 5299,
   "image": "/brands/comet/men_right/x-lows-dawn.png",
   "aspect": 2.036,
-  "url": "https://www.wearcomet.com/products/x-lows-dawn"
+  "url": "https://www.wearcomet.com/products/x-lows-dawn",
+  "model": "/brands/comet/models/x-lows-dawn.glb"
  },
  {
   "handle": "x-lows-rewind",
@@ -60,7 +66,8 @@
   "price_inr": 4299,
   "image": "/brands/comet/men_right/x-lows-rewind.png",
   "aspect": 2.035,
-  "url": "https://www.wearcomet.com/products/x-lows-rewind"
+  "url": "https://www.wearcomet.com/products/x-lows-rewind",
+  "model": "/brands/comet/models/x-lows-rewind.glb"
  },
  {
   "handle": "x-lows-walnut",
@@ -69,7 +76,8 @@
   "price_inr": 5299,
   "image": "/brands/comet/men_right/x-lows-walnut.png",
   "aspect": 2.051,
-  "url": "https://www.wearcomet.com/products/x-lows-walnut"
+  "url": "https://www.wearcomet.com/products/x-lows-walnut",
+  "model": "/brands/comet/models/x-lows-walnut.glb"
  },
  {
   "handle": "aeon-v2-bumblebee",
@@ -78,7 +86,8 @@
   "price_inr": 4499,
   "image": "/brands/comet/men_right/aeon-v2-bumblebee.png",
   "aspect": 2.2,
-  "url": "https://www.wearcomet.com/products/aeon-v2-bumblebee"
+  "url": "https://www.wearcomet.com/products/aeon-v2-bumblebee",
+  "model": "/brands/comet/models/aeon-v2-bumblebee.glb"
  },
  {
   "handle": "aeon-v2-nimbus",
@@ -87,7 +96,8 @@
   "price_inr": 4499,
   "image": "/brands/comet/men_right/aeon-v2-nimbus.png",
   "aspect": 2.267,
-  "url": "https://www.wearcomet.com/products/aeon-v2-nimbus"
+  "url": "https://www.wearcomet.com/products/aeon-v2-nimbus",
+  "model": "/brands/comet/models/aeon-v2-nimbus.glb"
  },
  {
   "handle": "aeon-v2-carbon",
@@ -96,7 +106,8 @@
   "price_inr": 4499,
   "image": "/brands/comet/men_right/aeon-v2-carbon.png",
   "aspect": 2.267,
-  "url": "https://www.wearcomet.com/products/aeon-v2-carbon"
+  "url": "https://www.wearcomet.com/products/aeon-v2-carbon",
+  "model": "/brands/comet/models/aeon-v2-carbon.glb"
  },
  {
   "handle": "apex-rocky-road",
@@ -105,6 +116,7 @@
   "price_inr": 6299,
   "image": "/brands/comet/men_right/apex-rocky-road.png",
   "aspect": 2.195,
-  "url": "https://www.wearcomet.com/products/apex-rocky-road"
+  "url": "https://www.wearcomet.com/products/apex-rocky-road",
+  "model": "/brands/comet/models/apex-rocky-road.glb"
  }
 ]

@@ -4,83 +4,95 @@
   "title": "Aeres OAKWOOD",
   "type": "Aeres",
   "price_inr": 5299,
-  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/NewLateral_3.jpg"
+  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/NewLateral_3.jpg",
+  "model": "/brands/comet/models/aeres-oakwood.glb"
  },
  {
   "handle": "aeres-burgundy",
   "title": "Aeres BURGUNDY",
   "type": "Aeres",
   "price_inr": 5299,
-  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/1_18.jpg"
+  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/1_18.jpg",
+  "model": "/brands/comet/models/aeres-burgundy.glb"
  },
  {
   "handle": "aeres-noir",
   "title": "Aeres NOIR",
   "type": "Aeres",
   "price_inr": 5299,
-  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/NewLateral_1_d6e77143-bfd4-486f-9fb5-18f652758969.jpg"
+  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/NewLateral_1_d6e77143-bfd4-486f-9fb5-18f652758969.jpg",
+  "model": "/brands/comet/models/aeres-noir.glb"
  },
  {
   "handle": "aeres-juniper",
   "title": "Aeres JUNIPER",
   "type": "Aeres",
   "price_inr": 5299,
-  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/1Lateral_5ddc5f79-1c09-49ef-bdb7-a73a7f1b00ac.jpg"
+  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/1Lateral_5ddc5f79-1c09-49ef-bdb7-a73a7f1b00ac.jpg",
+  "model": "/brands/comet/models/aeres-juniper.glb"
  },
  {
   "handle": "x-lows-viper",
   "title": "X Lows VIPER",
   "type": "X Lows",
   "price_inr": 4299,
-  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/NewLateral_3_e4e8ae15-5489-40b1-9807-dccc89cf3935.jpg"
+  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/NewLateral_3_e4e8ae15-5489-40b1-9807-dccc89cf3935.jpg",
+  "model": "/brands/comet/models/x-lows-viper.glb"
  },
  {
   "handle": "x-lows-snow",
   "title": "X Lows SNOW",
   "type": "X Lows",
   "price_inr": 4299,
-  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/lateral_d8af82d1-5221-4215-af5a-d2019465ca99_1.jpg"
+  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/lateral_d8af82d1-5221-4215-af5a-d2019465ca99_1.jpg",
+  "model": "/brands/comet/models/x-lows-snow.glb"
  },
  {
   "handle": "x-lows-armstrong",
   "title": "X Lows ARMSTRONG",
   "type": "X Lows",
   "price_inr": 4299,
-  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/Lateral_a3eea57c-0cee-4538-b1fa-2c681cddb91a.jpg"
+  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/Lateral_a3eea57c-0cee-4538-b1fa-2c681cddb91a.jpg",
+  "model": "/brands/comet/models/x-lows-armstrong.glb"
  },
  {
   "handle": "x-lows-tuscan",
   "title": "X Lows TUSCAN",
   "type": "X Lows",
   "price_inr": 4299,
-  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/tuscan-min_2a858dec-7839-470c-b3c3-f1488b89440f.jpg"
+  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/tuscan-min_2a858dec-7839-470c-b3c3-f1488b89440f.jpg",
+  "model": "/brands/comet/models/x-lows-tuscan.glb"
  },
  {
   "handle": "apex-sub-zero",
   "title": "Apex SUB-ZERO",
   "type": "APEX",
   "price_inr": 6299,
-  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/1lateral__2.jpg"
+  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/1lateral__2.jpg",
+  "model": "/brands/comet/models/apex-sub-zero.glb"
  },
  {
   "handle": "apex-stratos",
   "title": "Apex STRATOS",
   "type": "APEX",
   "price_inr": 6299,
-  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/Lateral_1_1_1.jpg"
+  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/Lateral_1_1_1.jpg",
+  "model": "/brands/comet/models/apex-stratos.glb"
  },
  {
   "handle": "apex-hotrod",
   "title": "Apex HOTROD",
   "type": "APEX",
   "price_inr": 6299,
-  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/1_18_bf292ba7-5bd6-4830-b2aa-c1ac1b1f0ead.jpg"
+  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/1_18_bf292ba7-5bd6-4830-b2aa-c1ac1b1f0ead.jpg",
+  "model": "/brands/comet/models/apex-hotrod.glb"
  },
  {
   "handle": "apex-red-velvet",
   "title": "Apex RED VELVET",
   "type": "APEX",
   "price_inr": 6299,
-  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/1_21_debb7c74-e71c-4a0c-ae6b-2af600887b18.jpg"
+  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/1_21_debb7c74-e71c-4a0c-ae6b-2af600887b18.jpg",
+  "model": "/brands/comet/models/apex-red-velvet.glb"
  }
 ]

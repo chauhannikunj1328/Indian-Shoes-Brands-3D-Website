@@ -6,7 +6,8 @@
   "price_inr": 4299,
   "image": "/brands/comet/women_wall/x-lows-chestnut.png",
   "aspect": 2.085,
-  "url": "https://www.wearcomet.com/products/x-lows-chestnut"
+  "url": "https://www.wearcomet.com/products/x-lows-chestnut",
+  "model": "/brands/comet/models/x-lows-chestnut.glb"
  },
  {
   "handle": "x-lows-cortado",
@@ -15,7 +16,8 @@
   "price_inr": 4299,
   "image": "/brands/comet/women_wall/x-lows-cortado.png",
   "aspect": 2.009,
-  "url": "https://www.wearcomet.com/products/x-lows-cortado"
+  "url": "https://www.wearcomet.com/products/x-lows-cortado",
+  "model": "/brands/comet/models/x-lows-cortado.glb"
  },
  {
   "handle": "x-lows-bubblegum",
@@ -24,7 +26,8 @@
   "price_inr": 4299,
   "image": "/brands/comet/women_wall/x-lows-bubblegum.png",
   "aspect": 1.964,
-  "url": "https://www.wearcomet.com/products/x-lows-bubblegum"
+  "url": "https://www.wearcomet.com/products/x-lows-bubblegum",
+  "model": "/brands/comet/models/x-lows-bubblegum.glb"
  },
  {
   "handle": "x-lows-frostbite",
@@ -33,7 +36,8 @@
   "price_inr": 5299,
   "image": "/brands/comet/women_wall/x-lows-frostbite.png",
   "aspect": 2.296,
-  "url": "https://www.wearcomet.com/products/x-lows-frostbite"
+  "url": "https://www.wearcomet.com/products/x-lows-frostbite",
+  "model": "/brands/comet/models/x-lows-frostbite.glb"
  },
  {
   "handle": "aeres-haze",
@@ -42,7 +46,8 @@
   "price_inr": 5299,
   "image": "/brands/comet/women_wall/aeres-haze.png",
   "aspect": 2.444,
-  "url": "https://www.wearcomet.com/products/aeres-haze"
+  "url": "https://www.wearcomet.com/products/aeres-haze",
+  "model": "/brands/comet/models/aeres-haze.glb"
  },
  {
   "handle": "aeres-rose",
@@ -51,7 +56,8 @@
   "price_inr": 5299,
   "image": "/brands/comet/women_wall/aeres-rose.png",
   "aspect": 2.243,
-  "url": "https://www.wearcomet.com/products/aeres-rose"
+  "url": "https://www.wearcomet.com/products/aeres-rose",
+  "model": "/brands/comet/models/aeres-rose.glb"
  },
  {
   "handle": "aeres-cobalt",
@@ -60,7 +66,8 @@
   "price_inr": 5299,
   "image": "/brands/comet/women_wall/aeres-cobalt.png",
   "aspect": 2.22,
-  "url": "https://www.wearcomet.com/products/aeres-cobalt"
+  "url": "https://www.wearcomet.com/products/aeres-cobalt",
+  "model": "/brands/comet/models/aeres-cobalt.glb"
  },
  {
   "handle": "aeres-driftwood",
@@ -69,7 +76,8 @@
   "price_inr": 5299,
   "image": "/brands/comet/women_wall/aeres-driftwood.png",
   "aspect": 2.419,
-  "url": "https://www.wearcomet.com/products/aeres-driftwood"
+  "url": "https://www.wearcomet.com/products/aeres-driftwood",
+  "model": "/brands/comet/models/aeres-driftwood.glb"
  },
  {
   "handle": "aeon-v2-mango-chilli",
@@ -78,7 +86,8 @@
   "price_inr": 4899,
   "image": "/brands/comet/women_wall/aeon-v2-mango-chilli.png",
   "aspect": 2.195,
-  "url": "https://www.wearcomet.com/products/aeon-v2-mango-chilli"
+  "url": "https://www.wearcomet.com/products/aeon-v2-mango-chilli",
+  "model": "/brands/comet/models/aeon-v2-mango-chilli.glb"
  },
  {
   "handle": "aeon-v2-affogato",
@@ -87,7 +96,8 @@
   "price_inr": 4499,
   "image": "/brands/comet/women_wall/aeon-v2-affogato.png",
   "aspect": 2.169,
-  "url": "https://www.wearcomet.com/products/aeon-v2-affogato"
+  "url": "https://www.wearcomet.com/products/aeon-v2-affogato",
+  "model": "/brands/comet/models/aeon-v2-affogato.glb"
  },
  {
   "handle": "apex-argo",
@@ -96,7 +106,8 @@
   "price_inr": 6299,
   "image": "/brands/comet/women_wall/apex-argo.png",
   "aspect": 2.284,
-  "url": "https://www.wearcomet.com/products/apex-argo"
+  "url": "https://www.wearcomet.com/products/apex-argo",
+  "model": "/brands/comet/models/apex-argo.glb"
  },
  {
   "handle": "astra-wild-bloom",
@@ -105,6 +116,7 @@
   "price_inr": 4899,
   "image": "/brands/comet/women_wall/astra-wild-bloom.png",
   "aspect": 2.314,
-  "url": "https://www.wearcomet.com/products/astra-wild-bloom"
+  "url": "https://www.wearcomet.com/products/astra-wild-bloom",
+  "model": "/brands/comet/models/astra-wild-bloom.glb"
  }
 ]

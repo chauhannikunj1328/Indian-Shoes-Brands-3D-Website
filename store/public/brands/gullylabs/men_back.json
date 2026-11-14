@@ -6,7 +6,8 @@
   "price_inr": 4490,
   "image": "/brands/gullylabs/men_back/filter-kaapi-brown.png",
   "aspect": 2.534,
-  "url": "https://gullylabs.com/products/filter-kaapi-brown"
+  "url": "https://gullylabs.com/products/filter-kaapi-brown",
+  "model": "/brands/gullylabs/models/filter-kaapi-brown.glb"
  },
  {
   "handle": "gully-number-001-rekhe-brown",
@@ -15,7 +16,8 @@
   "price_inr": 8990,
   "image": "/brands/gullylabs/men_back/gully-number-001-rekhe-brown.png",
   "aspect": 2.503,
-  "url": "https://gullylabs.com/products/gully-number-001-rekhe-brown"
+  "url": "https://gullylabs.com/products/gully-number-001-rekhe-brown",
+  "model": "/brands/gullylabs/models/gully-number-001-rekhe-brown.glb"
  },
  {
   "handle": "gully-number-002-gati-beige",
@@ -24,7 +26,8 @@
   "price_inr": 3600,
   "image": "/brands/gullylabs/men_back/gully-number-002-gati-beige.png",
   "aspect": 2.605,
-  "url": "https://gullylabs.com/products/gully-number-002-gati-beige"
+  "url": "https://gullylabs.com/products/gully-number-002-gati-beige",
+  "model": "/brands/gullylabs/models/gully-number-002-gati-beige.glb"
  },
  {
   "handle": "gully-number-003-mrida-brown",
@@ -33,7 +36,8 @@
   "price_inr": 5990,
   "image": "/brands/gullylabs/men_back/gully-number-003-mrida-brown.png",
   "aspect": 2.112,
-  "url": "https://gullylabs.com/products/gully-number-003-mrida-brown"
+  "url": "https://gullylabs.com/products/gully-number-003-mrida-brown",
+  "model": "/brands/gullylabs/models/gully-number-003-mrida-brown.glb"
  },
  {
   "handle": "gully-number-001-baaz-kupi-grey",
@@ -42,7 +46,8 @@
   "price_inr": 4490,
   "image": "/brands/gullylabs/men_back/gully-number-001-baaz-kupi-grey.png",
   "aspect": 1.414,
-  "url": "https://gullylabs.com/products/gully-number-001-baaz-kupi-grey"
+  "url": "https://gullylabs.com/products/gully-number-001-baaz-kupi-grey",
+  "model": "/brands/gullylabs/models/gully-number-001-baaz-kupi-grey.glb"
  },
  {
   "handle": "gully-number-001-baaz-rapi-burgundy-2",
@@ -51,7 +56,8 @@
   "price_inr": 4490,
   "image": "/brands/gullylabs/men_back/gully-number-001-baaz-rapi-burgundy-2.png",
   "aspect": 2.409,
-  "url": "https://gullylabs.com/products/gully-number-001-baaz-rapi-burgundy-2"
+  "url": "https://gullylabs.com/products/gully-number-001-baaz-rapi-burgundy-2",
+  "model": "/brands/gullylabs/models/gully-number-001-baaz-rapi-burgundy-2.glb"
  },
  {
   "handle": "gully-number-001-baaz-jasta-green",
@@ -60,7 +66,8 @@
   "price_inr": 4490,
   "image": "/brands/gullylabs/men_back/gully-number-001-baaz-jasta-green.png",
   "aspect": 2.302,
-  "url": "https://gullylabs.com/products/gully-number-001-baaz-jasta-green"
+  "url": "https://gullylabs.com/products/gully-number-001-baaz-jasta-green",
+  "model": "/brands/gullylabs/models/gully-number-001-baaz-jasta-green.glb"
  },
  {
   "handle": "gully-number-003-amra-ochre-1",
@@ -69,7 +76,8 @@
   "price_inr": 7990,
   "image": "/brands/gullylabs/men_back/gully-number-003-amra-ochre-1.png",
   "aspect": 2.365,
-  "url": "https://gullylabs.com/products/gully-number-003-amra-ochre-1"
+  "url": "https://gullylabs.com/products/gully-number-003-amra-ochre-1",
+  "model": "/brands/gullylabs/models/gully-number-003-amra-ochre-1.glb"
  },
  {
   "handle": "gl002-aangan-blue-1",
@@ -78,7 +86,8 @@
   "price_inr": 7490,
   "image": "/brands/gullylabs/men_back/gl002-aangan-blue-1.png",
   "aspect": 2.24,
-  "url": "https://gullylabs.com/products/gl002-aangan-blue-1"
+  "url": "https://gullylabs.com/products/gl002-aangan-blue-1",
+  "model": "/brands/gullylabs/models/gl002-aangan-blue-1.glb"
  },
  {
   "handle": "gl001-buransh-red",
@@ -87,7 +96,8 @@
   "price_inr": 5990,
   "image": "/brands/gullylabs/men_back/gl001-buransh-red.png",
   "aspect": 2.616,
-  "url": "https://gullylabs.com/products/gl001-buransh-red"
+  "url": "https://gullylabs.com/products/gl001-buransh-red",
+  "model": "/brands/gullylabs/models/gl001-buransh-red.glb"
  },
  {
   "handle": "raga-shoe-m",
@@ -96,7 +106,8 @@
   "price_inr": 5990,
   "image": "/brands/gullylabs/men_back/raga-shoe-m.png",
   "aspect": 2.028,
-  "url": "https://gullylabs.com/products/raga-shoe-m"
+  "url": "https://gullylabs.com/products/raga-shoe-m",
+  "model": "/brands/gullylabs/models/raga-shoe-m.glb"
  },
  {
   "handle": "gully-number-001-dvaita-kohl-black-men",
@@ -105,6 +116,7 @@
   "price_inr": 5990,
   "image": "/brands/gullylabs/men_back/gully-number-001-dvaita-kohl-black-men.png",
   "aspect": 2.233,
-  "url": "https://gullylabs.com/products/gully-number-001-dvaita-kohl-black-men"
+  "url": "https://gullylabs.com/products/gully-number-001-dvaita-kohl-black-men",
+  "model": "/brands/gullylabs/models/gully-number-001-dvaita-kohl-black-men.glb"
  }
 ]

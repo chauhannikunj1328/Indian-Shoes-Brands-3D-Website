@@ -1,7 +1,7 @@
-import { useMemo, useRef, useState } from 'react'
+import { Suspense, useMemo, useRef, useState } from 'react'
 import * as THREE from 'three'
 import { useFrame, useLoader } from '@react-three/fiber'
-import { RoundedBox, Text, useTexture } from '@react-three/drei'
+import { RoundedBox, Text, useGLTF, useTexture } from '@react-three/drei'
 import { WALL_HEIGHT } from './brands'
 
 // A shoe display like the reference store video: a raised light-oak backboard on the wall,
@@ -97,6 +97,40 @@ function Shoe({ item, width, shadowTex, wallGap = 0 }) {
         <planeGeometry args={[width, h]} />
         <meshStandardMaterial map={map} transparent alphaTest={0.35} roughness={0.75} side={THREE.DoubleSide} />
       </mesh>
+    </group>
+  )
+}
+
+// Real 3D shoe (low-poly GLB made from the product photo). Auto-fitted: its longest horizontal side
+// becomes `width`, it stands on the ledge (y = 0), centred, turned `turn` radians so it reads as 3D.
+// `flip` (item.modelFlip) turns it 180 degrees if the toe points the wrong way.
+function ShoeModel({ url, width, turn = 0.35, flip = false }) {
+  const { scene } = useGLTF(url)
+  const fitted = useMemo(() => {
+    const obj = scene.clone(true)
+    let box = new THREE.Box3().setFromObject(obj)
+    let size = box.getSize(new THREE.Vector3())
+    if (size.z > size.x) {
+      obj.rotation.y = Math.PI / 2
+      obj.updateMatrixWorld(true)
+      box = new THREE.Box3().setFromObject(obj)
+      size = box.getSize(new THREE.Vector3())
+    }
+    obj.traverse((o) => {
+      if (o.isMesh) {
+        o.castShadow = true
+        o.receiveShadow = true
+      }
+    })
+    const k = width / size.x
+    const c = box.getCenter(new THREE.Vector3())
+    return { obj, k, offset: [-c.x * k, -box.min.y * k, -c.z * k] }
+  }, [scene, width])
+  return (
+    <group rotation={[0, (flip ? Math.PI : 0) + turn, 0]}>
+      <group position={fitted.offset} scale={fitted.k}>
+        <primitive object={fitted.obj} />
+      </group>
     </group>
   )
 }
@@ -236,7 +270,14 @@ export default function ShoeWall({
                 <meshBasicMaterial map={ledgeShadow} transparent depthWrite={false} />
               </mesh>
               <group position={[0, 0, ledgeZ]}>
-                <Shoe item={item} width={shoeWidth} shadowTex={shadowTex} wallGap={ledgeZ - base} />
+                {item.model ? (
+                  // real 3D shoe; the photo shows while the model loads
+                  <Suspense fallback={<Shoe item={item} width={shoeWidth} shadowTex={shadowTex} wallGap={ledgeZ - base} />}>
+                    <ShoeModel url={item.model} width={shoeWidth} flip={item.modelFlip} />
+                  </Suspense>
+                ) : (
+                  <Shoe item={item} width={shoeWidth} shadowTex={shadowTex} wallGap={ledgeZ - base} />
+                )}
               </group>
               {/* name + price, on the wall just under the ledge */}
               <Text position={[0, -LEDGE_T - 0.13, base + 0.005]} fontSize={0.075} color={labelColor} anchorX="center" anchorY="middle" maxWidth={step * 0.95} textAlign="center">

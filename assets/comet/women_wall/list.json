@@ -4,83 +4,95 @@
   "title": "X Lows CHESTNUT",
   "type": "X Lows",
   "price_inr": 4299,
-  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/Lateral_22f541ef-ea81-49b6-ad60-cb3335b871df.jpg"
+  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/Lateral_22f541ef-ea81-49b6-ad60-cb3335b871df.jpg",
+  "model": "/brands/comet/models/x-lows-chestnut.glb"
  },
  {
   "handle": "x-lows-cortado",
   "title": "X Lows CORTADO",
   "type": "X Lows",
   "price_inr": 4299,
-  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/New_Lateral.jpg"
+  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/New_Lateral.jpg",
+  "model": "/brands/comet/models/x-lows-cortado.glb"
  },
  {
   "handle": "x-lows-bubblegum",
   "title": "X Lows BUBBLEGUM",
   "type": "X Lows",
   "price_inr": 4299,
-  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/lateral_2_-min_c09f9e33-5c0c-4472-8085-086f8a92dffa.jpg"
+  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/lateral_2_-min_c09f9e33-5c0c-4472-8085-086f8a92dffa.jpg",
+  "model": "/brands/comet/models/x-lows-bubblegum.glb"
  },
  {
   "handle": "x-lows-frostbite",
   "title": "X Lows FROSTBITE",
   "type": "X Lows",
   "price_inr": 5299,
-  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/Lateral_3b0282c3-4f00-4410-9500-5714536937ef.jpg"
+  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/Lateral_3b0282c3-4f00-4410-9500-5714536937ef.jpg",
+  "model": "/brands/comet/models/x-lows-frostbite.glb"
  },
  {
   "handle": "aeres-haze",
   "title": "Aeres HAZE",
   "type": "Aeres",
   "price_inr": 5299,
-  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/Lateral_3_d39c306f-0d32-4a89-9981-4fb510170d32.jpg"
+  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/Lateral_3_d39c306f-0d32-4a89-9981-4fb510170d32.jpg",
+  "model": "/brands/comet/models/aeres-haze.glb"
  },
  {
   "handle": "aeres-rose",
   "title": "Aeres ROS\u00c9",
   "type": "Aeres",
   "price_inr": 5299,
-  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/Lateral_4.jpg"
+  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/Lateral_4.jpg",
+  "model": "/brands/comet/models/aeres-rose.glb"
  },
  {
   "handle": "aeres-cobalt",
   "title": "Aeres COBALT",
   "type": "Aeres",
   "price_inr": 5299,
-  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/NewLateral_31bb85d9-d638-4bc3-b2cb-04daf261a0a2.jpg"
+  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/NewLateral_31bb85d9-d638-4bc3-b2cb-04daf261a0a2.jpg",
+  "model": "/brands/comet/models/aeres-cobalt.glb"
  },
  {
   "handle": "aeres-driftwood",
   "title": "Aeres DRIFTWOOD",
   "type": "Aeres",
   "price_inr": 5299,
-  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/lateral__1.jpg"
+  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/lateral__1.jpg",
+  "model": "/brands/comet/models/aeres-driftwood.glb"
  },
  {
   "handle": "aeon-v2-mango-chilli",
   "title": "Aeon v2 MANGO CHILLI",
   "type": "Aeon V2",
   "price_inr": 4899,
-  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/lateral_3_-min_ede0b4a9-1329-4a5b-9a54-01dbb95991d7.jpg"
+  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/lateral_3_-min_ede0b4a9-1329-4a5b-9a54-01dbb95991d7.jpg",
+  "model": "/brands/comet/models/aeon-v2-mango-chilli.glb"
  },
  {
   "handle": "aeon-v2-affogato",
   "title": "Aeon v2 AFFOGATO",
   "type": "Aeon V2",
   "price_inr": 4499,
-  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/lateral_3_-min_f8878a91-4189-43de-9c4a-ddc3a59c9773.jpg"
+  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/lateral_3_-min_f8878a91-4189-43de-9c4a-ddc3a59c9773.jpg",
+  "model": "/brands/comet/models/aeon-v2-affogato.glb"
  },
  {
   "handle": "apex-argo",
   "title": "Apex ARGO",
   "type": "APEX",
   "price_inr": 6299,
-  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/1lateral_f4f687e0-3e63-4560-a50d-1c3fabdf85ca.jpg"
+  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/1lateral_f4f687e0-3e63-4560-a50d-1c3fabdf85ca.jpg",
+  "model": "/brands/comet/models/apex-argo.glb"
  },
  {
   "handle": "astra-wild-bloom",
   "title": "Astra WILD BLOOM",
   "type": "Astra",
   "price_inr": 4899,
-  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/1_2_37c860f1-6307-4c22-b969-f74a7d9bee5e.jpg"
+  "image": "https://cdn.shopify.com/s/files/1/0738/5559/8899/files/1_2_37c860f1-6307-4c22-b969-f74a7d9bee5e.jpg",
+  "model": "/brands/comet/models/astra-wild-bloom.glb"
  }
 ]

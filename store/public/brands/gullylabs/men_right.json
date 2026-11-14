@@ -6,7 +6,8 @@
   "price_inr": 7990,
   "image": "/brands/gullylabs/men_right/gully-number-003-loam-java.png",
   "aspect": 2.405,
-  "url": "https://gullylabs.com/products/gully-number-003-loam-java"
+  "url": "https://gullylabs.com/products/gully-number-003-loam-java",
+  "model": "/brands/gullylabs/models/gully-number-003-loam-java.glb"
  },
  {
   "handle": "gully-number-003-gerune-beige",
@@ -15,7 +16,8 @@
   "price_inr": 7990,
   "image": "/brands/gullylabs/men_right/gully-number-003-gerune-beige.png",
   "aspect": 2.469,
-  "url": "https://gullylabs.com/products/gully-number-003-gerune-beige"
+  "url": "https://gullylabs.com/products/gully-number-003-gerune-beige",
+  "model": "/brands/gullylabs/models/gully-number-003-gerune-beige.glb"
  },
  {
   "handle": "gully-number-001-baaz-baadal-blue",
@@ -24,7 +26,8 @@
   "price_inr": 4290,
   "image": "/brands/gullylabs/men_right/gully-number-001-baaz-baadal-blue.png",
   "aspect": 2.627,
-  "url": "https://gullylabs.com/products/gully-number-001-baaz-baadal-blue"
+  "url": "https://gullylabs.com/products/gully-number-001-baaz-baadal-blue",
+  "model": "/brands/gullylabs/models/gully-number-001-baaz-baadal-blue.glb"
  },
  {
   "handle": "gully-number-001-baaz-kora-white",
@@ -33,7 +36,8 @@
   "price_inr": 4290,
   "image": "/brands/gullylabs/men_right/gully-number-001-baaz-kora-white.png",
   "aspect": 2.293,
-  "url": "https://gullylabs.com/products/gully-number-001-baaz-kora-white"
+  "url": "https://gullylabs.com/products/gully-number-001-baaz-kora-white",
+  "model": "/brands/gullylabs/models/gully-number-001-baaz-kora-white.glb"
  },
  {
   "handle": "gl001-kulfi-kesar-men",
@@ -42,7 +46,8 @@
   "price_inr": 3600,
   "image": "/brands/gullylabs/men_right/gl001-kulfi-kesar-men.png",
   "aspect": 2.396,
-  "url": "https://gullylabs.com/products/gl001-kulfi-kesar-men"
+  "url": "https://gullylabs.com/products/gl001-kulfi-kesar-men",
+  "model": "/brands/gullylabs/models/gl001-kulfi-kesar-men.glb"
  },
  {
   "handle": "gully-number-001-baaz-leila-navy-men",
@@ -51,7 +56,8 @@
   "price_inr": 4290,
   "image": "/brands/gullylabs/men_right/gully-number-001-baaz-leila-navy-men.png",
   "aspect": 2.227,
-  "url": "https://gullylabs.com/products/gully-number-001-baaz-leila-navy-men"
+  "url": "https://gullylabs.com/products/gully-number-001-baaz-leila-navy-men",
+  "model": "/brands/gullylabs/models/gully-number-001-baaz-leila-navy-men.glb"
  },
  {
   "handle": "gully-number-001-saaj-orange-men",
@@ -60,7 +66,8 @@
   "price_inr": 8990,
   "image": "/brands/gullylabs/men_right/gully-number-001-saaj-orange-men.png",
   "aspect": 2.473,
-  "url": "https://gullylabs.com/products/gully-number-001-saaj-orange-men"
+  "url": "https://gullylabs.com/products/gully-number-001-saaj-orange-men",
+  "model": "/brands/gullylabs/models/gully-number-001-saaj-orange-men.glb"
  },
  {
   "handle": "gl001-kulfi-rabri-men",
@@ -69,7 +76,8 @@
   "price_inr": 6290,
   "image": "/brands/gullylabs/men_right/gl001-kulfi-rabri-men.png",
   "aspect": 2.382,
-  "url": "https://gullylabs.com/products/gl001-kulfi-rabri-men"
+  "url": "https://gullylabs.com/products/gl001-kulfi-rabri-men",
+  "model": "/brands/gullylabs/models/gl001-kulfi-rabri-men.glb"
  },
  {
   "handle": "gully-number-001-baaz-faris-black-men",
@@ -78,7 +86,8 @@
   "price_inr": 4290,
   "image": "/brands/gullylabs/men_right/gully-number-001-baaz-faris-black-men.png",
   "aspect": 2.225,
-  "url": "https://gullylabs.com/products/gully-number-001-baaz-faris-black-men"
+  "url": "https://gullylabs.com/products/gully-number-001-baaz-faris-black-men",
+  "model": "/brands/gullylabs/models/gully-number-001-baaz-faris-black-men.glb"
  },
  {
   "handle": "gully-number-001-falak-blue-men",
@@ -87,7 +96,8 @@
   "price_inr": 4290,
   "image": "/brands/gullylabs/men_right/gully-number-001-falak-blue-men.png",
   "aspect": 2.256,
-  "url": "https://gullylabs.com/products/gully-number-001-falak-blue-men"
+  "url": "https://gullylabs.com/products/gully-number-001-falak-blue-men",
+  "model": "/brands/gullylabs/models/gully-number-001-falak-blue-men.glb"
  },
  {
   "handle": "gully-number-001-baaz-firozi-green-men",
@@ -96,7 +106,8 @@
   "price_inr": 4290,
   "image": "/brands/gullylabs/men_right/gully-number-001-baaz-firozi-green-men.png",
   "aspect": 2.236,
-  "url": "https://gullylabs.com/products/gully-number-001-baaz-firozi-green-men"
+  "url": "https://gullylabs.com/products/gully-number-001-baaz-firozi-green-men",
+  "model": "/brands/gullylabs/models/gully-number-001-baaz-firozi-green-men.glb"
  },
  {
   "handle": "gully-number-001-naadu-men",
@@ -105,6 +116,7 @@
   "price_inr": 5990,
   "image": "/brands/gullylabs/men_right/gully-number-001-naadu-men.png",
   "aspect": 2.242,
-  "url": "https://gullylabs.com/products/gully-number-001-naadu-men"
+  "url": "https://gullylabs.com/products/gully-number-001-naadu-men",
+  "model": "/brands/gullylabs/models/gully-number-001-naadu-men.glb"
  }
 ]

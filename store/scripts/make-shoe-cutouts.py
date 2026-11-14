@@ -75,6 +75,8 @@ def main(brand, wall):
         shelf.append({**{k: it[k] for k in ('handle', 'title', 'type', 'price_inr')},
                       'image': f"/brands/{brand}/{wall}/{it['handle']}.png",
                       'aspect': round(img.width / img.height, 3),
+                      # optional real 3D model (GLB) + flip, kept from list.json
+                      **{k: it[k] for k in ('model', 'modelFlip') if k in it},
                       'url': {'comet': 'https://www.wearcomet.com', 'gullylabs': 'https://gullylabs.com'}.get(brand, '') + f"/products/{it['handle']}"})
         print(it['handle'], img.size)
     json.dump(shelf, open(os.path.join(ROOT, 'store', 'public', 'brands', brand, wall + '.json'), 'w'), indent=1)
