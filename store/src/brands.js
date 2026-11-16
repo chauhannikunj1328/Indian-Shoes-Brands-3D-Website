@@ -383,6 +383,8 @@ export const CTA = {
   colors: { heading: '#1b2a6e', accent: '#1d4fc9', text: '#3a3a38', whatsapp: '#25D366' },
 }
 
+const LAST_BAY = BRANDS[BRANDS.length - 1].bay
+
 // Call-to-action area: the part of the store's end wall beside the walkway (z = 0 .. CORRIDOR_DEPTH).
 // The scroll tour ends here.
 export const CTA_WALL = {
@@ -390,13 +392,15 @@ export const CTA_WALL = {
   z: CORRIDOR_DEPTH / 2, // centre of the walkway part
   y: WALL_HEIGHT / 2,
   width: CORRIDOR_DEPTH,
-  // same as the Gully Labs bay walls next to it: cream leather with the thin blue stitched frame,
-  // leather grain bump, and the same soft wall-wash light (older: plain mc_plain.jpg, stucco_plain.jpg)
-  finish: '/brands/gullylabs/mc_front_plain.jpg',
-  bump: '/brands/gullylabs/leather_bump.png',
-  finishTile: null, // one image across the whole wall, so the stitched frame runs round its edges
+  // Always copies the LAST brand's bay side walls (finish, grain bump, baseboard colour), so the enquiry wall continues
+  // that bay along the end wall. Add a brand and this follows it automatically.
+  // A framed/stitched side-wall image (one with a grain bump, like Gully Labs' leather) runs once across the whole wall,
+  // so its frame wraps the edges; a plain repeating finish is tiled like the bay walls.
+  finish: LAST_BAY.sides,
+  bump: LAST_BAY.sidesBump,
+  finishTile: LAST_BAY.sidesBump ? null : (LAST_BAY.sidesTile ?? null),
   wash: 0.2, // wall-wash light strength, same as the bay side walls
-  trim: '#1d4fc9',
+  trim: LAST_BAY.trim,
 }
 
 export async function loadProducts(brandId) {
