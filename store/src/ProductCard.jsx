@@ -2,8 +2,11 @@ import { lazy, Suspense, useCallback, useEffect, useState, useSyncExternalStore 
 import { buildAffiliateUrl, trackClick } from './affiliate'
 
 // The card shows the shoe's 3D model, turning slowly (drag to turn it), when the shoe has one; the photo shows until the model is
-// ready, and stays for shoes without a model. The viewer is loaded on demand.
+// ready, and stays for shoes without a model and on phones. The viewer is loaded on demand.
 const ShoeViewer3D = lazy(() => import('./ShoeViewer3D'))
+// The viewer is a SECOND WebGL canvas on top of the store's own. Phones (and anything touch-first) have little graphics memory and
+// can lose the store's view or crash when a second one starts, so there the card keeps the photo.
+const PHONE = typeof window !== 'undefined' && window.matchMedia('(max-width: 900px), (pointer: coarse)').matches
 
 function ShoePicture({ item, brandName }) {
   const [ready, setReady] = useState(false)
@@ -16,7 +19,7 @@ function ShoePicture({ item, brandName }) {
       style={{ opacity: ready ? 0 : 1 }}
     />
   )
-  if (!item.model) return photo
+  if (!item.model || PHONE) return photo
   return (
     <div className="product-card__viewer">
       {photo}
