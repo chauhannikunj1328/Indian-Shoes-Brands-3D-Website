@@ -353,15 +353,15 @@ export const ENTRANCE = {
     {
       shoes: [
         { model: '/brands/comet/models/apex-hotrod.glb' },
-        { model: '/brands/comet/models/x-lows-malibu.glb' },
+        { model: '/brands/comet/models/x-lows-malibu-v2.glb' },
         { model: '/brands/comet/models/apex-sub-zero.glb' },
         { model: '/brands/comet/models/apex-red-velvet.glb' },
       ],
     },
     {
       shoes: [
-        { model: '/brands/gullylabs/models/gully-number-001-falak-blue-men.glb' },
-        { model: '/brands/gullylabs/models/gully-number-003-roja-pink-for-women.glb' },
+        { model: '/brands/gullylabs/models/gully-number-001-falak-blue-men-v2.glb' },
+        { model: '/brands/gullylabs/models/gully-number-003-roja-pink-for-women-v2.glb' },
         { model: '/brands/gullylabs/models/gully-number-001-baaz-baadal-blue.glb' },
         { model: '/brands/gullylabs/models/gully-number-001-saaj-orange-men.glb' },
       ],
