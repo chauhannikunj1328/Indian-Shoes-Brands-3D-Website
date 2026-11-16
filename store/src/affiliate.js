@@ -15,9 +15,23 @@ export const AFFILIATE = {
   neemans: { template: null }, // listed on Cuelinks / vCommission / FlexOffers / Admitad: apply, then paste the link pattern here
 }
 
-// Where clicks are sent so you can count them / report them. null = only analytics events + local log.
-// e.g. 'https://your-server.com/api/click' (receives a JSON POST: { brand, handle, title, price, url, ts })
-export const CLICK_ENDPOINT = null
+// Where Buy clicks are sent so they can be counted and reported to brands (store/api/click.js, a Vercel function).
+// Only in the built site: in dev there is no function to receive them. null = analytics events + local log only.
+export const CLICK_ENDPOINT = import.meta.env?.PROD ? '/api/click' : null
+
+// a random code for this browser tab, so repeat clicks can be counted once; it is not linked to a person
+function sessionCode() {
+  try {
+    let id = sessionStorage.getItem('sid')
+    if (!id) {
+      id = Math.random().toString(36).slice(2, 12)
+      sessionStorage.setItem('sid', id)
+    }
+    return id
+  } catch {
+    return ''
+  }
+}
 
 export const DISCLOSURE = 'We may earn a commission when you buy through our links, at no extra cost to you.'
 
@@ -38,10 +52,13 @@ export function buildAffiliateUrl(brand, item) {
 export function trackClick(brand, item) {
   const payload = { brand, handle: item.handle, title: item.title, price: item.price_inr, url: item.url, ts: Date.now() }
   try {
+    // what the server records: no name, no IP; the page, the website the visitor came from, and a random session code
+    const ref = document.referrer ? new URL(document.referrer).origin : ''
+    const sent = { ...payload, path: location.pathname, ref, sid: sessionCode() }
     window.plausible?.('Buy click', { props: { brand, shoe: item.handle } })
     window.gtag?.('event', 'buy_click', { brand, shoe: item.handle })
     if (CLICK_ENDPOINT) {
-      navigator.sendBeacon(CLICK_ENDPOINT, new Blob([JSON.stringify(payload)], { type: 'application/json' }))
+      navigator.sendBeacon(CLICK_ENDPOINT, new Blob([JSON.stringify(sent)], { type: 'application/json' }))
     }
     const log = JSON.parse(localStorage.getItem('buyClicks') || '[]')
     log.push(payload)

@@ -14,9 +14,16 @@
 // To add a new brand:
 //   1. put its photos, picks.json and logo.png in public/brands/<id>/
 //   2. add an entry below. Its block + bay are appended on the right automatically.
-export const BRANDS = [
+// How each brand relates to IndianShoes. Visitors see this (shoe card, brand pages), so keep it truthful:
+//   status: 'listed'  = independent listing, no agreement with the brand (the default)
+//           'pilot'   = pilot partner, agreed in writing
+//           'partner' = paying / official partner
+//   sponsored: true   = the placement is paid for (shown as "Sponsored")
+//   hidden: true      = the brand is not shown anywhere (store, tour, pages, sitemap)
+const ALL_BRANDS = [
   {
     id: 'neemans',
+    status: 'listed',
     name: 'NEEMANS',
     tabLabel: 'Neemans',
     logo: '/brands/neemans/logo.png',
@@ -57,6 +64,7 @@ export const BRANDS = [
   },
   {
     id: 'comet',
+    status: 'listed',
     name: 'COMET',
     tabLabel: 'Comet', // label in the bottom tab bar
     logo: '/brands/comet/logo.png',
@@ -112,6 +120,7 @@ export const BRANDS = [
   },
   {
     id: 'gullylabs',
+    status: 'listed',
     name: 'GULLY LABS',
     tabLabel: 'Gully Labs',
     logo: '/brands/gullylabs/logo.png',
@@ -220,6 +229,7 @@ export const BRANDS = [
   },
   {
     id: 'bondstreet',
+    status: 'listed',
     name: 'BOND STREET',
     tabLabel: 'Bond Street',
     logo: '/brands/bondstreet/logo.png',
@@ -259,6 +269,20 @@ export const BRANDS = [
     },
   },
 ]
+
+export const BRANDS = ALL_BRANDS.filter((b) => !b.hidden)
+
+// One honest sentence about the brand's relationship with IndianShoes (shoe card, brand pages, llms.txt)
+export function brandStatusNote(brand) {
+  const name = brand.tabLabel ?? brand.name
+  const base =
+    brand.status === 'partner'
+      ? `${name} is an official IndianShoes partner.`
+      : brand.status === 'pilot'
+        ? `${name} is a pilot partner of IndianShoes.`
+        : `Independent listing: IndianShoes is not affiliated with ${name}.`
+  return brand.sponsored ? `${base} Sponsored placement.` : base
+}
 
 // Experiments that can be switched off (false) or deleted.
 export const EXPERIMENTS = {

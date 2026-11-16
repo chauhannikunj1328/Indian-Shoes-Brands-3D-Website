@@ -1,0 +1,181 @@
+import { useState } from 'react'
+import { INFO_PAGES, EMAIL, WHATSAPP_BASE, WHATSAPP_NUMBER, UPDATED } from './content/pages.js'
+
+// The normal (non-3D) pages: /for-brands, /privacy, /terms. Text lives in src/content/pages.js, which the build also
+// turns into crawlable HTML (scripts/prerender.mjs). No 3D code is loaded here, so these pages are light and fast.
+
+const waHref = (text) => `${WHATSAPP_BASE}?text=${encodeURIComponent(text)}`
+const mailHref = (subject, body) => `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+
+function resolve(href) {
+  if (href === 'whatsapp') return { href: waHref("Hi! I'd like to know more about a 3D store for my brand on IndianShoes."), external: true }
+  if (href === 'email') return { href: mailHref('3D store for my brand', "Hi! I'd like to know more about a 3D store for my brand on IndianShoes.\n"), external: false }
+  return { href, external: false }
+}
+
+function ContactForm({ h2 }) {
+  const [f, setF] = useState({ name: '', brand: '', site: '', msg: '' })
+  const set = (k) => (e) => setF({ ...f, [k]: e.target.value })
+  const text = [
+    `Hi! I'm ${f.name || '(name)'} from ${f.brand || '(brand)'}${f.site ? ` (${f.site})` : ''}.`,
+    f.msg || "I'd like to know more about a 3D store for my brand on IndianShoes.",
+  ].join('\n')
+  return (
+    <section className="info-card info-contact" aria-labelledby="contact-h">
+      <h2 id="contact-h">{h2}</h2>
+      <p>Fill this in and send it by WhatsApp or email. We read it only when you send it; nothing is stored on this page.</p>
+      <div className="info-fields">
+        <label>
+          Your name
+          <input value={f.name} onChange={set('name')} autoComplete="name" />
+        </label>
+        <label>
+          Brand
+          <input value={f.brand} onChange={set('brand')} autoComplete="organization" />
+        </label>
+        <label>
+          Website
+          <input value={f.site} onChange={set('site')} inputMode="url" placeholder="https://" autoComplete="url" />
+        </label>
+        <label className="info-wide">
+          Message
+          <textarea rows="3" value={f.msg} onChange={set('msg')} />
+        </label>
+      </div>
+      <div className="info-actions">
+        <a className="info-btn info-btn--primary" href={waHref(text)} target="_blank" rel="noopener">
+          Send on WhatsApp
+        </a>
+        <a className="info-btn" href={mailHref('3D store for my brand', text)}>
+          Send by email
+        </a>
+      </div>
+      <p className="info-small">
+        WhatsApp {WHATSAPP_NUMBER} · <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+      </p>
+    </section>
+  )
+}
+
+function Block({ b }) {
+  switch (b.type) {
+    case 'hero':
+      return (
+        <div className="info-hero">
+          <p className="info-lead">{b.lead}</p>
+          <div className="info-actions">
+            {b.links.map((l) => {
+              const r = resolve(l.href)
+              return (
+                <a key={l.label} className={`info-btn${l.primary ? ' info-btn--primary' : ''}`} href={r.href} {...(r.external ? { target: '_blank', rel: 'noopener' } : {})}>
+                  {l.label}
+                </a>
+              )
+            })}
+          </div>
+        </div>
+      )
+    case 'cards':
+      return (
+        <section>
+          <h2>{b.h2}</h2>
+          <div className="info-grid">
+            {b.items.map((c) => (
+              <div className="info-card" key={c.h3}>
+                <h3>{c.h3}</h3>
+                <p>{c.p}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )
+    case 'steps':
+      return (
+        <section>
+          <h2>{b.h2}</h2>
+          <ol className="info-steps">
+            {b.items.map((c) => (
+              <li key={c.h3}>
+                <h3>{c.h3}</h3>
+                <p>{c.p}</p>
+              </li>
+            ))}
+          </ol>
+        </section>
+      )
+    case 'faq':
+      return (
+        <section>
+          <h2>{b.h2}</h2>
+          {b.items.map((x) => (
+            <details className="info-faq" key={x.q}>
+              <summary>{x.q}</summary>
+              <p>{x.a}</p>
+            </details>
+          ))}
+        </section>
+      )
+    case 'contact':
+      return <ContactForm h2={b.h2} />
+    default:
+      return (
+        <section>
+          <h2>{b.h2}</h2>
+          {b.paragraphs?.map((p) => (
+            <p key={p}>{p}</p>
+          ))}
+          {b.list && (
+            <ul>
+              {b.list.map((li) => (
+                <li key={li}>{li}</li>
+              ))}
+            </ul>
+          )}
+        </section>
+      )
+  }
+}
+
+export default function InfoPage({ path }) {
+  const page = INFO_PAGES[path]
+  const date = page.updated ? new Date(page.updated).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' }) : null
+  return (
+    <div className="info-page">
+      <header className="info-header">
+        <a className="info-logo" href="/" aria-label="IndianShoes: back to the 3D store">
+          <span lang="hi">इंडियन</span>
+          <span lang="en">Shoes</span>
+        </a>
+        <nav aria-label="Main">
+          <a href="/">3D store</a>
+          <a href="/for-brands" aria-current={path === '/for-brands' ? 'page' : undefined}>
+            For brands
+          </a>
+        </nav>
+      </header>
+      <main className="info-main">
+        <nav aria-label="Breadcrumb" className="info-crumbs">
+          <a href="/">Home</a> <span aria-hidden="true">/</span> <span aria-current="page">{page.crumb}</span>
+        </nav>
+        <h1>{page.h1}</h1>
+        {date && <p className="info-small">Last updated {date}</p>}
+        {page.blocks.map((b, i) => (
+          <Block b={b} key={i} />
+        ))}
+      </main>
+      <footer className="info-footer">
+        <p>
+          IndianShoes does not sell shoes. Some links are affiliate links: we may earn a commission if you buy through them, at no extra cost to you.
+        </p>
+        <nav aria-label="Footer">
+          <a href="/">3D store</a>
+          <a href="/for-brands">For brands</a>
+          <a href="/privacy">Privacy</a>
+          <a href="/terms">Terms</a>
+          <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+        </nav>
+        <p className="info-small">© {new Date(UPDATED).getFullYear()} IndianShoes</p>
+      </footer>
+    </div>
+  )
+}

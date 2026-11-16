@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
-import { CTA, CTA_LABEL, INTRO } from './brands'
-import { STOPS, subscribe, currentStop, getTarget, goTo } from './tour'
+import { useEffect, useRef, useState } from 'react'
+import { CTA, INTRO } from './brands'
+import { subscribe, getTarget, goTo } from './tour'
 
 // Top glass header (same frosted glass as the bottom tour bar):
 //   left:  the इंडियनShoes wordmark - back to the store entrance
@@ -8,7 +8,6 @@ import { STOPS, subscribe, currentStop, getTarget, goTo } from './tour'
 // It fades back a little while the camera is walking, so the 3D store stays the hero.
 // Phones: wordmark, WhatsApp icon and the CTA button.
 
-const CTA_STOP = STOPS.findIndex((s) => s.name === 'cta')
 const MAIL = `mailto:${CTA.email}?subject=${encodeURIComponent('3D store enquiry')}`
 
 function WhatsAppIcon() {
@@ -58,7 +57,6 @@ function useWalking() {
 }
 
 export default function SiteHeader() {
-  const stop = useSyncExternalStore(subscribe, currentStop)
   const walking = useWalking()
   const words = INTRO.wordmark || [{ text: INTRO.siteName }]
 
@@ -95,13 +93,9 @@ export default function SiteHeader() {
         >
           <MailIcon />
         </a>
-        <button
-          type="button"
-          className={`site-header__cta${stop === CTA_STOP ? ' is-active' : ''}`}
-          onClick={() => goTo(CTA_STOP)}
-        >
-          {CTA_LABEL}
-        </button>
+        <a className="site-header__cta" href="/for-brands">
+          For Brands
+        </a>
       </nav>
     </header>
   )

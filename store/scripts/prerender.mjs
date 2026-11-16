@@ -14,7 +14,8 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { BRANDS, CTA } from '../src/brands.js'
+import { BRANDS, CTA, brandStatusNote } from '../src/brands.js'
+import { INFO_PAGES, EMAIL, WHATSAPP_BASE } from '../src/content/pages.js'
 import { buildAffiliateUrl } from '../src/affiliate.js'
 import { SITE, BRAND_SEO, DISCLOSURE } from '../seo/config.mjs'
 
@@ -65,6 +66,7 @@ const brands = BRANDS.map((b) => {
     dearest,
     models: shoes.filter((s) => s.model).length,
     official: seo.site,
+    note: brandStatusNote(b),
     range: seo.range,
     path: `/${b.id}`,
   }
@@ -141,10 +143,10 @@ const crumbsHtml = (items) =>
   `<nav aria-label="Breadcrumb"><ol>${items
     .map(([name, p], i) => (i === items.length - 1 ? `<li aria-current="page">${esc(name)}</li>` : `<li><a href="${p}">${esc(name)}</a></li>`))
     .join('')}</ol></nav>`
-const siteNav = `<nav aria-label="Main"><ul><li><a href="/">IndianShoes 3D store</a></li><li><a href="/brands">All brands</a></li>${brands
+const siteNav = `<nav aria-label="Main"><ul><li><a href="/">IndianShoes 3D store</a></li><li><a href="/brands">All brands</a></li><li><a href="/for-brands">For brands</a></li>${brands
   .map((b) => `<li><a href="${b.path}">${esc(b.name)} sneakers</a></li>`)
   .join('')}</ul></nav>`
-const footerHtml = `<footer><p>${esc(DISCLOSURE)}</p><p>Contact: <a href="mailto:${CTA.email}">${CTA.email}</a></p></footer>`
+const footerHtml = `<footer><p>${esc(DISCLOSURE)}</p><nav aria-label="Footer"><ul><li><a href="/for-brands">For brands</a></li><li><a href="/privacy">Privacy</a></li><li><a href="/terms">Terms</a></li></ul></nav><p>Contact: <a href="mailto:${CTA.email}">${CTA.email}</a></p></footer>`
 const shell = (inner) => `<div id="seo-content" class="seo-content"><header><p><a href="/">${SITE.name}</a>: ${esc(SITE.tagline)}</p>${siteNav}</header><main>${inner}</main>${footerHtml}</div>`
 const shoeLinks = (list) => `<ul>${list.map((s) => `<li><a href="${shoePath(s)}">${esc(clean(s.title))}</a>, ${inr(s.price_inr)}</li>`).join('')}</ul>`
 
@@ -244,6 +246,62 @@ pages.push({
       .join('')}</ul>`),
 })
 
+// /for-brands, /privacy, /terms (text: src/content/pages.js; the visible page is src/InfoPage.jsx)
+const whatsappHref = `${WHATSAPP_BASE}?text=${encodeURIComponent("Hi! I'd like to know more about a 3D store for my brand on IndianShoes.")}`
+const infoHref = (h) => (h === 'whatsapp' ? whatsappHref : h === 'email' ? `mailto:${EMAIL}` : h)
+function blocksHtml(blocks) {
+  return blocks
+    .map((b) => {
+      if (b.type === 'hero')
+        return `<p>${esc(b.lead)}</p><p>${b.links.map((l) => `<a href="${esc(infoHref(l.href))}">${esc(l.label)}</a>`).join(' · ')}</p>`
+      if (b.type === 'cards' || b.type === 'steps')
+        return `<section><h2>${esc(b.h2)}</h2>${b.items.map((i) => `<h3>${esc(i.h3)}</h3><p>${esc(i.p)}</p>`).join('')}</section>`
+      if (b.type === 'faq')
+        return `<section><h2>${esc(b.h2)}</h2><dl>${b.items.map((i) => `<dt>${esc(i.q)}</dt><dd>${esc(i.a)}</dd>`).join('')}</dl></section>`
+      if (b.type === 'contact')
+        return `<section><h2>${esc(b.h2)}</h2><p>WhatsApp: <a href="${esc(whatsappHref)}">message us</a>. Email: <a href="mailto:${EMAIL}">${EMAIL}</a>.</p></section>`
+      return `<section><h2>${esc(b.h2)}</h2>${(b.paragraphs ?? []).map((t) => `<p>${esc(t)}</p>`).join('')}${b.list ? `<ul>${b.list.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>` : ''}</section>`
+    })
+    .join('')
+}
+for (const [p, page] of Object.entries(INFO_PAGES)) {
+  const faq = page.blocks.find((b) => b.type === 'faq')
+  pages.push({
+    path: p,
+    title: page.title,
+    description: page.description,
+    og: ogFor(),
+    ogAlt: `${SITE.name}: ${page.crumb}`,
+    ogType: 'website',
+    jsonld: [
+      {
+        '@context': 'https://schema.org',
+        '@graph': [
+          crumbs([['Home', '/'], [page.crumb, p]]),
+          {
+            '@type': 'WebPage',
+            '@id': abs(p) + '#page',
+            url: abs(p),
+            name: page.title,
+            description: page.description,
+            isPartOf: { '@id': siteId },
+            inLanguage: SITE.lang,
+            ...(page.updated ? { dateModified: page.updated } : {}),
+          },
+          ...(faq
+            ? [{ '@type': 'FAQPage', mainEntity: faq.items.map((i) => ({ '@type': 'Question', name: i.q, acceptedAnswer: { '@type': 'Answer', text: i.a } })) }]
+            : []),
+        ],
+      },
+    ],
+    body: shell(`
+      ${crumbsHtml([['Home', '/'], [page.crumb, p]])}
+      <h1>${esc(page.h1)}</h1>
+      ${page.updated ? `<p>Last updated ${page.updated}</p>` : ''}
+      ${blocksHtml(page.blocks)}`),
+  })
+}
+
 // brands + shoes
 for (const b of brands) {
   const faq = brandFaq(b)
@@ -287,6 +345,7 @@ for (const b of brands) {
       ${crumbsHtml([['Home', '/'], ['Brands', '/brands'], [b.name, b.path]])}
       <h1>${esc(b.name)} sneakers in the 3D store</h1>
       <p>${esc(brandDescription(b))}</p>
+      <p>${esc(b.note)}</p>
       <p>${esc(b.name)} makes ${esc(b.range)}. Official website: <a href="${b.official}" rel="noopener">${esc(b.official.replace(/^https?:\/\//, ''))}</a>.</p>
       ${['Women', 'Men']
         .map((g) => ({ g, list: b.shoes.filter((s) => s.gender === g) }))
@@ -340,6 +399,7 @@ for (const b of brands) {
         <h1>${esc(clean(s.title))}</h1>
         <img src="${s.image}" alt="${esc(`${clean(s.title)}, a ${s.gender ? (s.gender === 'Men' ? "men's " : "women's ") : ''}${b.name} sneaker`)}" width="320" decoding="async" loading="lazy">
         <p>${esc(desc)}</p>
+        <p>${esc(b.note)}</p>
         <ul>
           <li>Brand: <a href="${b.path}">${esc(b.name)}</a></li>
           <li>Type: ${esc(s.type)}</li>
@@ -442,6 +502,7 @@ const factLines = [
   `- ${SITE.name} is not a retailer and does not sell shoes. Purchases happen on each brand's official website.`,
   `- ${DISCLOSURE.split('. ').slice(1).join('. ')}`,
   `- Prices and shoe lists come from each brand's website as of the last store update (${today}). Prices change, so confirm the current price on the brand's own site.`,
+  `- Brands shown here are independent listings unless marked as a partner: ${brands.map((b) => b.note).join(' ')}`,
   `- Contact: ${CTA.email}`,
 ]
 const llms = [
@@ -463,6 +524,7 @@ const llms = [
   '',
   `- [Home: the 3D store](${abs('/')}): the interactive store; each page below opens it at that brand or shoe`,
   `- [All brands](${abs('/brands')}): the brands on display`,
+  `- [For brands](${abs('/for-brands')}): what IndianShoes offers sneaker brands (a 3D store, search-ready pages, click reports) and how to get in touch`,
   `- [Sitemap](${abs('/sitemap.xml')}): every page, including one page per sneaker`,
   '',
   '## Optional',
