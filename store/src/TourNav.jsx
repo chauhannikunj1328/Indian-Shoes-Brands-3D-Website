@@ -2,7 +2,7 @@ import { Fragment, useEffect, useRef, useSyncExternalStore } from 'react'
 import { BRANDS } from './brands'
 import { STOPS, SEGMENTS, subscribe, currentStop, next, prev, goTo } from './tour'
 
-// Bottom glass tab bar: ‹ · [brand tab · ● ● ●] per brand · ›   (the CTA button lives in the header)
+// Bottom glass tab bar: ‹ · [Start · ● ●] · [brand tab · ● ● ●] per brand · ›   (the CTA button lives in the header)
 // Brand tabs jump to that brand's logo block and light up while you're in that brand's part of the tour.
 // The three dots after each tab jump to that brand's three bay walls (left, shoe wall, right).
 // Built from BRANDS, so new brands get a tab + dots. The › arrow still walks on to the enquiry wall.
@@ -22,10 +22,23 @@ const BRAND_TABS = BRANDS.map((b) => ({
 }))
 const CTA_STOP = STOPS.findIndex((s) => s.name === 'cta')
 
+// The entrance comes first: a "Start" tab (the big black wall with the IndianShoes logo) followed by two dots, the black back
+// wall and the first block's left face, and then the first brand's tab.
+const START_TAB = {
+  id: 'start',
+  label: 'Start',
+  start: stopIndex('start'),
+  walls: [
+    { key: 'entrance', label: 'back wall', stop: stopIndex('entrance') },
+    { key: 'block', label: 'block wall', stop: stopIndex('entrance:block') },
+  ],
+}
+const TABS = [START_TAB, ...BRAND_TABS]
+
 function activeBrand(stop) {
   if (stop === CTA_STOP) return null
-  let active = BRAND_TABS[0].id // the start view looks at the first brand's block
-  for (const t of BRAND_TABS) if (stop >= t.start) active = t.id
+  let active = START_TAB.id
+  for (const t of TABS) if (stop >= t.start) active = t.id
   return active
 }
 
@@ -47,7 +60,7 @@ export default function TourNav() {
         ‹
       </button>
       <div className="tour-nav__brands" ref={brandsRef}>
-        {BRAND_TABS.map((t) => (
+        {TABS.map((t) => (
           <Fragment key={t.id}>
             <button
               type="button"

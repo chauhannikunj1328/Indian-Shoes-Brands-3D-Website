@@ -334,8 +334,10 @@ export const EXPERIMENTS = {
 // which the tour's first camera angle faces.
 export const ENTRANCE = {
   leftWall: true, // close the left end with a wall (the front of the walkway stays open)
-  wallFinish: '/textures/loader_concrete_black.jpg', // = INTRO.background
-  wallFinishTile: 10, // world units per texture tile
+  // the loading screen's black concrete (INTRO.background), lifted only 1.5x so it reads the same under the store lights, tiled finely like the loader (512 px tiles)
+  // (a dark texture comes out nearly pure black in 3D): made from loader_concrete_black.jpg, brightness x1.5
+  wallFinish: '/textures/entrance_concrete_v2.jpg',
+  wallFinishTile: 5, // world units per texture tile (fine grain, like the loading screen)
   baseboard: '#151515',
   // the IndianShoes wordmark (traced by store/scripts/make-cta-assets.py), raised on the back wall like the block logos
   logo: {
@@ -364,7 +366,7 @@ export const FLOOR = {
 
 // Sizes (world units). Proportions follow the sketch, with bays widened to 2x the blocks.
 export const WALL_HEIGHT = 8
-export const ENTRANCE_WIDTH = 10 // open zone at the left before the first block
+export const ENTRANCE_WIDTH = 20 // open zone at the left before the first block (as wide as a bay's back wall)
 export const BLOCK_WIDTH = 10 // solid logo block, along X
 export const BAY_WIDTH = 20 // brand area, along X (twice the block width)
 export const BAY_DEPTH = 10 // how deep blocks and bays go back from the walkway

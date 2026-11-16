@@ -47,13 +47,12 @@ function buildStops() {
   // Start: on the walkway at the first block's left edge, facing the big black end wall at the entrance end (the loading-screen
   // concrete with the IndianShoes logo in the middle). The next stop (<first brand>:middle) then glides on to the first block.
   const startZ = (CORRIDOR_DEPTH - BAY_DEPTH) / 2 // the middle of that wall, which runs from the back wall to the walkway's front edge
-  stops.push(stop('start', v(first.x0 + 3, EYE, startZ), v(0, 4.2, startZ)))
-  // Second stop: the entrance's black back wall (the one beside the first block), seen straight on from the open entrance floor.
-  stops.push(stop('entrance', v(first.x0 / 2, EYE, -1), v(first.x0 / 2, 4.2, -BAY_DEPTH)))
-  // Third stop: the first block's left face (the big knit wall facing the entrance), straight on, before the tour moves on to the
-  // block's front (<first brand>:middle).
-  // The entrance is only 10 wide, so to stand further back the camera steps out towards the walkway and looks across at the face.
-  stops.push(stop('entrance:block', v(1.5, EYE, 3), v(first.x0, 4.2, -BAY_DEPTH / 2)))
+  stops.push(stop('start', v(13, EYE, startZ), v(0, 4.2, startZ)))
+  // Second stop: the entrance's black back wall (20 wide, like a bay's back wall), seen straight on from the same distance as the bays' back walls.
+  stops.push(stop('entrance', v(first.x0 / 2, EYE, -BAY_DEPTH + BACK_VIEW_DIST), v(first.x0 / 2, 4.2, -BAY_DEPTH)))
+  // Third stop: the first block's left face (the big knit wall facing the entrance), seen from a little way off across the entrance,
+  // before the tour moves on to the block's front (<first brand>:middle).
+  stops.push(stop('entrance:block', v(first.x0 - 12, EYE, 3), v(first.x0, 4.2, -BAY_DEPTH / 2)))
 
   BRANDS.forEach((brand, i) => {
     const { block, bay } = brandSlots(i)
