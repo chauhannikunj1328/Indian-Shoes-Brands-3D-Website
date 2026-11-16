@@ -1,44 +1,37 @@
-import { lazy, Suspense, useCallback, useEffect, useState, useSyncExternalStore } from 'react'
+import { Component, lazy, Suspense, useCallback, useEffect, useState, useSyncExternalStore } from 'react'
 import { buildAffiliateUrl, trackClick } from './affiliate'
 
 // The card shows the shoe's 3D model, turning slowly (drag to turn it), when the shoe has one; the photo shows until the model is
 // ready, and stays for shoes without a model and on phones. The viewer is loaded on demand.
 const ShoeViewer3D = lazy(() => import('./ShoeViewer3D'))
-// The viewer is a SECOND, small WebGL canvas on top of the store's own. Phones can run short of graphics memory, so on a phone:
-//  - the viewer is lighter (see ShoeViewer3D.jsx);
-//  - if the page ever dies or the viewer is dropped while a card is open, the card shows the photo from then on for this visit.
-const PHONE = typeof window !== 'undefined' && window.matchMedia('(max-width: 900px), (pointer: coarse)').matches
-const store = (k, v) => {
-  try {
-    if (v === undefined) return sessionStorage.getItem(k)
-    if (v === null) sessionStorage.removeItem(k)
-    else sessionStorage.setItem(k, v)
-  } catch {
-    return null
+// The viewer is a SECOND, small WebGL canvas on top of the store's own. Phones can run short of graphics memory, so on a phone the
+// viewer is lighter (see ShoeViewer3D.jsx). If the browser drops the viewer (or it fails to start), the card shows the photo with a
+// "Show in 3D" button to try again. Nothing is remembered between visits: every visit starts with the 3D view.
+class ViewerBoundary extends Component {
+  state = { failed: false }
+  static getDerivedStateFromError() {
+    return { failed: true }
   }
-}
-// a normal reload, navigation or closing the tab fires `pagehide`; a page the phone killed for lack of memory does not
-if (PHONE) window.addEventListener('pagehide', () => store('card3d-open', null))
-if (PHONE && store('card3d-open') === '1') {
-  store('card3d-off', '1') // last time a 3D card was open the page died: keep to photos
-  store('card3d-open', null)
+  componentDidCatch() {
+    this.props.onFail?.()
+  }
+  render() {
+    return this.state.failed ? null : this.props.children
+  }
 }
 
 function ShoePicture({ item, brandName }) {
   const [ready, setReady] = useState(false)
   const [failed, setFailed] = useState(false)
+  const [attempt, setAttempt] = useState(0)
   const onReady = useCallback(() => setReady(true), [])
-  const onFail = useCallback(() => {
-    if (PHONE) store('card3d-off', '1')
-    setFailed(true)
-  }, [])
-  const use3d = Boolean(item.model) && !failed && !(PHONE && store('card3d-off') === '1')
-  // while a 3D card is open on a phone, remember it: if the page dies, the next visit uses photos
-  useEffect(() => {
-    if (!PHONE || !use3d) return
-    store('card3d-open', '1')
-    return () => store('card3d-open', null)
-  }, [use3d])
+  const onFail = useCallback(() => setFailed(true), [])
+  const retry = () => {
+    setFailed(false)
+    setReady(false)
+    setAttempt((n) => n + 1)
+  }
+  const use3d = Boolean(item.model) && !failed
   const photo = (
     <img
       className="product-card__img"
@@ -47,13 +40,25 @@ function ShoePicture({ item, brandName }) {
       style={{ opacity: ready ? 0 : 1 }}
     />
   )
-  if (!use3d) return photo
+  if (!use3d)
+    return (
+      <>
+        {photo}
+        {item.model && (
+          <button type="button" className="product-card__retry3d" onClick={retry}>
+            Show in 3D
+          </button>
+        )}
+      </>
+    )
   return (
     <div className="product-card__viewer">
       {photo}
-      <Suspense fallback={null}>
-        <ShoeViewer3D url={item.model} flip={item.modelFlip} onReady={onReady} onFail={onFail} />
-      </Suspense>
+      <ViewerBoundary key={attempt} onFail={onFail}>
+        <Suspense fallback={null}>
+          <ShoeViewer3D url={item.model} flip={item.modelFlip} onReady={onReady} onFail={onFail} />
+        </Suspense>
+      </ViewerBoundary>
     </div>
   )
 }
