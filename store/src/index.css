@@ -147,29 +147,6 @@ body,
 .site-header__icon--wa:hover {
   color: #1da851;
 }
-.site-header__cta {
-  height: 36px;
-  margin-left: 4px;
-  padding: 0 12px;
-  background: transparent !important; /* secondary call-to-action: text only, no button */
-  color: #1f1f1f;
-  font-size: 13px !important;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  white-space: nowrap;
-  transition: color 0.2s;
-}
-.site-header a.site-header__cta {
-  display: inline-flex;
-  align-items: center;
-  text-decoration: none;
-}
-.site-header__cta:hover {
-  color: #000;
-}
-.site-header__cta.is-active {
-  color: #000;
-}
 @media (max-width: 480px) {
   .site-header {
     top: 12px;
@@ -193,13 +170,6 @@ body,
   .site-header__icon {
     width: 32px;
     height: 32px;
-  }
-  .site-header__cta {
-    height: 32px;
-    padding: 0 6px;
-    margin-left: 0;
-    font-size: 12px !important;
-    letter-spacing: 0.01em;
   }
 }
 
@@ -562,8 +532,6 @@ canvas {
 .info-main { max-width: 960px; margin: 0 auto; padding: 92px 20px 64px; } /* room for the floating header */
 .info-page .site-header a { text-decoration: none; }
 .info-page .site-header a.site-header__logo { color: #141414; font-size: 16px; font-weight: 400; letter-spacing: 0; } /* exactly what the 3D store's header logo (a button) renders */
-.info-page .site-header a.site-header__cta { color: #1f1f1f; }
-.info-page .site-header a.site-header__cta:hover, .info-page .site-header a.site-header__cta.is-active { color: #000; }
 .info-page .site-header a.site-header__enquire { display: inline-flex; align-items: center; color: #fff; }
 .info-page { scroll-behavior: smooth; }
 .info-page h2[id] { scroll-margin-top: 90px; }
@@ -750,10 +718,6 @@ canvas {
   color: #555;
 }
 @media (max-width: 480px) {
-  /* phones: "For Brands" lives in the drawer; the bar keeps the wordmark, speaker, Get a store and the menu button */
-  .site-header a.site-header__cta {
-    display: none;
-  }
 }
 /* the info pages' tables, plan cards and brand cards */
 .info-grid--brands { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
@@ -768,3 +732,8 @@ canvas {
 .info-table th, .info-table td { text-align: left; padding: 10px 8px; border-bottom: 1px solid rgba(0, 0, 0, 0.07); }
 .info-table tbody tr:last-child th, .info-table tbody tr:last-child td { border-bottom: 0; }
 .info-table thead th { font-size: 13px; color: #555; }
+
+.menu-drawer__soon { margin-left: 8px; padding: 2px 8px; border-radius: 999px; background: rgba(0, 0, 0, 0.07); font-size: 11px; font-weight: 600; letter-spacing: 0.04em; vertical-align: middle; color: #555; }
+.info-soon { padding: 8vh 0 6vh; }
+.info-soon__tag { display: inline-block; margin: 0 0 12px; padding: 4px 12px; border-radius: 999px; background: #111; color: #fff; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+.info-soon h1 { margin-top: 0; }

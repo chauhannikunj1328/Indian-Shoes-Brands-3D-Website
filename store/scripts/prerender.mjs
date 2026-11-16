@@ -15,7 +15,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { BRANDS, CTA, brandStatusNote } from '../src/brands.js'
-import { INFO_PAGES, NAV, EMAIL, WHATSAPP_BASE } from '../src/content/pages.js'
+import { INFO_PAGES, NAV, isSoon, EMAIL, WHATSAPP_BASE } from '../src/content/pages.js'
 import { buildAffiliateUrl, buildShopUrl } from '../src/affiliate.js'
 import { SITE, BRAND_SEO, DISCLOSURE } from '../seo/config.mjs'
 
@@ -152,10 +152,10 @@ const crumbsHtml = (items) =>
   `<nav aria-label="Breadcrumb"><ol>${items
     .map(([name, p], i) => (i === items.length - 1 ? `<li aria-current="page">${esc(name)}</li>` : `<li><a href="${p}">${esc(name)}</a></li>`))
     .join('')}</ol></nav>`
-const siteNav = `<nav aria-label="Main"><ul><li><a href="/">IndianShoes 3D store</a></li><li><a href="/brands">All brands</a></li><li><a href="/for-brands">For brands</a></li><li><a href="/pricing">Pricing</a></li><li><a href="/about">About</a></li><li><a href="/contact">Contact</a></li><li><a href="/faq">FAQ</a></li>${brands
+const siteNav = `<nav aria-label="Main"><ul><li><a href="/">IndianShoes 3D store</a></li><li><a href="/for-brands">For brands</a></li>${brands
   .map((b) => `<li><a href="${b.path}">${esc(b.name)} sneakers</a></li>`)
   .join('')}</ul></nav>`
-const footerHtml = `<footer><p>${esc(DISCLOSURE)}</p><nav aria-label="Footer"><ul>${NAV.flatMap((g) => g.items).filter(([, h]) => h !== '/').map(([label, h]) => `<li><a href="${h}">${esc(label)}</a></li>`).join('')}</ul></nav><p>Contact: <a href="mailto:${CTA.email}">${CTA.email}</a></p></footer>`
+const footerHtml = `<footer><p>${esc(DISCLOSURE)}</p><nav aria-label="Footer"><ul>${NAV.flatMap((g) => g.items).filter(([, h]) => h !== '/' && !isSoon(h)).map(([label, h]) => `<li><a href="${h}">${esc(label)}</a></li>`).join('')}</ul></nav><p>Contact: <a href="mailto:${CTA.email}">${CTA.email}</a></p></footer>`
 const shell = (inner) => `<div id="seo-content" class="seo-content"><header><p><a href="/">${SITE.name}</a>: ${esc(SITE.tagline)}</p>${siteNav}</header><main>${inner}</main>${footerHtml}</div>`
 const shoeLinks = (list) => `<ul>${list.map((s) => `<li><a href="${shoePath(s)}">${esc(clean(s.title))}</a>, ${inr(s.price_inr)}</li>`).join('')}</ul>`
 
@@ -480,6 +480,16 @@ const render = (p) =>
     .replace('<!--seo-head-->', headFor(p))
     .replace('<!--seo-body-->', p.body)
 
+// pages flagged `soon: true` in src/content/pages.js: a plain "Coming soon" page, kept out of search (noindex, no sitemap line)
+for (const p of pages) {
+  if (!isSoon(p.path)) continue
+  p.title = `Coming soon | ${SITE.name}`
+  p.description = `This page is coming soon. Walk through the ${SITE.name} 3D sneaker store in the meantime.`
+  p.jsonld = []
+  p.noindex = true
+  p.body = shell(`<h1>Coming soon</h1><p>This page is not ready yet. <a href="/">Walk through the ${SITE.name} 3D store</a> or email <a href="mailto:${EMAIL}">${EMAIL}</a>.</p>`)
+}
+
 for (const p of pages) {
   write(p.path === '/' ? 'index.html' : path.join(p.path, 'index.html'), render(p))
 }
@@ -500,7 +510,7 @@ write(
 )
 
 // sitemap
-const urls = pages.map((p) => abs(p.path === '/' ? '/' : p.path))
+const urls = pages.filter((p) => !p.noindex).map((p) => abs(p.path === '/' ? '/' : p.path))
 write(
   'sitemap.xml',
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls
@@ -522,6 +532,20 @@ const factLines = [
   `- Brands shown here are independent listings unless marked as a partner: ${brands.map((b) => b.note).join(' ')}`,
   `- Contact: ${CTA.email}`,
 ]
+// the pages that are open (pages flagged `soon` are left out until they go live)
+const openPageLines = [
+  ['/brands', 'All brands', 'the brands on display'],
+  ['/pricing', 'Pricing', 'plans for brands (pilot, monthly, premium placement); prices are quoted per brand'],
+  ['/sample-report', 'Sample report', 'an illustrative monthly report (made-up numbers)'],
+  ['/about', 'About', 'what IndianShoes is and how it works'],
+  ['/contact', 'Contact', 'WhatsApp and email'],
+  ['/faq', 'FAQ', 'common questions from shoppers and brands'],
+  ['/affiliate-disclosure', 'Affiliate disclosure', 'how affiliate links and sponsored placements work'],
+  ['/remove-or-update', 'Remove or update a listing', 'how brand owners can change or remove their listing'],
+]
+  .filter(([path]) => !isSoon(path))
+  .map(([path, label, text]) => `- [${label}](${abs(path)}): ${text}`)
+
 const llms = [
   `# ${SITE.name}`,
   '',
@@ -540,15 +564,8 @@ const llms = [
   '## Main pages',
   '',
   `- [Home: the 3D store](${abs('/')}): the interactive store; each page below opens it at that brand or shoe`,
-  `- [All brands](${abs('/brands')}): the brands on display`,
   `- [For brands](${abs('/for-brands')}): what IndianShoes offers sneaker brands (a 3D store, search-ready pages, click reports) and how to get in touch`,
-  `- [Pricing](${abs('/pricing')}): plans for brands (pilot, monthly, premium placement); prices are quoted per brand`,
-  `- [Sample report](${abs('/sample-report')}): an illustrative monthly report (made-up numbers)`,
-  `- [About](${abs('/about')}): what IndianShoes is and how it works`,
-  `- [Contact](${abs('/contact')}): WhatsApp and email`,
-  `- [FAQ](${abs('/faq')}): common questions from shoppers and brands`,
-  `- [Affiliate disclosure](${abs('/affiliate-disclosure')}): how affiliate links and sponsored placements work`,
-  `- [Remove or update a listing](${abs('/remove-or-update')}): how brand owners can change or remove their listing`,
+  ...openPageLines,
   `- [Sitemap](${abs('/sitemap.xml')}): every page, including one page per sneaker`,
   '',
   '## Optional',

@@ -14,6 +14,8 @@ export const EMAIL = CTA.email
 export const WHATSAPP_NUMBER = CTA.whatsapp.number
 export const WHATSAPP_BASE = CTA.whatsapp.link.split('?')[0] // https://wa.me/91XXXXXXXXXX
 
+export const isSoon = (path) => Boolean(INFO_PAGES[path]?.soon)
+
 // The site map used by the menu drawer (src/MenuDrawer.jsx) and the footer.
 export const NAV = [
   { h: 'Explore', items: [['3D store', '/'], ['Brands', '/brands']] },
@@ -118,6 +120,7 @@ export const INFO_PAGES = {
 
 
   '/brands': {
+    soon: true, // not ready yet: the page shows "Coming soon" and is kept out of search. Remove this line to publish it.
     title: 'Indian sneaker brands in the 3D store | IndianShoes',
     description: 'The Indian sneaker brands you can walk through in the IndianShoes 3D store: Neemans, Comet, Gully Labs and Bond Street. Open a brand to see its sneakers and prices.',
     h1: 'Indian sneaker brands in the 3D store',
@@ -130,6 +133,7 @@ export const INFO_PAGES = {
   },
 
   '/pricing': {
+    soon: true, // not ready yet: the page shows "Coming soon" and is kept out of search. Remove this line to publish it.
     title: 'Pricing for brands: 3D store plans | IndianShoes',
     description: 'Plans for Indian sneaker brands: a short pilot, a monthly plan and premium placement in the IndianShoes 3D store. Prices are agreed in writing before any work starts.',
     h1: 'Plans for brands',
@@ -176,6 +180,7 @@ export const INFO_PAGES = {
   },
 
   '/sample-report': {
+    soon: true, // not ready yet: the page shows "Coming soon" and is kept out of search. Remove this line to publish it.
     title: 'Sample monthly report for brands | IndianShoes',
     description: 'See the kind of monthly report a brand gets from IndianShoes: clicks per shoe, top shoes and search visibility. The numbers on this page are made up, for illustration only.',
     h1: 'What a monthly report looks like',
@@ -209,6 +214,7 @@ export const INFO_PAGES = {
   },
 
   '/about': {
+    soon: true, // not ready yet: the page shows "Coming soon" and is kept out of search. Remove this line to publish it.
     title: 'About IndianShoes: a 3D store for Indian sneaker brands',
     description: 'IndianShoes is a 3D virtual sneaker store for Indian brands. We do not sell shoes: every Buy button goes to the brand’s own website. Learn how it works and who it is for.',
     h1: 'About IndianShoes',
@@ -239,6 +245,7 @@ export const INFO_PAGES = {
   },
 
   '/contact': {
+    soon: true, // not ready yet: the page shows "Coming soon" and is kept out of search. Remove this line to publish it.
     title: 'Contact IndianShoes',
     description: 'Contact IndianShoes by WhatsApp or email: ask about a 3D store for your brand, report a wrong price, or ask us to update or remove a listing.',
     h1: 'Contact us',
@@ -259,6 +266,7 @@ export const INFO_PAGES = {
   },
 
   '/faq': {
+    soon: true, // not ready yet: the page shows "Coming soon" and is kept out of search. Remove this line to publish it.
     title: 'IndianShoes FAQ: shoppers and brands',
     description: 'Answers to common questions about IndianShoes: whether it sells shoes, how the 3D store works, affiliate links, prices, and how brands can join.',
     h1: 'Frequently asked questions',
@@ -291,6 +299,7 @@ export const INFO_PAGES = {
   },
 
   '/affiliate-disclosure': {
+    soon: true, // not ready yet: the page shows "Coming soon" and is kept out of search. Remove this line to publish it.
     title: 'Affiliate disclosure | IndianShoes',
     description: 'IndianShoes does not sell shoes. Some Buy links are affiliate links and we may earn a commission at no extra cost to you. Here is how that works and how we label it.',
     h1: 'Affiliate disclosure',
@@ -322,6 +331,7 @@ export const INFO_PAGES = {
   },
 
   '/remove-or-update': {
+    soon: true, // not ready yet: the page shows "Coming soon" and is kept out of search. Remove this line to publish it.
     title: 'Remove or update a listing | IndianShoes',
     description: 'Brand owners: ask IndianShoes to update or remove your brand name, logo, photos or shoe listings. Email or message us and we act promptly.',
     h1: 'Remove or update a listing',

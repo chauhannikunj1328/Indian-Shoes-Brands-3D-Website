@@ -6,9 +6,10 @@ import MenuDrawer from './MenuDrawer'
 
 // Top glass header (same frosted glass as the bottom tour bar):
 //   left:  the इंडियनShoes wordmark - back to the store entrance
-//   right: music speaker, a "Get a 3D store" button (jumps to the enquiry wall with the WhatsApp / email options) and "For Brands"
+//   right: music speaker, the "Get a 3D store" button (jumps to the enquiry wall with the WhatsApp / email options) and the menu button;
+//          "For Brands" and every other page are in the menu drawer only
 // It fades back a little while the camera is walking, so the 3D store stays the hero.
-// Phones: wordmark, speaker and the two buttons (shorter label).
+// Phones: the same, with a shorter button label.
 
 // true for a moment after the camera starts moving
 function useWalking() {
@@ -51,9 +52,6 @@ export default function SiteHeader() {
       </button>
       <nav className="site-header__actions" aria-label="Contact">
         <MusicToggle />
-        <a className="site-header__cta" href="/for-brands">
-          For Brands
-        </a>
         <button type="button" className="site-header__enquire" onClick={() => goTo(STOPS.findIndex((st) => st.name === 'cta'))}>
           <span className="site-header__enquire-long">Get a 3D store</span>
           <span className="site-header__enquire-short">Get a store</span>

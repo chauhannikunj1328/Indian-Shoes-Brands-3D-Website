@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
-import { NAV, EMAIL, WHATSAPP_BASE } from './content/pages.js'
+import { NAV, EMAIL, WHATSAPP_BASE, isSoon } from './content/pages.js'
 
 // The menu button at the right end of the header, and the drawer it opens: every page of the site in groups.
 // On phones the "For Brands" link is hidden from the header bar (CSS) and lives here instead.
@@ -72,6 +72,7 @@ export default function MenuDrawer({ path = '/' }) {
                     <li key={href}>
                       <a href={href} aria-current={href === path ? 'page' : undefined}>
                         {label}
+                        {isSoon(href) && <span className="menu-drawer__soon">Soon</span>}
                       </a>
                     </li>
                   ))}

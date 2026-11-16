@@ -50,7 +50,7 @@ function Root() {
   const first = useRef(true)
   useEffect(() => {
     if (first.current) first.current = false
-    else document.title = isInfoPath(path) ? INFO_PAGES[path].title : STORE_TITLE
+    else document.title = isInfoPath(path) ? (INFO_PAGES[path].soon ? 'Coming soon | IndianShoes' : INFO_PAGES[path].title) : STORE_TITLE
     const id = window.location.hash.slice(1)
     if (!id) return
     let tries = 0

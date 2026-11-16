@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import MusicToggle from './MusicToggle'
 import MenuDrawer from './MenuDrawer'
-import { INFO_PAGES, NAV, EMAIL, WHATSAPP_BASE, WHATSAPP_NUMBER, UPDATED } from './content/pages.js'
+import { INFO_PAGES, NAV, EMAIL, WHATSAPP_BASE, WHATSAPP_NUMBER, UPDATED, isSoon } from './content/pages.js'
 
 // The normal (non-3D) pages: /for-brands, /privacy, /terms. Text lives in src/content/pages.js, which the build also
 // turns into crawlable HTML (scripts/prerender.mjs). No 3D code is loaded here, so these pages are light and fast.
@@ -212,12 +212,34 @@ function Block({ b }) {
   }
 }
 
+// shown instead of any page flagged `soon: true` in content/pages.js
+function ComingSoon() {
+  return (
+    <section className="info-soon">
+      <p className="info-soon__tag">Coming soon</p>
+      <h1>This page is on its way</h1>
+      <p className="info-lead">We are still designing it and will open it soon. In the meantime, walk through the 3D store, or get in touch.</p>
+      <div className="info-actions">
+        <a className="info-btn info-btn--primary" href="/">
+          Walk through the 3D store
+        </a>
+        <a className="info-btn" href={waHref("Hi! I'd like to know more about a 3D store for my brand on IndianShoes.")} target="_blank" rel="noopener">
+          Message us on WhatsApp
+        </a>
+        <a className="info-btn" href={`mailto:${EMAIL}`}>
+          Email us
+        </a>
+      </div>
+    </section>
+  )
+}
+
 export default function InfoPage({ path }) {
   const page = INFO_PAGES[path]
   const date = page.updated ? new Date(page.updated).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' }) : null
   return (
     <div className="info-page">
-      {/* the same floating glass header as the 3D store: wordmark left, "For Brands" (text) and the black "Get a 3D store" button right */}
+      {/* the same floating glass header as the 3D store: wordmark left; speaker, the black "Get a 3D store" button and the menu button right (every other page is in the drawer) */}
       <header className="site-header">
         <a className="site-header__logo" href="/" aria-label="IndianShoes: back to the 3D store">
           <span lang="hi" className="site-header__word site-header__word--hi">
@@ -229,9 +251,6 @@ export default function InfoPage({ path }) {
         </a>
         <nav className="site-header__actions" aria-label="Main">
           <MusicToggle />
-          <a className={`site-header__cta${path === '/for-brands' ? ' is-active' : ''}`} href="/for-brands" aria-current={path === '/for-brands' ? 'page' : undefined}>
-            For Brands
-          </a>
           <a className="site-header__enquire" href="/contact">
             <span className="site-header__enquire-long">Get a 3D store</span>
             <span className="site-header__enquire-short">Get a store</span>
@@ -240,21 +259,27 @@ export default function InfoPage({ path }) {
         </nav>
       </header>
       <main className="info-main">
-        <nav aria-label="Breadcrumb" className="info-crumbs">
-          <a href="/">Home</a> <span aria-hidden="true">/</span> <span aria-current="page">{page.crumb}</span>
-        </nav>
-        <h1>{page.h1}</h1>
-        {date && <p className="info-small">Last updated {date}</p>}
-        {page.blocks.map((b, i) => (
-          <Block b={b} key={i} />
-        ))}
+        {page.soon ? (
+          <ComingSoon />
+        ) : (
+          <>
+            <nav aria-label="Breadcrumb" className="info-crumbs">
+              <a href="/">Home</a> <span aria-hidden="true">/</span> <span aria-current="page">{page.crumb}</span>
+            </nav>
+            <h1>{page.h1}</h1>
+            {date && <p className="info-small">Last updated {date}</p>}
+            {page.blocks.map((b, i) => (
+              <Block b={b} key={i} />
+            ))}
+          </>
+        )}
       </main>
       <footer className="info-footer">
         <p>
           IndianShoes does not sell shoes. Some links are affiliate links: we may earn a commission if you buy through them, at no extra cost to you.
         </p>
         <nav aria-label="Footer">
-          {NAV.flatMap((g) => g.items).map(([label, href]) => (
+          {NAV.flatMap((g) => g.items).filter(([, href]) => !isSoon(href)).map(([label, href]) => (
             <a key={href} href={href}>
               {label}
             </a>
