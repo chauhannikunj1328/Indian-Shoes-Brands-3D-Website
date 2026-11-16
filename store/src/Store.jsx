@@ -1,6 +1,6 @@
-import { Suspense, useMemo } from 'react'
+import { Suspense, useMemo, useState } from 'react'
 import * as THREE from 'three'
-import { useLoader } from '@react-three/fiber'
+import { useFrame, useLoader } from '@react-three/fiber'
 import { MeshReflectorMaterial, Text, useTexture } from '@react-three/drei'
 import {
   BRANDS,
@@ -19,6 +19,7 @@ import {
 import { GapsyCeiling, GapsySun } from './experiments/GapsyLighting' // gapsy experiment
 import HangingSneaker from './Sneaker3D'
 import ShoeWall from './ShoeWall'
+import BrandDisplay from './BrandDisplay'
 import CtaWall from './CtaWall'
 
 // Coordinates: x runs left (entrance, x = 0) to right; z = 0 is the line where the
@@ -881,7 +882,20 @@ function FloorLightBands({ strength = 0.22, color = '#fff4e2' }) {
 //   backLeft / backRight = left / right half of the back wall
 //   right = the right side wall
 // All 3D shoe models load from the start (the shoe photos stand in only while a model downloads).
+// A bay's shoes (the 3D models) are only on screen while the camera is near the bay: they start loading when the camera
+// comes within SHOES_ENTER units and are freed again beyond SHOES_LEAVE. At any time that is one bay, two while walking
+// between them, instead of all ~190 shoes (~480 MB of graphics memory, which crashed phones).
+const SHOES_ENTER = 20
+const SHOES_LEAVE = 26
+
 function BayShelves({ shelves, slot, brand, brandName }) {
+  const [active, setActive] = useState(false)
+  useFrame(({ camera }) => {
+    const x = camera.position.x
+    const d = x < slot.x0 ? slot.x0 - x : x > slot.x1 ? x - slot.x1 : 0
+    if (!active && d < SHOES_ENTER) setActive(true)
+    else if (active && d > SHOES_LEAVE) setActive(false)
+  })
   const bw = slot.x1 - slot.x0
   const place = {
     left: { position: [slot.x0 + 0.01, 0, -BAY_DEPTH / 2 - 0.1], rotation: [0, Math.PI / 2, 0] },
@@ -892,7 +906,11 @@ function BayShelves({ shelves, slot, brand, brandName }) {
   return Object.entries(shelves).map(([where, cfg]) =>
     place[where] ? (
       <group key={where} position={place[where].position} rotation={place[where].rotation}>
-        <ShoeWall {...cfg} brand={brand} brandName={brandName} />
+        {cfg.showcase ? (
+          <BrandDisplay showcase={cfg.showcase} brand={brand} brandName={brandName} active={active} />
+        ) : (
+          <ShoeWall {...cfg} brand={brand} brandName={brandName} active={active} />
+        )}
       </group>
     ) : null,
   )

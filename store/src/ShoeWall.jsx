@@ -1,4 +1,4 @@
-import { Suspense, useMemo, useRef, useState } from 'react'
+import { Suspense, useEffect, useMemo, useRef, useState } from 'react'
 import * as THREE from 'three'
 import { useFrame, useLoader } from '@react-three/fiber'
 import { RoundedBox, Text, useGLTF, useTexture } from '@react-three/drei'
@@ -132,8 +132,33 @@ function ShoeTile({ item, width, frame = '#ffffff' }) {
 // Real 3D shoe (low-poly GLB made from the product photo). Auto-fitted: its longest horizontal side
 // becomes `width`, it stands on the ledge (y = 0), centred, turned `turn` radians so it reads as 3D.
 // `flip` (item.modelFlip) turns it 180 degrees if the toe points the wrong way.
+// The shoe models stream in on their own manager, so the loading screen does not wait for them (it waits for the
+// store itself; shoes appear a moment later, bay by bay, as the visitor gets near).
+const shoeLoading = new THREE.LoadingManager()
+const streamOutsideLoader = (loader) => {
+  loader.manager = shoeLoading
+}
+
 function ShoeModel({ url, width, turn = 0.35, flip = false }) {
-  const { scene } = useGLTF(url)
+  const { scene } = useGLTF(url, false, false, streamOutsideLoader)
+  // when this shoe leaves the screen's neighbourhood, give its geometry and textures back to the graphics card
+  // (phones run out of memory if all ~190 shoes stay resident)
+  useEffect(
+    () => () => {
+      scene.traverse((o) => {
+        if (!o.isMesh) return
+        o.geometry?.dispose()
+        const mats = Array.isArray(o.material) ? o.material : [o.material]
+        for (const m of mats) {
+          if (!m) continue
+          for (const k in m) if (m[k] && m[k].isTexture) m[k].dispose()
+          m.dispose()
+        }
+      })
+      useGLTF.clear(url)
+    },
+    [scene, url],
+  )
   const fitted = useMemo(() => {
     const obj = scene.clone(true)
     let box = new THREE.Box3().setFromObject(obj)
@@ -204,6 +229,7 @@ function HoverLift({ width, height, shadowTex, onSelect, children }) {
         }}
         onClick={(e) => {
           e.stopPropagation()
+          e.nativeEvent.__handled = true // tells ScrollCamera not to also walk to the next stop
           onSelect?.()
         }}
       >
@@ -317,7 +343,7 @@ export default function ShoeWall({
   labelColor = '#5b4630',
   heading, // text on the hanging sign, e.g. "WOMEN"
   sign = {}, // { bg, fg } colours of the hanging sign
-  loadModels = true, // false = show the photos only (3D models load once the visitor gets near)
+  active = true, // false = only the ledges, signs and labels; the shoes are loaded when the visitor gets near (Store.jsx)
   brand, // brand id (e.g. 'comet'): needed for the click-to-buy card + affiliate link
   brandName, // shown on the card's Buy button
   tileFrame = '#ffffff', // frame colour for photo tiles (items with tile: true)
@@ -352,26 +378,29 @@ export default function ShoeWall({
                 <planeGeometry args={[step * 0.9, 0.4]} />
                 <meshBasicMaterial map={ledgeShadow} transparent depthWrite={false} />
               </mesh>
-              <group position={[0, 0, ledgeZ]}>
-                <HoverLift
-                  width={item.tile ? shoeWidth * TILE_SCALE : shoeWidth}
-                  height={item.tile ? shoeWidth * TILE_SCALE : shoeWidth / (item.aspect || 2)}
-                  shadowTex={shadowTex}
-                  onSelect={item.url && brand ? () => selectShoe({ brand, brandName, item }) : undefined}
-                >
-                {item.tile ? (
-                  // brand photo shown as a framed tile (for brands without clean shoe cut-outs)
-                  <ShoeTile item={item} width={shoeWidth * TILE_SCALE} frame={tileFrame} />
-                ) : item.model && loadModels ? (
-                  // real 3D shoe; the photo shows while the model loads
-                  <Suspense fallback={<Shoe item={item} width={shoeWidth} shadowTex={shadowTex} wallGap={ledgeZ - base} />}>
-                    <ShoeModel url={item.model} width={shoeWidth} flip={item.modelFlip} />
-                  </Suspense>
-                ) : (
-                  <Shoe item={item} width={shoeWidth} shadowTex={shadowTex} wallGap={ledgeZ - base} />
-                )}
-                </HoverLift>
-              </group>
+              {active && (
+                <group position={[0, 0, ledgeZ]}>
+                  <HoverLift
+                    width={item.tile ? shoeWidth * TILE_SCALE : shoeWidth}
+                    height={item.tile ? shoeWidth * TILE_SCALE : shoeWidth / (item.aspect || 2)}
+                    shadowTex={shadowTex}
+                    onSelect={item.url && brand ? () => selectShoe({ brand, brandName, item }) : undefined}
+                  >
+                    {item.tile ? (
+                      // brand photo shown as a framed tile (for brands without clean shoe cut-outs)
+                      <ShoeTile item={item} width={shoeWidth * TILE_SCALE} frame={tileFrame} />
+                    ) : item.model ? (
+                      // real 3D shoe. No photo stand-in: a model is small and arrives in a moment, while photos for
+                      // every shoe would cost hundreds of MB of graphics memory
+                      <Suspense fallback={null}>
+                        <ShoeModel url={item.model} width={shoeWidth} flip={item.modelFlip} />
+                      </Suspense>
+                    ) : (
+                      <Shoe item={item} width={shoeWidth} shadowTex={shadowTex} wallGap={ledgeZ - base} />
+                    )}
+                  </HoverLift>
+                </group>
+              )}
               {/* name + price, on the wall just under the ledge */}
               <Text position={[0, -LEDGE_T - 0.13, base + 0.005]} fontSize={0.075} color={labelColor} anchorX="center" anchorY="middle" maxWidth={step * 0.95} textAlign="center">
                 {`${item.title}\n${inr(item.price_inr)}`}

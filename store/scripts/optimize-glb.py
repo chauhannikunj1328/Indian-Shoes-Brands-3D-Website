@@ -10,7 +10,9 @@
        indices    uint32 -> uint16 when the mesh has fewer than 65536 vertices
   The shape stays the same to well under a millimetre at shelf size.
 
-Run:  python3 store/scripts/optimize-glb.py in.glb out.glb [texture_size]
+Run:  python3 store/scripts/optimize-glb.py in.glb out.glb [texture_size] [triangle_ratio]
+      triangle_ratio < 1 (e.g. 0.4) removes that share of triangles first; a value above 1 (e.g. 7000) caps the triangle count;
+      keeping UVs and normals (needs: pip install meshoptimizer)
 """
 import io
 import json
@@ -63,7 +65,26 @@ def shrink_image(raw, size):
     return out.getvalue(), 'image/jpeg'
 
 
-def optimize(src, dst, size=512):
+def simplify_prim(pos, nrm, uv, idx, ratio):
+    """Remove triangles down to `ratio` of the original with meshoptimizer (attribute-aware, so the texture stays
+    mapped correctly), then keep only the vertices still in use."""
+    import ctypes
+
+    import meshoptimizer as mo
+
+    pos32 = np.ascontiguousarray(pos, np.float32)
+    attrs = np.ascontiguousarray(np.hstack([nrm, uv]), np.float32)
+    weights = np.array([0.6, 0.6, 0.6, 1.5, 1.5], np.float32)  # normals matter, UVs matter more (no texture tearing)
+    idx32 = np.ascontiguousarray(idx, np.uint32)
+    target = max(300, int(len(idx32) * ratio) // 3 * 3)
+    dest = np.zeros(len(idx32), np.uint32)
+    n = mo.simplify_with_attributes(dest, idx32, pos32, attrs, weights, target_index_count=target, target_error=ctypes.c_float(0.03))
+    new_idx = dest[:n]
+    used, inverse = np.unique(new_idx, return_inverse=True)
+    return pos[used], nrm[used], uv[used], inverse.astype(np.uint32)
+
+
+def optimize(src, dst, size=512, ratio=1.0):
     gltf, binc = read_glb(src)
     new_bin = bytearray()
     new_views, new_accessors = [], []
@@ -103,6 +124,14 @@ def optimize(src, dst, size=512):
         for prim in mesh['primitives']:
             attrs = prim['attributes']
             pos = read_accessor(gltf, binc, attrs['POSITION']).astype(np.float64)
+            nrm = read_accessor(gltf, binc, attrs['NORMAL']).astype(np.float64) if 'NORMAL' in attrs else None
+            uv = np.clip(read_accessor(gltf, binc, attrs['TEXCOORD_0']).astype(np.float64), 0, 1) if 'TEXCOORD_0' in attrs else None
+            idx = read_accessor(gltf, binc, prim['indices']).ravel() if 'indices' in prim else None
+            r = ratio
+            if r > 1 and idx is not None:  # a value above 1 means "at most this many triangles"
+                r = min(1.0, r / (len(idx) / 3))
+            if r < 1 and idx is not None and nrm is not None and uv is not None and set(attrs) <= {'POSITION', 'NORMAL', 'TEXCOORD_0'}:
+                pos, nrm, uv, idx = simplify_prim(pos, nrm, uv, idx, r)
             lo, hi = pos.min(0), pos.max(0)
             center = (lo + hi) / 2
             scale = np.maximum((hi - lo) / 2 / 32767.0, 1e-9)
@@ -112,14 +141,12 @@ def optimize(src, dst, size=512):
             new_attrs = {'POSITION': add_accessor(add_view(q4.tobytes(), 8, 34962), SHORT, len(q), 'VEC3',
                                                   mn=q.min(0).tolist(), mx=q.max(0).tolist())}
             quant_for_mesh[mi] = (center.tolist(), scale.tolist())
-            if 'NORMAL' in attrs:
-                nrm = read_accessor(gltf, binc, attrs['NORMAL']).astype(np.float64)
-                nrm /= np.maximum(np.linalg.norm(nrm, axis=1, keepdims=True), 1e-9)
+            if nrm is not None:
+                nrm = nrm / np.maximum(np.linalg.norm(nrm, axis=1, keepdims=True), 1e-9)
                 n4 = np.zeros((len(nrm), 4), np.int8)
                 n4[:, :3] = np.round(nrm * 127).astype(np.int8)
                 new_attrs['NORMAL'] = add_accessor(add_view(n4.tobytes(), 4, 34962), BYTE, len(nrm), 'VEC3', normalized=True)
-            if 'TEXCOORD_0' in attrs:
-                uv = np.clip(read_accessor(gltf, binc, attrs['TEXCOORD_0']).astype(np.float64), 0, 1)
+            if uv is not None:
                 u = np.round(uv * 65535).astype(np.uint16)
                 new_attrs['TEXCOORD_0'] = add_accessor(add_view(u.tobytes(), 4, 34962), USHORT, len(u), 'VEC2', normalized=True)
             for k, v in attrs.items():  # anything else is copied unchanged
@@ -129,8 +156,7 @@ def optimize(src, dst, size=512):
                     new_attrs[k] = add_accessor(add_view(arr.tobytes(), None, 34962), a['componentType'], a['count'], a['type'],
                                                 a.get('normalized', False))
             prim['attributes'] = new_attrs
-            if 'indices' in prim:
-                idx = read_accessor(gltf, binc, prim['indices']).ravel()
+            if idx is not None:
                 if len(pos) < 65536:
                     idx = idx.astype(np.uint16)
                     prim['indices'] = add_accessor(add_view(idx.tobytes(), None, 34963), USHORT, len(idx), 'SCALAR')
@@ -168,4 +194,4 @@ def optimize(src, dst, size=512):
 
 
 if __name__ == '__main__':
-    optimize(sys.argv[1], sys.argv[2], int(sys.argv[3]) if len(sys.argv) > 3 else 512)
+    optimize(sys.argv[1], sys.argv[2], int(sys.argv[3]) if len(sys.argv) > 3 else 512, float(sys.argv[4]) if len(sys.argv) > 4 else 1.0)

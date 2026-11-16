@@ -48,6 +48,11 @@ export function buildAffiliateUrl(brand, item) {
   return u.toString()
 }
 
+// The same affiliate treatment for a brand's product-list page (the shop button under a brand display).
+export function buildShopUrl(brand, url) {
+  return buildAffiliateUrl(brand, { handle: 'shop-all', url })
+}
+
 // Called when someone clicks Buy. Never blocks the navigation.
 export function trackClick(brand, item) {
   const payload = { brand, handle: item.handle, title: item.title, price: item.price_inr, url: item.url, ts: Date.now() }

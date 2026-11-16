@@ -21,7 +21,7 @@ const FOV_LANDSCAPE = 55
 const FOV_PORTRAIT = 72
 const ASPECT_WIDE = 1.2 // at this aspect or wider: no change
 const ASPECT_NARROW = 0.5 // at this aspect or narrower: full portrait fov
-const MIN_COVER = 12.5 // world units of width we want to see at the target (a whole block, or half a shoe wall, + margin)
+const MIN_COVER = 14 // world units of width we want to see at the target (a whole block, or half a shoe wall, + margin)
 const MAX_BACKOFF = 1.9
 
 export default function ScrollCamera() {
@@ -49,7 +49,8 @@ export default function ScrollCamera() {
       touchY = y
     }
     // click / tap on the scene = next stop (a swipe that ends on the scene doesn't count as a tap)
-    const onClick = () => {
+    const onClick = (e) => {
+      if (e.__handled) return // a shoe or button in the scene took this click
       if (swiped) return (swiped = false)
       next()
     }
@@ -67,7 +68,7 @@ export default function ScrollCamera() {
 
     // dev only: drive the tour from the console for testing
     //   window.__storeStop(n)  -> go to stop n (0 = start)     window.__storeStops -> list of stop names
-    if (import.meta.env.DEV) {
+    if (import.meta.env.DEV || window.location.search.includes('debug3d')) {
       window.__storeStop = goTo
       window.__storeStops = STOPS.map((s, n) => `${n}: ${s.name}`)
     }

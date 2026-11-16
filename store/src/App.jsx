@@ -11,6 +11,11 @@ import SiteHeader from './SiteHeader'
 import { applyRoute } from './routes'
 import { GAPSY_AMBIENT } from './experiments/GapsyLighting' // gapsy experiment
 
+// phones and tablets: a lower pixel density (a 3x phone screen would otherwise draw 9 pixels for every 1) and an
+// automatic reload if the browser still runs out of graphics memory and drops the 3D view
+const SMALL_SCREEN = window.matchMedia('(max-width: 900px), (pointer: coarse)').matches
+const DPR = SMALL_SCREEN ? [1, 1.5] : [1, 2]
+
 const cx = STORE_LENGTH / 2
 const DEFAULT_LIGHT = { ambient: 1.6, hemisphere: 0.9, front: 1.3, fill: 0.45 }
 const LIGHT = EXPERIMENTS.gapsyLighting ? GAPSY_AMBIENT : DEFAULT_LIGHT // gapsy experiment
@@ -25,14 +30,25 @@ export default function App() {
       {/* Neutral tone mapping keeps whites white (the default ACES look greys them out). */}
       <Canvas
         camera={{ position: [2, 4, 8], fov: 55 }} // ScrollCamera sets the real start view on the first frame
+        dpr={DPR}
         gl={{ toneMapping: THREE.NeutralToneMapping }}
         shadows={EXPERIMENTS.gapsyLighting ? 'soft' : false} // gapsy experiment: light bands through the ceiling slots
         // dev only: expose the scene state so the view can be inspected from the console
         onCreated={(state) => {
           // the scene is a picture to assistive tech; the real text is in #seo-content (scripts/prerender.mjs)
+          state.gl.domElement.addEventListener('webglcontextlost', (e) => {
+            e.preventDefault()
+            try {
+              if (sessionStorage.getItem('ctx-reloaded')) return
+              sessionStorage.setItem('ctx-reloaded', '1')
+            } catch {
+              return
+            }
+            setTimeout(() => window.location.reload(), 600)
+          })
           state.gl.domElement.setAttribute('role', 'img')
           state.gl.domElement.setAttribute('aria-label', 'Interactive 3D sneaker store: walk through the Neemans, Comet, Gully Labs and Bond Street bays')
-          if (import.meta.env.DEV) window.__store3d = state.get
+          if (import.meta.env.DEV || window.location.search.includes('debug3d')) window.__store3d = state.get
         }}
       >
         <color attach="background" args={['#f4f4f2']} />

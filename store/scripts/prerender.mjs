@@ -16,7 +16,7 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { BRANDS, CTA, brandStatusNote } from '../src/brands.js'
 import { INFO_PAGES, EMAIL, WHATSAPP_BASE } from '../src/content/pages.js'
-import { buildAffiliateUrl } from '../src/affiliate.js'
+import { buildAffiliateUrl, buildShopUrl } from '../src/affiliate.js'
 import { SITE, BRAND_SEO, DISCLOSURE } from '../seo/config.mjs'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
@@ -41,6 +41,7 @@ const write = (rel, content) => {
 // ---------- data ----------
 const brands = BRANDS.map((b) => {
   const name = b.tabLabel ?? b.name
+  const shop = Object.values(b.bay.shelves).find((c) => c.showcase?.shopUrl)?.showcase ?? null
   const shoes = []
   for (const cfg of Object.values(b.bay.shelves)) {
     const items = JSON.parse(fs.readFileSync(path.join(pub, cfg.list), 'utf8'))
@@ -66,6 +67,7 @@ const brands = BRANDS.map((b) => {
     dearest,
     models: shoes.filter((s) => s.model).length,
     official: seo.site,
+    shop,
     note: brandStatusNote(b),
     range: seo.range,
     path: `/${b.id}`,
@@ -346,6 +348,7 @@ for (const b of brands) {
       <h1>${esc(b.name)} sneakers in the 3D store</h1>
       <p>${esc(brandDescription(b))}</p>
       <p>${esc(b.note)}</p>
+      ${b.shop ? `<p><a href="${esc(buildShopUrl(b.id, b.shop.shopUrl))}" rel="sponsored noopener" target="_blank">${esc(b.shop.shopLabel || `Shop ${b.name}`)}</a>: ${esc(poss(b.name))} full product list on its official website.</p>` : ''}
       <p>${esc(b.name)} makes ${esc(b.range)}. Official website: <a href="${b.official}" rel="noopener">${esc(b.official.replace(/^https?:\/\//, ''))}</a>.</p>
       ${['Women', 'Men']
         .map((g) => ({ g, list: b.shoes.filter((s) => s.gender === g) }))

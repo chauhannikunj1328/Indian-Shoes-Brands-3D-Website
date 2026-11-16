@@ -56,7 +56,25 @@ const ALL_BRANDS = [
       // 24 women + 24 men from neemans.com, same display as the other brands (photos only: no 3D models yet)
       shelves: {
         left: { list: '/brands/neemans/women_wall.json', heading: 'WOMEN', sign: { bg: '#2b2b2b' }, ledgeColor: '#d8cfbd', labelColor: '#3a3a38' },
-        backLeft: { list: '/brands/neemans/women_back.json', heading: 'WOMEN', sign: { bg: '#2b2b2b' }, ledgeColor: '#d8cfbd', labelColor: '#3a3a38' },
+        // The left half of the back wall is a BRAND DISPLAY (video + a shop button) instead of shoes. The women's list below
+      // is kept, so those shoes still have their pages, sitemap entries and llms.txt lines; they are just not on this wall.
+      // To show the brand's film: put the file in public/brands/neemans/ and set `video` (e.g. '/brands/neemans/film.mp4').
+      // Until then the screen shows the brand's logo. Remove `showcase` to put the shoes back on the wall.
+      backLeft: {
+        list: '/brands/neemans/women_back.json',
+        heading: 'WOMEN',
+        sign: { bg: '#2b2b2b' },
+        ledgeColor: '#d8cfbd',
+        labelColor: '#3a3a38',
+        showcase: {
+          video: null, // e.g. '/brands/neemans/film.mp4' (muted, loops, plays while the visitor is near)
+          logo: '/brands/neemans/logo.png', // shown on the screen until a video is set
+          screenColor: '#ebe6dc',
+          shopLabel: 'Shop Neemans',
+          shopUrl: 'https://neemans.com/collections/all', // the brand's product-list page (becomes an affiliate link, affiliate.js)
+          buttonColor: '#2b2b2b',
+        },
+      },
         backRight: { list: '/brands/neemans/men_back.json', heading: 'MEN', sign: { bg: '#2b2b2b' }, ledgeColor: '#d8cfbd', labelColor: '#3a3a38' },
         right: { list: '/brands/neemans/men_right.json', heading: 'MEN', sign: { bg: '#2b2b2b' }, ledgeColor: '#d8cfbd', labelColor: '#3a3a38' },
       },
