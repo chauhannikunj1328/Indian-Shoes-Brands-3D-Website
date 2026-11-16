@@ -79,7 +79,7 @@ const ALL_BRANDS = [
         ledgeColor: '#d8cfbd',
         labelColor: '#3a3a38',
         showcase: {
-          video: null, // e.g. '/brands/neemans/film.mp4' (muted, loops, plays while the visitor is near)
+          video: ['/brands/neemans/film1.mp4', '/brands/neemans/film2.mp4'], // two films, one after the other, then round again (always muted)
           logo: '/brands/neemans/logo.png', // shown on the screen until a video is set
           screenColor: '#ebe6dc',
           shopLabel: 'Shop Neemans',
@@ -143,7 +143,7 @@ const ALL_BRANDS = [
       shelves: {
         left: { list: '/brands/comet/women_wall.json', heading: 'WOMEN', sign: { bg: '#111111' }, ledgeColor: '#EBEF29', labelColor: '#3a3a38' },
         backLeft: { list: '/brands/comet/women_back.json', heading: 'WOMEN', sign: { bg: '#111111' }, ledgeColor: '#EBEF29', labelColor: '#3a3a38',
-          showcase: { video: null, logo: '/brands/comet/logo.png', screenColor: '#EBEF29', shopLabel: 'Shop Comet', shopUrl: 'https://www.wearcomet.com/collections/all' } },
+          showcase: { video: '/brands/comet/film.mp4', logo: '/brands/comet/logo.png', screenColor: '#EBEF29', shopLabel: 'Shop Comet', shopUrl: 'https://www.wearcomet.com/collections/all' } },
         backRight: { list: '/brands/comet/men_back.json', heading: 'MEN', sign: { bg: '#111111' }, ledgeColor: '#EBEF29', labelColor: '#3a3a38' },
         right: { list: '/brands/comet/mixed_right.json', extraLists: ['/brands/comet/men_right.json'], heading: 'MIXED', sign: { bg: '#111111' }, ledgeColor: '#EBEF29', labelColor: '#3a3a38' },
       },
@@ -253,7 +253,7 @@ const ALL_BRANDS = [
       shelves: {
         left: { list: '/brands/gullylabs/women_wall.json', heading: 'WOMEN', sign: { bg: '#1d4fc9' }, ledgeColor: '#1d4fc9', labelColor: '#1b2a6e' },
         backLeft: { list: '/brands/gullylabs/women_back.json', heading: 'WOMEN', sign: { bg: '#1d4fc9' }, ledgeColor: '#1d4fc9', labelColor: '#1b2a6e',
-          showcase: { video: null, logo: '/brands/gullylabs/logo.png', screenColor: '#efece6', shopLabel: 'Shop Gully Labs', shopUrl: 'https://gullylabs.com/collections/all' } },
+          showcase: { video: '/brands/gullylabs/film.mp4', logo: '/brands/gullylabs/logo.png', screenColor: '#efece6', shopLabel: 'Shop Gully Labs', shopUrl: 'https://gullylabs.com/collections/all' } },
         backRight: { list: '/brands/gullylabs/men_back.json', heading: 'MEN', sign: { bg: '#1d4fc9' }, ledgeColor: '#1d4fc9', labelColor: '#1b2a6e' },
         right: { list: '/brands/gullylabs/mixed_right.json', extraLists: ['/brands/gullylabs/men_right.json'], heading: 'MIXED', sign: { bg: '#1d4fc9' }, ledgeColor: '#1d4fc9', labelColor: '#1b2a6e' },
       },
@@ -302,7 +302,7 @@ const ALL_BRANDS = [
       shelves: {
         left: { list: '/brands/bondstreet/men_a.json', heading: 'MEN', sign: { bg: '#1f3a9e' }, ledgeColor: '#1f3a9e', labelColor: '#142a78' },
         backLeft: { list: '/brands/bondstreet/men_b.json', heading: 'MEN', sign: { bg: '#1f3a9e' }, ledgeColor: '#1f3a9e', labelColor: '#142a78',
-          showcase: { video: null, logo: '/brands/bondstreet/logo.png', screenColor: '#1f3a9e', shopLabel: 'Shop Bond Street', shopUrl: 'https://www.bondstreet.in/collections/all' } },
+          showcase: { video: '/brands/bondstreet/film.mp4', logo: '/brands/bondstreet/logo.png', screenColor: '#1f3a9e', shopLabel: 'Shop Bond Street', shopUrl: 'https://www.bondstreet.in/collections/all' } },
         backRight: { list: '/brands/bondstreet/men_c.json', heading: 'MEN', sign: { bg: '#1f3a9e' }, ledgeColor: '#1f3a9e', labelColor: '#142a78' },
         right: { list: '/brands/bondstreet/men_d.json', heading: 'MEN', sign: { bg: '#1f3a9e' }, ledgeColor: '#1f3a9e', labelColor: '#142a78' },
       },

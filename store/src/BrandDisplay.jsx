@@ -1,7 +1,7 @@
 import { Suspense, useEffect, useMemo, useRef, useState } from 'react'
 import * as THREE from 'three'
 import { useFrame } from '@react-three/fiber'
-import { RoundedBox, Text, useTexture, useVideoTexture } from '@react-three/drei'
+import { RoundedBox, Text, useTexture } from '@react-three/drei'
 import { buildShopUrl, trackClick } from './affiliate'
 
 // A brand display for one half of a bay's back wall (instead of a grid of shoes): a screen playing the brand's film
@@ -22,24 +22,65 @@ function fit(aspect) {
   return [w, w / aspect]
 }
 
+// `src` = one video file, or a list of them: the list plays one after another, then starts again from the first (a single file just loops).
+// The videos are ALWAYS muted (the files themselves also carry no sound track).
+// The video element is created, used and torn down inside ONE effect, so there is never more than one live element per screen
+// (leftover elements hold on to the browser's few connections and stop the visible one from loading). It autoplays as soon as it can.
 function VideoScreen({ src, onSize }) {
-  const tex = useVideoTexture(src, { muted: true, loop: true, start: true, playsInline: true, crossOrigin: 'anonymous' })
+  const [tex, setTex] = useState(null)
   useEffect(() => {
-    tex.colorSpace = THREE.SRGBColorSpace
-    const v = tex.image
-    const size = () => v.videoWidth && onSize(v.videoWidth / v.videoHeight)
-    size()
-    v.addEventListener('loadedmetadata', size)
-    return () => {
-      v.removeEventListener('loadedmetadata', size)
-      // let go of the file when the visitor walks away
-      v.pause()
-      v.removeAttribute('src')
-      v.load()
-      tex.dispose()
+    const list = Array.isArray(src) ? src : [src]
+    const video = document.createElement('video')
+    video.muted = true
+    video.defaultMuted = true
+    video.volume = 0
+    video.autoplay = true
+    video.playsInline = true
+    video.crossOrigin = 'anonymous'
+    video.preload = 'auto'
+    video.setAttribute('muted', '')
+    video.setAttribute('playsinline', '')
+    const t = new THREE.VideoTexture(video)
+    t.colorSpace = THREE.SRGBColorSpace
+    if (import.meta.env.DEV) (window.__brandVideos ??= []).push(video) // dev only: lets the console inspect the screens' videos
+    let i = 0
+    const play = () => {
+      video.src = list[i]
+      video.loop = list.length === 1 // one file: loop it; several: move on to the next when this one ends
+      video.play().catch(() => {})
     }
-  }, [tex, onSize])
-  return <meshBasicMaterial map={tex} toneMapped={false} />
+    const onEnded = () => {
+      i = (i + 1) % list.length
+      play()
+    }
+    const size = () => video.videoWidth && onSize(video.videoWidth / video.videoHeight)
+    // always muted: put it straight back if anything ever unmutes it
+    const keepMuted = () => {
+      if (!video.muted || video.volume !== 0) {
+        video.muted = true
+        video.volume = 0
+      }
+    }
+    video.addEventListener('ended', onEnded)
+    video.addEventListener('loadedmetadata', size)
+    video.addEventListener('volumechange', keepMuted)
+    play()
+    setTex(t)
+    return () => {
+      video.removeEventListener('ended', onEnded)
+      video.removeEventListener('loadedmetadata', size)
+      video.removeEventListener('volumechange', keepMuted)
+      // let go of the file when the visitor walks away
+      video.pause()
+      video.removeAttribute('src')
+      video.load()
+      t.dispose()
+      if (import.meta.env.DEV && window.__brandVideos) window.__brandVideos = window.__brandVideos.filter((x) => x !== video)
+      setTex(null)
+    }
+  }, [src, onSize])
+  // a different key = a brand-new material once the video texture exists (three.js does not rebuild a material when a map is added later)
+  return tex ? <meshBasicMaterial key={tex.uuid} map={tex} toneMapped={false} /> : <meshBasicMaterial key="loading" color="#111111" toneMapped={false} />
 }
 
 function LogoScreen({ logo, color, w, h }) {
