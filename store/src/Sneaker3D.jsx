@@ -354,7 +354,7 @@ function GLBSneaker({ url, length, rotation = NO_ROTATION, logoUrl, logoY = -0.0
     obj.traverse((o) => {
       if (o.isMesh) {
         o.castShadow = true
-        o.receiveShadow = true
+        o.receiveShadow = false // self-shadowing on a swaying shoe shimmers (the shadow map is spread over the whole hall)
         if (o.material) o.material.envMapIntensity = 1
       }
     })

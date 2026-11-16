@@ -385,7 +385,7 @@ function HangingRug({ texture, bump, width = 4.8, height = 6, top = 7.1, offset 
   const rodLen = width + 0.4
   return (
     <group position={[0, 0, offset]}>
-      <mesh geometry={geo} position={[0, top - height / 2, 0]} castShadow receiveShadow>
+      <mesh geometry={geo} position={[0, top - height / 2, 0]} castShadow>
         <meshPhysicalMaterial map={rugMap} bumpMap={bumpMap} bumpScale={2.5} roughness={0.92} sheen={0.35} sheenRoughness={0.9} sheenColor="#8a3424" side={THREE.DoubleSide} />
       </mesh>
       {/* fold of the rug looping over the rod */}
