@@ -112,6 +112,14 @@ body,
 .site-header__icon:hover {
   background: rgba(255, 255, 255, 0.55);
 }
+/* the music speaker is a <button>: same look as the icon links */
+.music-toggle {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+}
 .site-header__icon--wa:hover {
   color: #1da851;
 }

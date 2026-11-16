@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { CTA, INTRO } from './brands'
 import { subscribe, getTarget, goTo } from './tour'
+import MusicToggle from './MusicToggle'
 
 // Top glass header (same frosted glass as the bottom tour bar):
 //   left:  the इंडियनShoes wordmark - back to the store entrance
@@ -75,6 +76,7 @@ export default function SiteHeader() {
         ))}
       </button>
       <nav className="site-header__actions" aria-label="Contact">
+        <MusicToggle />
         <a
           className="site-header__icon site-header__icon--wa"
           href={CTA.whatsapp.link}

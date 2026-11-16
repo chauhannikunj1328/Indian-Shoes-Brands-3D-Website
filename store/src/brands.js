@@ -441,6 +441,17 @@ export async function loadProducts(brandId) {
   return list.map((p) => ({ ...p, image: `/brands/${brandId}/${p.file}` }))
 }
 
+// Background music for the whole store (src/MusicToggle.jsx): a mall-lounge track on a loop, with a speaker button in the header.
+// It fades in on the visitor's first click / key press / tap (browsers block sound before that) and the button mutes it.
+// To use a track: put the file in store/public/audio/ and set `src` (e.g. '/audio/mall.mp3'). While `src` is empty there is no
+// button and nothing loads. `credit` shows in the button's tooltip, for tracks whose licence asks for attribution.
+export const MUSIC = {
+  src: null,
+  volume: 0.3, // 0..1, the level it fades up to (soft background level)
+  fadeSeconds: 1.5,
+  credit: '', // e.g. 'Music: Title by Artist (CC BY 4.0)'
+}
+
 // Intro / loading screen (src/Intro.jsx): white logos, two per brand (8 for four brands), travel one continuous 3D
 // path (wave in, tilted ring, wave out), then the IndianShoes wordmark shows with the sliding loading %.
 // One entry per brand here (in store order): the loader shows each twice. A new brand needs a white logo file
