@@ -25,8 +25,17 @@ const EDGE = 1.5 // how far inside a bay edge the camera turns
 
 // On a narrow (portrait / phone) screen a whole 20-unit back wall would make the shoes tiny, so each bay's back wall
 // is shown in two stops: its left half (stop name `<brand>:back`) then its right half (`<brand>:back2`).
-// Decided once when the page loads; ScrollCamera.jsx widens the view and backs the camera off to fit either way.
-const PORTRAIT = typeof window !== 'undefined' && window.innerWidth / Math.max(1, window.innerHeight) < 0.9
+// Decided when the page loads (and the page reloads if the screen later crosses the breakpoint); ScrollCamera.jsx widens the view and backs the camera off to fit either way.
+const isPortrait = () => window.innerWidth / Math.max(1, window.innerHeight) < 0.9
+const PORTRAIT = typeof window !== 'undefined' && isPortrait()
+// If the screen crosses the breakpoint later (phone rotated, window resized), rebuild the tour with the other layout.
+if (typeof window !== 'undefined') {
+  let t
+  window.addEventListener('resize', () => {
+    clearTimeout(t)
+    t = setTimeout(() => isPortrait() !== PORTRAIT && window.location.reload(), 600)
+  })
+}
 
 const v = (x, y, z) => new THREE.Vector3(x, y, z)
 const stop = (name, pos, look) => ({ name, pos, look })

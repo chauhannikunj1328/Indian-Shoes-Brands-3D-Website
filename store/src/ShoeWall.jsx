@@ -402,7 +402,7 @@ export default function ShoeWall({
                 </group>
               )}
               {/* name + price, on the wall just under the ledge */}
-              <Text position={[0, -LEDGE_T - 0.13, base + 0.005]} fontSize={0.075} color={labelColor} anchorX="center" anchorY="middle" maxWidth={step * 0.95} textAlign="center">
+              <Text position={[0, -LEDGE_T - 0.16, base + 0.005]} fontSize={0.115} lineHeight={1.3} color={labelColor} anchorX="center" anchorY="top" maxWidth={step * 0.78} maxLines={3} textAlign="center">
                 {`${item.title}\n${inr(item.price_inr)}`}
               </Text>
             </group>

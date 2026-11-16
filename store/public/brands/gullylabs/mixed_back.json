@@ -1,0 +1,134 @@
+[
+ {
+  "handle": "gully-labs-x-nivia-sova-white",
+  "title": "Gully Labs X Nivia - Sova White",
+  "type": "Sneakers",
+  "price_inr": 2700,
+  "image": "/brands/gullylabs/women_back/gully-labs-x-nivia-sova-white.png",
+  "aspect": 2.055,
+  "url": "https://gullylabs.com/products/gully-labs-x-nivia-sova-white",
+  "model": "/brands/gullylabs/models/gully-labs-x-nivia-sova-white.glb",
+  "gender": "Women"
+ },
+ {
+  "handle": "gl001-khoj-green-for-women",
+  "title": "Gully Number 001 - Khoj Green",
+  "type": "Sneakers",
+  "price_inr": 8490,
+  "image": "/brands/gullylabs/women_back/gl001-khoj-green-for-women.png",
+  "aspect": 2.186,
+  "url": "https://gullylabs.com/products/gl001-khoj-green-for-women",
+  "model": "/brands/gullylabs/models/gl001-khoj-green-for-women.glb",
+  "gender": "Women"
+ },
+ {
+  "handle": "filter-kaapi-brown",
+  "title": "Gully Number 001 - Baaz Filter Brown",
+  "type": "Sneakers",
+  "price_inr": 4490,
+  "image": "/brands/gullylabs/men_back/filter-kaapi-brown.png",
+  "aspect": 2.534,
+  "model": "/brands/gullylabs/models/filter-kaapi-brown.glb",
+  "url": "https://gullylabs.com/products/filter-kaapi-brown",
+  "gender": "Men"
+ },
+ {
+  "handle": "gully-number-001-rekhe-brown",
+  "title": "Gully Number 001 – Rekhe Brown",
+  "type": "Sneakers",
+  "price_inr": 8990,
+  "image": "/brands/gullylabs/men_back/gully-number-001-rekhe-brown.png",
+  "aspect": 2.503,
+  "model": "/brands/gullylabs/models/gully-number-001-rekhe-brown.glb",
+  "url": "https://gullylabs.com/products/gully-number-001-rekhe-brown",
+  "gender": "Men"
+ },
+ {
+  "handle": "gully-number-001-manik-red-for-women",
+  "title": "Gully Number 001 - Manik Red",
+  "type": "Sneakers",
+  "price_inr": 6990,
+  "image": "/brands/gullylabs/women_back/gully-number-001-manik-red-for-women.png",
+  "aspect": 2.212,
+  "url": "https://gullylabs.com/products/gully-number-001-manik-red-for-women",
+  "model": "/brands/gullylabs/models/gully-number-001-manik-red-for-women.glb",
+  "gender": "Women"
+ },
+ {
+  "handle": "gl001-kulfi-badaam-women",
+  "title": "Gully Number 001 - Kulfi Badaam",
+  "type": "Sneakers",
+  "price_inr": 6290,
+  "image": "/brands/gullylabs/women_back/gl001-kulfi-badaam-women.png",
+  "aspect": 2.199,
+  "url": "https://gullylabs.com/products/gl001-kulfi-badaam-women",
+  "model": "/brands/gullylabs/models/gl001-kulfi-badaam-women.glb",
+  "gender": "Women"
+ },
+ {
+  "handle": "gully-number-002-gati-beige",
+  "title": "Gully Number 002 – Gati Beige",
+  "type": "Sneakers",
+  "price_inr": 3600,
+  "image": "/brands/gullylabs/men_back/gully-number-002-gati-beige.png",
+  "aspect": 2.605,
+  "model": "/brands/gullylabs/models/gully-number-002-gati-beige.glb",
+  "url": "https://gullylabs.com/products/gully-number-002-gati-beige",
+  "gender": "Men"
+ },
+ {
+  "handle": "gully-number-003-mrida-brown",
+  "title": "Gully Number 003 - Mrida Brown",
+  "type": "Sneakers",
+  "price_inr": 5990,
+  "image": "/brands/gullylabs/men_back/gully-number-003-mrida-brown.png",
+  "aspect": 2.112,
+  "model": "/brands/gullylabs/models/gully-number-003-mrida-brown.glb",
+  "url": "https://gullylabs.com/products/gully-number-003-mrida-brown",
+  "gender": "Men"
+ },
+ {
+  "handle": "gl001-kulfi-pista-women",
+  "title": "Gully Number 001 - Kulfi Pista",
+  "type": "Sneakers",
+  "price_inr": 6290,
+  "image": "/brands/gullylabs/women_back/gl001-kulfi-pista-women.png",
+  "aspect": 2.34,
+  "url": "https://gullylabs.com/products/gl001-kulfi-pista-women",
+  "model": "/brands/gullylabs/models/gl001-kulfi-pista-women.glb",
+  "gender": "Women"
+ },
+ {
+  "handle": "gully-number-001-baaz-noor-yellow-women",
+  "title": "Gully Number 001 - Baaz Noor Yellow",
+  "type": "Sneakers",
+  "price_inr": 4290,
+  "image": "/brands/gullylabs/women_back/gully-number-001-baaz-noor-yellow-women.png",
+  "aspect": 2.526,
+  "url": "https://gullylabs.com/products/gully-number-001-baaz-noor-yellow-women",
+  "model": "/brands/gullylabs/models/gully-number-001-baaz-noor-yellow-women.glb",
+  "gender": "Women"
+ },
+ {
+  "handle": "gully-number-001-baaz-kupi-grey",
+  "title": "Gully Number 001 - Baaz Taal Blue",
+  "type": "Sneakers",
+  "price_inr": 4490,
+  "image": "/brands/gullylabs/men_back/gully-number-001-baaz-kupi-grey.png",
+  "aspect": 2.347,
+  "model": "/brands/gullylabs/models/gully-number-001-baaz-kupi-grey.glb",
+  "url": "https://gullylabs.com/products/gully-number-001-baaz-kupi-grey",
+  "gender": "Men"
+ },
+ {
+  "handle": "gully-number-001-baaz-rapi-burgundy-2",
+  "title": "Gully Number 001 - Baaz Laakh Red",
+  "type": "Sneakers",
+  "price_inr": 4490,
+  "image": "/brands/gullylabs/men_back/gully-number-001-baaz-rapi-burgundy-2.png",
+  "aspect": 2.409,
+  "model": "/brands/gullylabs/models/gully-number-001-baaz-rapi-burgundy-2.glb",
+  "url": "https://gullylabs.com/products/gully-number-001-baaz-rapi-burgundy-2",
+  "gender": "Men"
+ }
+]

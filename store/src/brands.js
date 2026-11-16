@@ -59,6 +59,7 @@ const ALL_BRANDS = [
         // The left half of the back wall is a BRAND DISPLAY (video + a shop button) instead of shoes. The women's list below
       // is kept, so those shoes still have their pages, sitemap entries and llms.txt lines; they are just not on this wall.
       // To show the brand's film: put the file in public/brands/neemans/ and set `video` (e.g. '/brands/neemans/film.mp4').
+      // The right half is MIXED: 6 women's (left two columns) + 6 men's (right two); the other men's stay in the data via `extraLists`.
       // Until then the screen shows the brand's logo. Remove `showcase` to put the shoes back on the wall.
       backLeft: {
         list: '/brands/neemans/women_back.json',
@@ -75,7 +76,7 @@ const ALL_BRANDS = [
           buttonColor: '#2b2b2b',
         },
       },
-        backRight: { list: '/brands/neemans/men_back.json', heading: 'MEN', sign: { bg: '#2b2b2b' }, ledgeColor: '#d8cfbd', labelColor: '#3a3a38' },
+        backRight: { list: '/brands/neemans/mixed_back.json', extraLists: ['/brands/neemans/men_back.json'], heading: 'MIXED', sign: { bg: '#2b2b2b' }, ledgeColor: '#d8cfbd', labelColor: '#3a3a38' },
         right: { list: '/brands/neemans/men_right.json', heading: 'MEN', sign: { bg: '#2b2b2b' }, ledgeColor: '#d8cfbd', labelColor: '#3a3a38' },
       },
     },
@@ -130,8 +131,9 @@ const ALL_BRANDS = [
       // ledges in Comet yellow (src/ShoeWall.jsx; add panelTexture for a wood backboard)
       shelves: {
         left: { list: '/brands/comet/women_wall.json', heading: 'WOMEN', sign: { bg: '#111111' }, ledgeColor: '#EBEF29', labelColor: '#3a3a38' },
-        backLeft: { list: '/brands/comet/women_back.json', heading: 'WOMEN', sign: { bg: '#111111' }, ledgeColor: '#EBEF29', labelColor: '#3a3a38' },
-        backRight: { list: '/brands/comet/men_back.json', heading: 'MEN', sign: { bg: '#111111' }, ledgeColor: '#EBEF29', labelColor: '#3a3a38' },
+        backLeft: { list: '/brands/comet/women_back.json', heading: 'WOMEN', sign: { bg: '#111111' }, ledgeColor: '#EBEF29', labelColor: '#3a3a38',
+          showcase: { video: null, logo: '/brands/comet/logo.png', screenColor: '#EBEF29', shopLabel: 'Shop Comet', shopUrl: 'https://www.wearcomet.com/collections/all' } },
+        backRight: { list: '/brands/comet/mixed_back.json', extraLists: ['/brands/comet/men_back.json'], heading: 'MIXED', sign: { bg: '#111111' }, ledgeColor: '#EBEF29', labelColor: '#3a3a38' },
         right: { list: '/brands/comet/men_right.json', heading: 'MEN', sign: { bg: '#111111' }, ledgeColor: '#EBEF29', labelColor: '#3a3a38' },
       },
     },
@@ -239,8 +241,9 @@ const ALL_BRANDS = [
       // 24 women + 24 men from gullylabs.com, same display as Comet, with Gully-blue sign + ledges
       shelves: {
         left: { list: '/brands/gullylabs/women_wall.json', heading: 'WOMEN', sign: { bg: '#1d4fc9' }, ledgeColor: '#1d4fc9', labelColor: '#1b2a6e' },
-        backLeft: { list: '/brands/gullylabs/women_back.json', heading: 'WOMEN', sign: { bg: '#1d4fc9' }, ledgeColor: '#1d4fc9', labelColor: '#1b2a6e' },
-        backRight: { list: '/brands/gullylabs/men_back.json', heading: 'MEN', sign: { bg: '#1d4fc9' }, ledgeColor: '#1d4fc9', labelColor: '#1b2a6e' },
+        backLeft: { list: '/brands/gullylabs/women_back.json', heading: 'WOMEN', sign: { bg: '#1d4fc9' }, ledgeColor: '#1d4fc9', labelColor: '#1b2a6e',
+          showcase: { video: null, logo: '/brands/gullylabs/logo.png', screenColor: '#efece6', shopLabel: 'Shop Gully Labs', shopUrl: 'https://gullylabs.com/collections/all' } },
+        backRight: { list: '/brands/gullylabs/mixed_back.json', extraLists: ['/brands/gullylabs/men_back.json'], heading: 'MIXED', sign: { bg: '#1d4fc9' }, ledgeColor: '#1d4fc9', labelColor: '#1b2a6e' },
         right: { list: '/brands/gullylabs/men_right.json', heading: 'MEN', sign: { bg: '#1d4fc9' }, ledgeColor: '#1d4fc9', labelColor: '#1b2a6e' },
       },
     },
@@ -280,7 +283,8 @@ const ALL_BRANDS = [
       label: '#9a9a96',
       shelves: {
         left: { list: '/brands/bondstreet/men_a.json', heading: 'MEN', sign: { bg: '#1f3a9e' }, ledgeColor: '#1f3a9e', labelColor: '#142a78' },
-        backLeft: { list: '/brands/bondstreet/men_b.json', heading: 'MEN', sign: { bg: '#1f3a9e' }, ledgeColor: '#1f3a9e', labelColor: '#142a78' },
+        backLeft: { list: '/brands/bondstreet/men_b.json', heading: 'MEN', sign: { bg: '#1f3a9e' }, ledgeColor: '#1f3a9e', labelColor: '#142a78',
+          showcase: { video: null, logo: '/brands/bondstreet/logo.png', screenColor: '#1f3a9e', shopLabel: 'Shop Bond Street', shopUrl: 'https://www.bondstreet.in/collections/all' } },
         backRight: { list: '/brands/bondstreet/men_c.json', heading: 'MEN', sign: { bg: '#1f3a9e' }, ledgeColor: '#1f3a9e', labelColor: '#142a78' },
         right: { list: '/brands/bondstreet/men_d.json', heading: 'MEN', sign: { bg: '#1f3a9e' }, ledgeColor: '#1f3a9e', labelColor: '#142a78' },
       },

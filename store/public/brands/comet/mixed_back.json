@@ -1,0 +1,134 @@
+[
+ {
+  "handle": "x-lows-malibu",
+  "title": "X Lows MALIBU",
+  "type": "X Lows",
+  "price_inr": 4299,
+  "image": "/brands/comet/women_back/x-lows-malibu.png",
+  "aspect": 2.023,
+  "url": "https://www.wearcomet.com/products/x-lows-malibu",
+  "model": "/brands/comet/models/x-lows-malibu.glb",
+  "gender": "Women"
+ },
+ {
+  "handle": "x-lows-starburst",
+  "title": "X Lows STARBURST",
+  "type": "X Lows",
+  "price_inr": 4299,
+  "image": "/brands/comet/women_back/x-lows-starburst.png",
+  "aspect": 2.0,
+  "url": "https://www.wearcomet.com/products/x-lows-starburst",
+  "model": "/brands/comet/models/x-lows-starburst.glb",
+  "gender": "Women"
+ },
+ {
+  "handle": "aeres-oakwood",
+  "title": "Aeres OAKWOOD",
+  "type": "Aeres",
+  "price_inr": 5299,
+  "image": "/brands/comet/men_back/aeres-oakwood.png",
+  "aspect": 2.249,
+  "url": "https://www.wearcomet.com/products/aeres-oakwood",
+  "model": "/brands/comet/models/aeres-oakwood.glb",
+  "gender": "Men"
+ },
+ {
+  "handle": "aeres-burgundy",
+  "title": "Aeres BURGUNDY",
+  "type": "Aeres",
+  "price_inr": 5299,
+  "image": "/brands/comet/men_back/aeres-burgundy.png",
+  "aspect": 2.336,
+  "url": "https://www.wearcomet.com/products/aeres-burgundy",
+  "model": "/brands/comet/models/aeres-burgundy.glb",
+  "gender": "Men"
+ },
+ {
+  "handle": "x-lows-tiramisu",
+  "title": "X Lows TIRAMISU",
+  "type": "X Lows",
+  "price_inr": 4299,
+  "image": "/brands/comet/women_back/x-lows-tiramisu.png",
+  "aspect": 2.179,
+  "url": "https://www.wearcomet.com/products/x-lows-tiramisu",
+  "model": "/brands/comet/models/x-lows-tiramisu.glb",
+  "gender": "Women"
+ },
+ {
+  "handle": "x-lows-mad-scientist",
+  "title": "X Lows MAD SCIENTIST",
+  "type": "X Lows",
+  "price_inr": 4299,
+  "image": "/brands/comet/women_back/x-lows-mad-scientist.png",
+  "aspect": 2.002,
+  "url": "https://www.wearcomet.com/products/x-lows-mad-scientist",
+  "model": "/brands/comet/models/x-lows-mad-scientist.glb",
+  "gender": "Women"
+ },
+ {
+  "handle": "aeres-noir",
+  "title": "Aeres NOIR",
+  "type": "Aeres",
+  "price_inr": 5299,
+  "image": "/brands/comet/men_back/aeres-noir.png",
+  "aspect": 2.209,
+  "url": "https://www.wearcomet.com/products/aeres-noir",
+  "model": "/brands/comet/models/aeres-noir.glb",
+  "gender": "Men"
+ },
+ {
+  "handle": "aeres-juniper",
+  "title": "Aeres JUNIPER",
+  "type": "Aeres",
+  "price_inr": 5299,
+  "image": "/brands/comet/men_back/aeres-juniper.png",
+  "aspect": 2.318,
+  "url": "https://www.wearcomet.com/products/aeres-juniper",
+  "model": "/brands/comet/models/aeres-juniper.glb",
+  "gender": "Men"
+ },
+ {
+  "handle": "astra-pink-butter",
+  "title": "Astra PINK BUTTER",
+  "type": "Astra",
+  "price_inr": 4899,
+  "image": "/brands/comet/women_back/astra-pink-butter.png",
+  "aspect": 2.25,
+  "url": "https://www.wearcomet.com/products/astra-pink-butter",
+  "model": "/brands/comet/models/astra-pink-butter.glb",
+  "gender": "Women"
+ },
+ {
+  "handle": "astra-chrome-kiss",
+  "title": "Astra CHROME KISS",
+  "type": "Astra",
+  "price_inr": 4899,
+  "image": "/brands/comet/women_back/astra-chrome-kiss.png",
+  "aspect": 2.232,
+  "url": "https://www.wearcomet.com/products/astra-chrome-kiss",
+  "model": "/brands/comet/models/astra-chrome-kiss.glb",
+  "gender": "Women"
+ },
+ {
+  "handle": "x-lows-viper",
+  "title": "X Lows VIPER",
+  "type": "X Lows",
+  "price_inr": 4299,
+  "image": "/brands/comet/men_back/x-lows-viper.png",
+  "aspect": 2.1,
+  "url": "https://www.wearcomet.com/products/x-lows-viper",
+  "model": "/brands/comet/models/x-lows-viper.glb",
+  "gender": "Men"
+ },
+ {
+  "handle": "x-lows-snow",
+  "title": "X Lows SNOW",
+  "type": "X Lows",
+  "price_inr": 4299,
+  "image": "/brands/comet/men_back/x-lows-snow.png",
+  "aspect": 1.897,
+  "url": "https://www.wearcomet.com/products/x-lows-snow",
+  "model": "/brands/comet/models/x-lows-snow.glb",
+  "gender": "Men"
+ }
+]

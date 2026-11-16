@@ -25,8 +25,11 @@ export async function applyRoute() {
   if (!handle) return
   for (const [wall, cfg] of Object.entries(brand.bay.shelves)) {
     try {
-      const items = await (await fetch(cfg.list)).json()
-      const item = items.find((it) => it.handle === handle)
+      let item = null
+      for (const list of [cfg.list, ...(cfg.extraLists ?? [])]) {
+        item = (await (await fetch(list)).json()).find((it) => it.handle === handle)
+        if (item) break
+      }
       if (!item) continue
       const stop = stopForWall(brandId, wall)
       if (stop >= 0) goToInstant(stop)

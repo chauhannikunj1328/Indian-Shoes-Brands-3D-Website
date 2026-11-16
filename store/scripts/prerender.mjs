@@ -43,10 +43,17 @@ const brands = BRANDS.map((b) => {
   const name = b.tabLabel ?? b.name
   const shop = Object.values(b.bay.shelves).find((c) => c.showcase?.shopUrl)?.showcase ?? null
   const shoes = []
-  for (const cfg of Object.values(b.bay.shelves)) {
-    const items = JSON.parse(fs.readFileSync(path.join(pub, cfg.list), 'utf8'))
-    const gender = /women/.test(cfg.list) ? 'Women' : /men/.test(cfg.list) ? 'Men' : null
-    for (const it of items) shoes.push({ ...it, gender, brandId: b.id, brandName: name })
+  const seen = new Set()
+  // every list on the walls, plus `extraLists` (shoes kept in the data but not on a wall). An item may name its own gender (mixed walls).
+  const lists = Object.values(b.bay.shelves).flatMap((cfg) => [cfg.list, ...(cfg.extraLists ?? [])])
+  for (const list of lists) {
+    const items = JSON.parse(fs.readFileSync(path.join(pub, list), 'utf8'))
+    const listGender = /women/.test(list) ? 'Women' : /men/.test(list) ? 'Men' : null
+    for (const it of items) {
+      if (seen.has(it.handle)) continue
+      seen.add(it.handle)
+      shoes.push({ ...it, gender: it.gender ?? listGender, brandId: b.id, brandName: name })
+    }
   }
   const prices = shoes.map((s) => s.price_inr)
   const cheapest = shoes.find((s) => s.price_inr === Math.min(...prices))

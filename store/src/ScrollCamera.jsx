@@ -4,7 +4,7 @@ import { useFrame, useThree } from '@react-three/fiber'
 import { STOPS, SEGMENTS, getTarget, nudge, goTo, next, prev, consumeSnap } from './tour'
 
 // Moves the camera along the tour (stops defined in tour.js).
-// Inputs: mouse wheel / trackpad / touch swipe = glide; click or tap on the scene = next stop;
+// Inputs: mouse wheel / trackpad / touch swipe = glide;
 // arrow keys, Space, Page Up/Down = next / previous stop; Home / End = first / last stop.
 // Between two stops the camera eases in and out, so it settles at each stop.
 
@@ -21,8 +21,8 @@ const FOV_LANDSCAPE = 55
 const FOV_PORTRAIT = 72
 const ASPECT_WIDE = 1.2 // at this aspect or wider: no change
 const ASPECT_NARROW = 0.5 // at this aspect or narrower: full portrait fov
-const MIN_COVER = 14 // world units of width we want to see at the target (a whole block, or half a shoe wall, + margin)
-const MAX_BACKOFF = 1.9
+const MIN_COVER = 17 // world units of width we want to see at the target (a whole block, or half a shoe wall, + margin)
+const MAX_BACKOFF = 2.4
 
 export default function ScrollCamera() {
   const progress = useRef(0) // smoothed position along the tour, 0..1
@@ -48,12 +48,6 @@ export default function ScrollCamera() {
       nudge((touchY - y) * 2.5) // swipe up = go forward
       touchY = y
     }
-    // click / tap on the scene = next stop (a swipe that ends on the scene doesn't count as a tap)
-    const onClick = (e) => {
-      if (e.__handled) return // a shoe or button in the scene took this click
-      if (swiped) return (swiped = false)
-      next()
-    }
     const onKey = (e) => {
       if (['ArrowDown', 'ArrowRight', 'PageDown', ' '].includes(e.key)) next()
       if (['ArrowUp', 'ArrowLeft', 'PageUp'].includes(e.key)) prev()
@@ -64,7 +58,6 @@ export default function ScrollCamera() {
     window.addEventListener('touchstart', onTouchStart, { passive: true })
     window.addEventListener('touchmove', onTouchMove, { passive: true })
     window.addEventListener('keydown', onKey)
-    canvas.addEventListener('click', onClick)
 
     // dev only: drive the tour from the console for testing
     //   window.__storeStop(n)  -> go to stop n (0 = start)     window.__storeStops -> list of stop names
@@ -77,7 +70,6 @@ export default function ScrollCamera() {
       window.removeEventListener('touchstart', onTouchStart)
       window.removeEventListener('touchmove', onTouchMove)
       window.removeEventListener('keydown', onKey)
-      canvas.removeEventListener('click', onClick)
     }
   }, [canvas])
 
