@@ -259,10 +259,11 @@ export default function InfoPage({ path }) {
         </nav>
       </header>
       <main className="info-main">
-        {page.soon ? (
+        {isSoon(path) ? (
           <ComingSoon />
         ) : (
           <>
+            {page.soon && <p className="info-devnote">Local preview only: on the live site this page shows "Coming soon" until you remove <code>soon: true</code> in content/pages.js.</p>}
             <nav aria-label="Breadcrumb" className="info-crumbs">
               <a href="/">Home</a> <span aria-hidden="true">/</span> <span aria-current="page">{page.crumb}</span>
             </nav>

@@ -1,7 +1,7 @@
 import { Component, StrictMode, Suspense, lazy, useEffect, useRef, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import { INFO_PAGES } from './content/pages.js'
+import { INFO_PAGES, isSoon } from './content/pages.js'
 
 // /for-brands, /privacy and /terms are normal light pages; every other address is the 3D store.
 // Each is its own chunk, so the info pages never download the 3D code.
@@ -50,7 +50,7 @@ function Root() {
   const first = useRef(true)
   useEffect(() => {
     if (first.current) first.current = false
-    else document.title = isInfoPath(path) ? (INFO_PAGES[path].soon ? 'Coming soon | IndianShoes' : INFO_PAGES[path].title) : STORE_TITLE
+    else document.title = isInfoPath(path) ? (isSoon(path) ? 'Coming soon | IndianShoes' : INFO_PAGES[path].title) : STORE_TITLE
     const id = window.location.hash.slice(1)
     if (!id) return
     let tries = 0

@@ -737,3 +737,5 @@ canvas {
 .info-soon { padding: 8vh 0 6vh; }
 .info-soon__tag { display: inline-block; margin: 0 0 12px; padding: 4px 12px; border-radius: 999px; background: #111; color: #fff; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
 .info-soon h1 { margin-top: 0; }
+.info-devnote { margin: 0 0 14px; padding: 8px 12px; border-radius: 10px; background: #fff3c4; color: #5a4600; font-size: 13px; }
+.info-devnote code { font-size: 12px; }

@@ -14,7 +14,8 @@ export const EMAIL = CTA.email
 export const WHATSAPP_NUMBER = CTA.whatsapp.number
 export const WHATSAPP_BASE = CTA.whatsapp.link.split('?')[0] // https://wa.me/91XXXXXXXXXX
 
-export const isSoon = (path) => Boolean(INFO_PAGES[path]?.soon)
+// On the live site a page flagged `soon` shows "Coming soon". On your own computer (npm run dev) the real page is shown, so you can design it.
+export const isSoon = (path) => !import.meta.env?.DEV && Boolean(INFO_PAGES[path]?.soon)
 
 // The site map used by the menu drawer (src/MenuDrawer.jsx) and the footer.
 export const NAV = [
