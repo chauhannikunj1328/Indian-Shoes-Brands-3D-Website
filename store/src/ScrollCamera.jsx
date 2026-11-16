@@ -4,7 +4,7 @@ import { useFrame, useThree } from '@react-three/fiber'
 import { STOPS, SEGMENTS, getTarget, nudge, goTo, goToInstant, next, prev, consumeSnap } from './tour'
 
 // Moves the camera along the tour (stops defined in tour.js).
-// Inputs: mouse wheel / trackpad / touch swipe / mouse press-and-drag = glide (a plain click does nothing);
+// Inputs: mouse wheel / trackpad / touch swipe (up-down or left-right) / mouse press-and-drag = glide (a plain click does nothing);
 // arrow keys, Space, Page Up/Down = next / previous stop; Home / End = first / last stop.
 // Between two stops the camera eases in and out, so it settles at each stop.
 
@@ -36,18 +36,31 @@ export default function ScrollCamera({ enabled = true }) {
       e.preventDefault()
       nudge(e.deltaY + e.deltaX) // vertical or horizontal trackpad swipes both move the tour
     }
-    let touchY = null
+    // Touch: swipe up OR left = forward, down OR right = back. The first few pixels of a swipe decide which way it goes
+    // (up/down or left/right) and it keeps to that, so a slightly diagonal swipe does not jitter.
+    let touch = null // { x, y, axis } while a finger is down
     let swiped = false
     const onTouchStart = (e) => {
-      touchY = e.touches[0].clientY
+      touch = { x: e.touches[0].clientX, y: e.touches[0].clientY, axis: null }
       swiped = false
     }
     const onTouchMove = (e) => {
-      if (touchY === null) return
+      if (!touch) return
+      const x = e.touches[0].clientX
       const y = e.touches[0].clientY
-      if (Math.abs(touchY - y) > 2) swiped = true
-      nudge((touchY - y) * 2.5) // swipe up = go forward
-      touchY = y
+      const dx = touch.x - x
+      const dy = touch.y - y
+      if (!touch.axis) {
+        if (Math.hypot(dx, dy) < 6) return
+        touch.axis = Math.abs(dx) > Math.abs(dy) ? 'x' : 'y'
+      }
+      swiped = true
+      nudge((touch.axis === 'x' ? dx : dy) * 2.5)
+      touch.x = x
+      touch.y = y
+    }
+    const onTouchEnd = () => {
+      touch = null
     }
     // Mouse: press, hold and drag to move along the tour (drag left or up = forward, right or down = back).
     // A plain click moves nothing; a click that ends a drag is swallowed so it cannot open a shoe or button by accident.
@@ -95,6 +108,8 @@ export default function ScrollCamera({ enabled = true }) {
     window.addEventListener('wheel', onWheel, { passive: false })
     window.addEventListener('touchstart', onTouchStart, { passive: true })
     window.addEventListener('touchmove', onTouchMove, { passive: true })
+    window.addEventListener('touchend', onTouchEnd, { passive: true })
+    window.addEventListener('touchcancel', onTouchEnd, { passive: true })
     window.addEventListener('keydown', onKey)
     canvas.addEventListener('pointerdown', onPointerDown)
     window.addEventListener('pointermove', onPointerMove)
@@ -114,6 +129,8 @@ export default function ScrollCamera({ enabled = true }) {
       window.removeEventListener('wheel', onWheel)
       window.removeEventListener('touchstart', onTouchStart)
       window.removeEventListener('touchmove', onTouchMove)
+      window.removeEventListener('touchend', onTouchEnd)
+      window.removeEventListener('touchcancel', onTouchEnd)
       window.removeEventListener('keydown', onKey)
       canvas.removeEventListener('pointerdown', onPointerDown)
       window.removeEventListener('pointermove', onPointerMove)
