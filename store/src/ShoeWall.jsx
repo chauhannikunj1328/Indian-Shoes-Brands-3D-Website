@@ -1,3 +1,4 @@
+import { dataUrl } from './dataUrl'
 import { Suspense, useEffect, useMemo, useRef, useState } from 'react'
 import * as THREE from 'three'
 import { useFrame, useLoader } from '@react-three/fiber'
@@ -348,7 +349,7 @@ export default function ShoeWall({
   brandName, // shown on the card's Buy button
   tileFrame = '#ffffff', // frame colour for photo tiles (items with tile: true)
 }) {
-  const data = useLoader(THREE.FileLoader, list)
+  const data = useLoader(THREE.FileLoader, dataUrl(list))
   const items = useMemo(() => JSON.parse(data), [data])
   const shadowTex = useSoftShadowTexture()
   const ledgeShadow = useLedgeShadowTexture()

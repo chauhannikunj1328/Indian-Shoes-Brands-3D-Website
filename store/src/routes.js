@@ -1,5 +1,6 @@
 // Deep links: the build (scripts/prerender.mjs) makes a real page for /<brand> and /<brand>/<shoe>. When one of
 // those URLs loads, the 3D store starts at that brand's logo block, or on the wall holding that shoe with its card open.
+import { dataUrl } from './dataUrl'
 import { BRANDS } from './brands'
 import { STOPS, goToInstant } from './tour'
 import { selectShoe } from './ProductCard'
@@ -27,7 +28,7 @@ export async function applyRoute() {
     try {
       let item = null
       for (const list of [cfg.list, ...(cfg.extraLists ?? [])]) {
-        item = (await (await fetch(list)).json()).find((it) => it.handle === handle)
+        item = (await (await fetch(dataUrl(list))).json()).find((it) => it.handle === handle)
         if (item) break
       }
       if (!item) continue
