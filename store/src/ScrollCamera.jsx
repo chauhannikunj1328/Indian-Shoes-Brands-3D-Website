@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import * as THREE from 'three'
 import { useFrame, useThree } from '@react-three/fiber'
-import { STOPS, SEGMENTS, getTarget, nudge, goTo, next, prev, consumeSnap } from './tour'
+import { STOPS, SEGMENTS, getTarget, nudge, goTo, goToInstant, next, prev, consumeSnap } from './tour'
 
 // Moves the camera along the tour (stops defined in tour.js).
 // Inputs: mouse wheel / trackpad / touch swipe = glide;
@@ -21,8 +21,8 @@ const FOV_LANDSCAPE = 55
 const FOV_PORTRAIT = 72
 const ASPECT_WIDE = 1.2 // at this aspect or wider: no change
 const ASPECT_NARROW = 0.5 // at this aspect or narrower: full portrait fov
-const MIN_COVER = 17 // world units of width we want to see at the target (a whole block, or half a shoe wall, + margin)
-const MAX_BACKOFF = 2.4
+const MIN_COVER = 9.5 // world units of width we want to see at the target (a whole block, or half a shoe wall, + margin)
+const MAX_BACKOFF = 1.6
 
 export default function ScrollCamera() {
   const progress = useRef(0) // smoothed position along the tour, 0..1
@@ -63,6 +63,7 @@ export default function ScrollCamera() {
     //   window.__storeStop(n)  -> go to stop n (0 = start)     window.__storeStops -> list of stop names
     if (import.meta.env.DEV || window.location.search.includes('debug3d')) {
       window.__storeStop = goTo
+      window.__storeStopNow = goToInstant // jump with no travel (for screenshots)
       window.__storeStops = STOPS.map((s, n) => `${n}: ${s.name}`)
     }
     return () => {
