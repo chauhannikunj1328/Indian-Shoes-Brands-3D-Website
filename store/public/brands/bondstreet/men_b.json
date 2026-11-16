@@ -1,122 +1,101 @@
 [
  {
-  "handle": "mens-white-maroon-pu-upper-casual-sneakers",
-  "title": "White & Maroon Casual Sneakers - Bond Street By Redtape",
-  "type": "Sneakers",
-  "price_inr": 1241,
-  "image": "/brands/bondstreet/men_b/mens-white-maroon-pu-upper-casual-sneakers.jpg",
-  "aspect": 1.0,
-  "tile": true,
-  "url": "https://www.bondstreet.in/products/mens-white-maroon-pu-upper-casual-sneakers"
- },
- {
-  "handle": "mens-white-blue-pu-upper-casual-sneakers",
-  "title": "White & Blue Casual Sneakers - Bond Street By Redtape",
-  "type": "Sneakers",
-  "price_inr": 1241,
-  "image": "/brands/bondstreet/men_b/mens-white-blue-pu-upper-casual-sneakers.jpg",
-  "aspect": 1.0,
-  "tile": true,
-  "url": "https://www.bondstreet.in/products/mens-white-blue-pu-upper-casual-sneakers"
- },
- {
   "handle": "mens-white-brown-casual-sneakers-bond-street-by-red-tape",
   "title": "Men's White & Brown Casual Sneakers-Bond Street By Red Tape",
   "type": "Sneakers",
   "price_inr": 1122,
-  "image": "/brands/bondstreet/men_b/mens-white-brown-casual-sneakers-bond-street-by-red-tape.jpg",
-  "aspect": 1.0,
-  "tile": true,
-  "url": "https://www.bondstreet.in/products/mens-white-brown-casual-sneakers-bond-street-by-red-tape"
+  "aspect": 2.182,
+  "url": "https://www.bondstreet.in/products/mens-white-brown-casual-sneakers-bond-street-by-red-tape",
+  "image": "/brands/bondstreet/men_b/mens-white-brown-casual-sneakers-bond-street-by-red-tape.png"
  },
  {
   "handle": "mens-blue-brown-casual-sneakers-1",
   "title": "Men's Blue & Brown Casual Sneakers",
   "type": "Sneakers",
   "price_inr": 1173,
-  "image": "/brands/bondstreet/men_b/mens-blue-brown-casual-sneakers-1.jpg",
-  "aspect": 1.0,
-  "tile": true,
-  "url": "https://www.bondstreet.in/products/mens-blue-brown-casual-sneakers-1"
+  "aspect": 2.051,
+  "url": "https://www.bondstreet.in/products/mens-blue-brown-casual-sneakers-1",
+  "image": "/brands/bondstreet/men_b/mens-blue-brown-casual-sneakers-1.png"
  },
  {
   "handle": "mens-white-green-casual-sneakers-2",
   "title": "Men's White & Green Casual Sneakers",
   "type": "Sneakers",
   "price_inr": 1173,
-  "image": "/brands/bondstreet/men_b/mens-white-green-casual-sneakers-2.jpg",
-  "aspect": 1.0,
-  "tile": true,
-  "url": "https://www.bondstreet.in/products/mens-white-green-casual-sneakers-2"
+  "aspect": 2.172,
+  "url": "https://www.bondstreet.in/products/mens-white-green-casual-sneakers-2",
+  "image": "/brands/bondstreet/men_b/mens-white-green-casual-sneakers-2.png"
  },
  {
   "handle": "mens-white-tan-pu-casual-sneakers",
   "title": "Men's Casual Sneakers",
   "type": "Sneakers",
   "price_inr": 1122,
-  "image": "/brands/bondstreet/men_b/mens-white-tan-pu-casual-sneakers.jpg",
-  "aspect": 1.0,
-  "tile": true,
-  "url": "https://www.bondstreet.in/products/mens-white-tan-pu-casual-sneakers"
- },
- {
-  "handle": "mens-white-black-pu-casual-sneakers-1",
-  "title": "Men's White & Black PU Casual Sneakers",
-  "type": "Sneakers",
-  "price_inr": 1122,
-  "image": "/brands/bondstreet/men_b/mens-white-black-pu-casual-sneakers-1.jpg",
-  "aspect": 1.0,
-  "tile": true,
-  "url": "https://www.bondstreet.in/products/mens-white-black-pu-casual-sneakers-1"
+  "aspect": 1.992,
+  "url": "https://www.bondstreet.in/products/mens-white-tan-pu-casual-sneakers",
+  "image": "/brands/bondstreet/men_b/mens-white-tan-pu-casual-sneakers.png"
  },
  {
   "handle": "white-grey-casual-sneakers-bond-street-by-red-tape",
   "title": "White & Grey Casual Sneakers - Bond Street by Red Tape",
   "type": "Sneakers",
   "price_inr": 1121,
-  "image": "/brands/bondstreet/men_b/white-grey-casual-sneakers-bond-street-by-red-tape.jpg",
-  "aspect": 1.0,
-  "tile": true,
-  "url": "https://www.bondstreet.in/products/white-grey-casual-sneakers-bond-street-by-red-tape"
+  "aspect": 2.087,
+  "url": "https://www.bondstreet.in/products/white-grey-casual-sneakers-bond-street-by-red-tape",
+  "image": "/brands/bondstreet/men_b/white-grey-casual-sneakers-bond-street-by-red-tape.png"
  },
  {
   "handle": "mens-white-red-casual-sneakers",
   "title": "Men's White & Red Casual Sneakers - Bond Street By Redtape",
   "type": "Sneakers",
   "price_inr": 1173,
-  "image": "/brands/bondstreet/men_b/mens-white-red-casual-sneakers.jpg",
-  "aspect": 1.0,
-  "tile": true,
-  "url": "https://www.bondstreet.in/products/mens-white-red-casual-sneakers"
+  "aspect": 2.233,
+  "url": "https://www.bondstreet.in/products/mens-white-red-casual-sneakers",
+  "image": "/brands/bondstreet/men_b/mens-white-red-casual-sneakers.png"
  },
  {
   "handle": "mens-black-casual-sneakers-1",
   "title": "Men's Black Casual Sneakers - Bond Street By Redtape",
   "type": "Sneakers",
   "price_inr": 1173,
-  "image": "/brands/bondstreet/men_b/mens-black-casual-sneakers-1.jpg",
-  "aspect": 1.0,
-  "tile": true,
-  "url": "https://www.bondstreet.in/products/mens-black-casual-sneakers-1"
+  "aspect": 2.143,
+  "url": "https://www.bondstreet.in/products/mens-black-casual-sneakers-1",
+  "image": "/brands/bondstreet/men_b/mens-black-casual-sneakers-1.png"
  },
  {
   "handle": "mens-white-black-pu-casual-sneakers",
   "title": "White & Black Casual Sneakers - Bond Street By Redtape",
   "type": "Sneakers",
   "price_inr": 1122,
-  "image": "/brands/bondstreet/men_b/mens-white-black-pu-casual-sneakers.jpg",
-  "aspect": 1.0,
-  "tile": true,
-  "url": "https://www.bondstreet.in/products/mens-white-black-pu-casual-sneakers"
+  "aspect": 2.233,
+  "url": "https://www.bondstreet.in/products/mens-white-black-pu-casual-sneakers",
+  "image": "/brands/bondstreet/men_b/mens-white-black-pu-casual-sneakers.png"
  },
  {
   "handle": "mens-black-pu-casual-sneakers",
   "title": "Black Casual Sneakers - Bond Street By Redtape",
   "type": "Sneakers",
   "price_inr": 1122,
-  "image": "/brands/bondstreet/men_b/mens-black-pu-casual-sneakers.jpg",
-  "aspect": 1.0,
-  "tile": true,
-  "url": "https://www.bondstreet.in/products/mens-black-pu-casual-sneakers"
+  "aspect": 2.115,
+  "url": "https://www.bondstreet.in/products/mens-black-pu-casual-sneakers",
+  "image": "/brands/bondstreet/men_b/mens-black-pu-casual-sneakers.png"
+ },
+ {
+  "handle": "mens-white-blue-casual-sneakers-2",
+  "title": "Men's White & Blue Casual Sneakers - Bond Street By Redtape",
+  "type": "Sneakers",
+  "price_inr": 1122,
+  "aspect": 2.264,
+  "url": "https://www.bondstreet.in/products/mens-white-blue-casual-sneakers-2",
+  "image": "/brands/bondstreet/men_b/mens-white-blue-casual-sneakers-2.png"
+ },
+ {
+  "handle": "mens-white-green-casual-sneakers-3",
+  "title": "Men's White & Green Casual Sneakers - Bond Street By Redtape",
+  "type": "Sneakers",
+  "price_inr": 1122,
+  "aspect": 2.152,
+  "url": "https://www.bondstreet.in/products/mens-white-green-casual-sneakers-3",
+  "image": "/brands/bondstreet/men_b/mens-white-green-casual-sneakers-3.png"
  }
 ]
