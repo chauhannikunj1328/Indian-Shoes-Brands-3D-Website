@@ -1,6 +1,31 @@
-import { useEffect, useSyncExternalStore } from 'react'
-import { buildAffiliateUrl, trackClick, DISCLOSURE } from './affiliate'
-import { BRANDS, brandStatusNote } from './brands'
+import { lazy, Suspense, useCallback, useEffect, useState, useSyncExternalStore } from 'react'
+import { buildAffiliateUrl, trackClick } from './affiliate'
+
+// The card shows the shoe's 3D model, turning slowly (drag to turn it), when the shoe has one; the photo shows until the model is
+// ready, and stays for shoes without a model. The viewer is loaded on demand.
+const ShoeViewer3D = lazy(() => import('./ShoeViewer3D'))
+
+function ShoePicture({ item, brandName }) {
+  const [ready, setReady] = useState(false)
+  const onReady = useCallback(() => setReady(true), [])
+  const photo = (
+    <img
+      className="product-card__img"
+      src={item.image}
+      alt={`${item.title}, a ${brandName} sneaker`}
+      style={{ opacity: ready ? 0 : 1 }}
+    />
+  )
+  if (!item.model) return photo
+  return (
+    <div className="product-card__viewer">
+      {photo}
+      <Suspense fallback={null}>
+        <ShoeViewer3D url={item.model} flip={item.modelFlip} onReady={onReady} />
+      </Suspense>
+    </div>
+  )
+}
 
 // Tiny store: the 3D shoes call selectShoe(); the HTML card below reads it.
 let selected = null
@@ -22,12 +47,10 @@ export default function ProductCard() {
   }, [])
   if (!sel) return null
   const { brand, brandName, item } = sel
-  const b = BRANDS.find((x) => x.id === brand)
-  const statusNote = b ? brandStatusNote(b) : ''
   return (
     <div className="product-card" role="dialog" aria-label={item.title}>
       <button type="button" className="product-card__close" onClick={() => selectShoe(null)} aria-label="Close">×</button>
-      <img className="product-card__img" src={item.image} alt={`${item.title}, a ${brandName} sneaker`} />
+      <ShoePicture key={item.handle} item={item} brandName={brandName} />
       <div className="product-card__brand">{brandName}</div>
       <div className="product-card__title">{item.title}</div>
       <div className="product-card__price">{inr(item.price_inr)}</div>
@@ -40,10 +63,6 @@ export default function ProductCard() {
       >
         Buy on {brandName}
       </a>
-      <div className="product-card__note">
-        {DISCLOSURE}
-        {statusNote && <> {statusNote}</>} <a href="/privacy" target="_blank" rel="noopener">Privacy</a>
-      </div>
     </div>
   )
 }
