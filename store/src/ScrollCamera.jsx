@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import * as THREE from 'three'
 import { useFrame, useThree } from '@react-three/fiber'
-import { STOPS, SEGMENTS, getTarget, nudge, goTo, next, prev } from './tour'
+import { STOPS, SEGMENTS, getTarget, nudge, goTo, next, prev, consumeSnap } from './tour'
 
 // Moves the camera along the tour (stops defined in tour.js).
 // Inputs: mouse wheel / trackpad / touch swipe = glide; click or tap on the scene = next stop;
@@ -84,6 +84,7 @@ export default function ScrollCamera() {
   const dir = useRef(new THREE.Vector3())
 
   useFrame(({ camera }, dt) => {
+    if (consumeSnap()) progress.current = getTarget() // opened on a brand / shoe URL: start there, don't glide
     progress.current = THREE.MathUtils.damp(progress.current, getTarget(), DAMPING, dt)
     const s = progress.current * SEGMENTS
     const i = Math.min(Math.floor(s), SEGMENTS - 1)

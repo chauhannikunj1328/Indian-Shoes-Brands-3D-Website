@@ -484,3 +484,18 @@ canvas {
   background: #ffffff;
   transform-origin: left center;
 }
+
+/* Real page text for search engines, screen readers and no-JavaScript visitors (built by scripts/prerender.mjs).
+   Visually hidden, but present in the page. */
+.seo-content {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}

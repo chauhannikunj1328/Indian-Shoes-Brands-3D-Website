@@ -24,7 +24,7 @@ export default function ProductCard() {
   return (
     <div className="product-card" role="dialog" aria-label={item.title}>
       <button type="button" className="product-card__close" onClick={() => selectShoe(null)} aria-label="Close">×</button>
-      <img className="product-card__img" src={item.image} alt={item.title} />
+      <img className="product-card__img" src={item.image} alt={`${item.title}, a ${brandName} sneaker`} />
       <div className="product-card__brand">{brandName}</div>
       <div className="product-card__title">{item.title}</div>
       <div className="product-card__price">{inr(item.price_inr)}</div>

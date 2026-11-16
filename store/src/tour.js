@@ -97,5 +97,16 @@ export function goTo(n) {
   state.target = THREE.MathUtils.clamp(n, 0, SEGMENTS) / SEGMENTS
   emit()
 }
+// jump without gliding there (used when the page opens on a brand or shoe URL, src/routes.js)
+let snapPending = false
+export function goToInstant(n) {
+  snapPending = true
+  goTo(n)
+}
+export function consumeSnap() {
+  const s = snapPending
+  snapPending = false
+  return s
+}
 export const next = () => goTo(currentStop() + 1)
 export const prev = () => goTo(currentStop() - 1)
