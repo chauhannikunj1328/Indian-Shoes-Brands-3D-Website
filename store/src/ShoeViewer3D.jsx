@@ -38,14 +38,24 @@ function Shoe({ url, flip, onReady }) {
   )
 }
 
-export default function ShoeViewer3D({ url, flip, onReady }) {
+// phones and tablets: a lighter canvas (1x pixels, no edge smoothing, low-power GPU) so it fits beside the store's own 3D view
+const SMALL_SCREEN = typeof window !== 'undefined' && window.matchMedia?.('(max-width: 900px), (pointer: coarse)').matches
+
+export default function ShoeViewer3D({ url, flip, onReady, onFail }) {
   const reduce = typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
   return (
     <Canvas
-      dpr={[1, 2]}
+      dpr={SMALL_SCREEN ? 1 : [1, 2]}
       camera={{ position: [0, 0.5, 5.4], fov: 28 }}
-      gl={{ alpha: true, antialias: true, toneMapping: THREE.NeutralToneMapping }}
+      gl={{ alpha: true, antialias: !SMALL_SCREEN, powerPreference: SMALL_SCREEN ? 'low-power' : 'default', toneMapping: THREE.NeutralToneMapping }}
       style={{ touchAction: 'pan-y' }}
+      onCreated={({ gl }) => {
+        // if the browser drops this view (a phone short of graphics memory), the card goes back to the photo
+        gl.domElement.addEventListener('webglcontextlost', (e) => {
+          e.preventDefault()
+          onFail?.()
+        })
+      }}
     >
       <ambientLight intensity={1.5} />
       <hemisphereLight args={['#ffffff', '#e6e3dd', 0.9]} />

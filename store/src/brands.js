@@ -390,6 +390,15 @@ export const ENTRANCE = {
   },
 }
 
+// The front of the walkway (the side the visitor never turns to face, and that used to be open void): a wall of the same concrete as the
+// entrance's black wall, but in a very light grey (made from entrance_concrete_v2.jpg, shifted light). Set finish: null to leave it open.
+export const FRONT_WALL = {
+  finish: '/textures/front_concrete_light.jpg',
+  finishTile: 5, // world units per texture tile (same fine grain as the entrance wall)
+  baseboard: '#d2d2ce',
+  light: 0.4, // extra light on the wall (it faces away from the store's main light, so it would look mid-grey): 0 = none, 1 = glowing white
+}
+
 // Floor finish. 'glass' = light grey polished glass that reflects the walls; 'concrete' = matte microcement.
 export const FLOOR = {
   style: 'glass',

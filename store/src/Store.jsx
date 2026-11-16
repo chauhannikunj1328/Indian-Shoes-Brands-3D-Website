@@ -12,6 +12,7 @@ import {
   STORE_LENGTH,
   CTA_WALL,
   ENTRANCE,
+  FRONT_WALL,
   ENTRANCE_WIDTH,
   FLOOR,
   EXPERIMENTS,
@@ -943,6 +944,22 @@ export default function Store() {
 
       {/* one long back wall behind every block and bay */}
       <Wall position={[L / 2, 0, backZ]} width={L} />
+      {/* the front of the walkway: a very light grey concrete wall facing into the store (it was open void) */}
+      {FRONT_WALL.finish && (
+        <Suspense fallback={null}>
+          <Panel
+            url={FRONT_WALL.finish}
+            position={[L / 2, WALL_HEIGHT / 2, CORRIDOR_DEPTH - 0.006]}
+            rotationY={Math.PI}
+            w={L}
+            h={WALL_HEIGHT}
+            tile={FRONT_WALL.finishTile}
+            emissive="#ffffff"
+            emissiveIntensity={FRONT_WALL.light}
+          />
+          <TrimBaseboard position={[L / 2, 0, CORRIDOR_DEPTH]} rotationY={Math.PI} width={L} color={FRONT_WALL.baseboard} />
+        </Suspense>
+      )}
       {/* end wall closes the right side (left side stays open = entrance) */}
       <Wall position={[L, 0, slabZ]} rotationY={-Math.PI / 2} width={slabD} />
 
