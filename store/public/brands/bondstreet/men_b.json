@@ -6,7 +6,9 @@
   "price_inr": 1122,
   "aspect": 2.182,
   "url": "https://www.bondstreet.in/products/mens-white-brown-casual-sneakers-bond-street-by-red-tape",
-  "image": "/brands/bondstreet/men_b/mens-white-brown-casual-sneakers-bond-street-by-red-tape.png"
+  "image": "/brands/bondstreet/men_b/mens-white-brown-casual-sneakers-bond-street-by-red-tape.png",
+  "model": "/brands/bondstreet/models/mens-white-brown-casual-sneakers-bond-street-by-red-tape.glb",
+  "modelFlip": true
  },
  {
   "handle": "mens-blue-brown-casual-sneakers-1",
@@ -15,7 +17,9 @@
   "price_inr": 1173,
   "aspect": 2.051,
   "url": "https://www.bondstreet.in/products/mens-blue-brown-casual-sneakers-1",
-  "image": "/brands/bondstreet/men_b/mens-blue-brown-casual-sneakers-1.png"
+  "image": "/brands/bondstreet/men_b/mens-blue-brown-casual-sneakers-1.png",
+  "model": "/brands/bondstreet/models/mens-blue-brown-casual-sneakers-1.glb",
+  "modelFlip": true
  },
  {
   "handle": "mens-white-green-casual-sneakers-2",
@@ -24,7 +28,8 @@
   "price_inr": 1173,
   "aspect": 2.172,
   "url": "https://www.bondstreet.in/products/mens-white-green-casual-sneakers-2",
-  "image": "/brands/bondstreet/men_b/mens-white-green-casual-sneakers-2.png"
+  "image": "/brands/bondstreet/men_b/mens-white-green-casual-sneakers-2.png",
+  "model": "/brands/bondstreet/models/mens-white-green-casual-sneakers-2.glb"
  },
  {
   "handle": "mens-white-tan-pu-casual-sneakers",
@@ -33,7 +38,9 @@
   "price_inr": 1122,
   "aspect": 1.992,
   "url": "https://www.bondstreet.in/products/mens-white-tan-pu-casual-sneakers",
-  "image": "/brands/bondstreet/men_b/mens-white-tan-pu-casual-sneakers.png"
+  "image": "/brands/bondstreet/men_b/mens-white-tan-pu-casual-sneakers.png",
+  "model": "/brands/bondstreet/models/mens-white-tan-pu-casual-sneakers.glb",
+  "modelFlip": true
  },
  {
   "handle": "white-grey-casual-sneakers-bond-street-by-red-tape",
@@ -42,7 +49,9 @@
   "price_inr": 1121,
   "aspect": 2.087,
   "url": "https://www.bondstreet.in/products/white-grey-casual-sneakers-bond-street-by-red-tape",
-  "image": "/brands/bondstreet/men_b/white-grey-casual-sneakers-bond-street-by-red-tape.png"
+  "image": "/brands/bondstreet/men_b/white-grey-casual-sneakers-bond-street-by-red-tape.png",
+  "model": "/brands/bondstreet/models/white-grey-casual-sneakers-bond-street-by-red-tape.glb",
+  "modelFlip": true
  },
  {
   "handle": "mens-white-red-casual-sneakers",
@@ -51,7 +60,9 @@
   "price_inr": 1173,
   "aspect": 2.233,
   "url": "https://www.bondstreet.in/products/mens-white-red-casual-sneakers",
-  "image": "/brands/bondstreet/men_b/mens-white-red-casual-sneakers.png"
+  "image": "/brands/bondstreet/men_b/mens-white-red-casual-sneakers.png",
+  "model": "/brands/bondstreet/models/mens-white-red-casual-sneakers.glb",
+  "modelFlip": true
  },
  {
   "handle": "mens-black-casual-sneakers-1",
@@ -60,7 +71,9 @@
   "price_inr": 1173,
   "aspect": 2.143,
   "url": "https://www.bondstreet.in/products/mens-black-casual-sneakers-1",
-  "image": "/brands/bondstreet/men_b/mens-black-casual-sneakers-1.png"
+  "image": "/brands/bondstreet/men_b/mens-black-casual-sneakers-1.png",
+  "model": "/brands/bondstreet/models/mens-black-casual-sneakers-1.glb",
+  "modelFlip": true
  },
  {
   "handle": "mens-white-black-pu-casual-sneakers",
@@ -69,7 +82,8 @@
   "price_inr": 1122,
   "aspect": 2.233,
   "url": "https://www.bondstreet.in/products/mens-white-black-pu-casual-sneakers",
-  "image": "/brands/bondstreet/men_b/mens-white-black-pu-casual-sneakers.png"
+  "image": "/brands/bondstreet/men_b/mens-white-black-pu-casual-sneakers.png",
+  "model": "/brands/bondstreet/models/mens-white-black-pu-casual-sneakers.glb"
  },
  {
   "handle": "mens-black-pu-casual-sneakers",
@@ -78,7 +92,9 @@
   "price_inr": 1122,
   "aspect": 2.115,
   "url": "https://www.bondstreet.in/products/mens-black-pu-casual-sneakers",
-  "image": "/brands/bondstreet/men_b/mens-black-pu-casual-sneakers.png"
+  "image": "/brands/bondstreet/men_b/mens-black-pu-casual-sneakers.png",
+  "model": "/brands/bondstreet/models/mens-black-pu-casual-sneakers.glb",
+  "modelFlip": true
  },
  {
   "handle": "mens-white-blue-casual-sneakers-2",
@@ -87,7 +103,9 @@
   "price_inr": 1122,
   "aspect": 2.264,
   "url": "https://www.bondstreet.in/products/mens-white-blue-casual-sneakers-2",
-  "image": "/brands/bondstreet/men_b/mens-white-blue-casual-sneakers-2.png"
+  "image": "/brands/bondstreet/men_b/mens-white-blue-casual-sneakers-2.png",
+  "model": "/brands/bondstreet/models/mens-white-blue-casual-sneakers-2.glb",
+  "modelFlip": true
  },
  {
   "handle": "mens-white-green-casual-sneakers-3",
@@ -96,6 +114,8 @@
   "price_inr": 1122,
   "aspect": 2.152,
   "url": "https://www.bondstreet.in/products/mens-white-green-casual-sneakers-3",
-  "image": "/brands/bondstreet/men_b/mens-white-green-casual-sneakers-3.png"
+  "image": "/brands/bondstreet/men_b/mens-white-green-casual-sneakers-3.png",
+  "model": "/brands/bondstreet/models/mens-white-green-casual-sneakers-3.glb",
+  "modelFlip": true
  }
 ]

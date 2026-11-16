@@ -1,11 +1,11 @@
 import { Fragment, useEffect, useRef, useSyncExternalStore } from 'react'
 import { BRANDS } from './brands'
-import { STOPS, SEGMENTS, subscribe, currentStop, next, prev, goTo } from './tour'
+import { STOPS, subscribe, currentStop, goTo } from './tour'
 
 // Bottom glass tab bar: ‹ · [Start · ● ●] · [brand tab · ● ● ●] per brand · ›   (the CTA button lives in the header)
 // Brand tabs jump to that brand's logo block and light up while you're in that brand's part of the tour.
 // The three dots after each tab jump to that brand's three bay walls (left, shoe wall, right).
-// Built from BRANDS, so new brands get a tab + dots. The › arrow still walks on to the enquiry wall.
+// Built from BRANDS, so new brands get a tab + dots.
 
 const firstStopOf = (id) => STOPS.findIndex((s) => s.name.startsWith(`${id}:`))
 const stopIndex = (name) => STOPS.findIndex((s) => s.name === name)
@@ -56,9 +56,6 @@ export default function TourNav() {
 
   return (
     <nav className="tour-nav" aria-label="Store navigation">
-      <button type="button" className="tour-nav__arrow" onClick={prev} disabled={stop === 0} aria-label="Previous stop">
-        ‹
-      </button>
       <div className="tour-nav__brands" ref={brandsRef}>
         {TABS.map((t) => (
           <Fragment key={t.id}>
@@ -86,15 +83,6 @@ export default function TourNav() {
           </Fragment>
         ))}
       </div>
-      <button
-        type="button"
-        className="tour-nav__arrow"
-        onClick={next}
-        disabled={stop === SEGMENTS}
-        aria-label="Next stop"
-      >
-        ›
-      </button>
     </nav>
   )
 }

@@ -10,3 +10,5 @@ __pycache__/
 
 # original full-size 3D shoe downloads (~100 MB); the optimized copies live in store/public/brands/*/models
 assets/models_source/
+assets/models_source_bondstreet/
+assets/models_source_regen/

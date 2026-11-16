@@ -4,7 +4,7 @@ import { useFrame, useThree } from '@react-three/fiber'
 import { STOPS, SEGMENTS, getTarget, nudge, goTo, goToInstant, next, prev, consumeSnap } from './tour'
 
 // Moves the camera along the tour (stops defined in tour.js).
-// Inputs: mouse wheel / trackpad / touch swipe = glide;
+// Inputs: mouse wheel / trackpad / touch swipe / mouse press-and-drag = glide (a plain click does nothing);
 // arrow keys, Space, Page Up/Down = next / previous stop; Home / End = first / last stop.
 // Between two stops the camera eases in and out, so it settles at each stop.
 
@@ -48,6 +48,43 @@ export default function ScrollCamera() {
       nudge((touchY - y) * 2.5) // swipe up = go forward
       touchY = y
     }
+    // Mouse: press, hold and drag to move along the tour (drag left or up = forward, right or down = back).
+    // A plain click moves nothing; a click that ends a drag is swallowed so it cannot open a shoe or button by accident.
+    let drag = null // { x, y, moved } while the mouse button is down on the scene
+    let justDragged = false
+    const DRAG_START = 5 // px of movement before it counts as a drag
+    const onPointerDown = (e) => {
+      if (e.pointerType !== 'mouse' || e.button !== 0) return
+      drag = { x: e.clientX, y: e.clientY, moved: false }
+    }
+    const onPointerMove = (e) => {
+      if (!drag || e.pointerType !== 'mouse') return
+      const dx = e.clientX - drag.x
+      const dy = e.clientY - drag.y
+      if (!drag.moved) {
+        if (Math.hypot(dx, dy) < DRAG_START) return
+        drag.moved = true
+        canvas.style.cursor = 'grabbing'
+      }
+      nudge(-(dx + dy) * 2.5)
+      drag.x = e.clientX
+      drag.y = e.clientY
+    }
+    const onPointerUp = () => {
+      if (!drag) return
+      if (drag.moved) {
+        justDragged = true
+        setTimeout(() => (justDragged = false), 0)
+        canvas.style.cursor = ''
+      }
+      drag = null
+    }
+    const swallowClickAfterDrag = (e) => {
+      if (justDragged) {
+        e.stopPropagation()
+        e.preventDefault()
+      }
+    }
     const onKey = (e) => {
       if (['ArrowDown', 'ArrowRight', 'PageDown', ' '].includes(e.key)) next()
       if (['ArrowUp', 'ArrowLeft', 'PageUp'].includes(e.key)) prev()
@@ -58,11 +95,17 @@ export default function ScrollCamera() {
     window.addEventListener('touchstart', onTouchStart, { passive: true })
     window.addEventListener('touchmove', onTouchMove, { passive: true })
     window.addEventListener('keydown', onKey)
+    canvas.addEventListener('pointerdown', onPointerDown)
+    window.addEventListener('pointermove', onPointerMove)
+    window.addEventListener('pointerup', onPointerUp)
+    window.addEventListener('pointercancel', onPointerUp)
+    window.addEventListener('click', swallowClickAfterDrag, true)
 
     // dev only: drive the tour from the console for testing
     //   window.__storeStop(n)  -> go to stop n (0 = start)     window.__storeStops -> list of stop names
     if (import.meta.env.DEV || window.location.search.includes('debug3d')) {
       window.__storeStop = goTo
+      window.__storeTarget = () => getTarget() // where the tour is heading, 0..1
       window.__storeStopNow = goToInstant // jump with no travel (for screenshots)
       window.__storeStops = STOPS.map((s, n) => `${n}: ${s.name}`)
     }
@@ -71,6 +114,11 @@ export default function ScrollCamera() {
       window.removeEventListener('touchstart', onTouchStart)
       window.removeEventListener('touchmove', onTouchMove)
       window.removeEventListener('keydown', onKey)
+      canvas.removeEventListener('pointerdown', onPointerDown)
+      window.removeEventListener('pointermove', onPointerMove)
+      window.removeEventListener('pointerup', onPointerUp)
+      window.removeEventListener('pointercancel', onPointerUp)
+      window.removeEventListener('click', swallowClickAfterDrag, true)
     }
   }, [canvas])
 

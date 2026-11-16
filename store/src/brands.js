@@ -446,10 +446,11 @@ export async function loadProducts(brandId) {
 // To use a track: put the file in store/public/audio/ and set `src` (e.g. '/audio/mall.mp3'). While `src` is empty there is no
 // button and nothing loads. `credit` shows in the button's tooltip, for tracks whose licence asks for attribution.
 export const MUSIC = {
-  src: null,
+  src: null, // one track, OR use `tracks` below
+  tracks: ['/music/new-york-arulo.mp3', '/music/see-line-funk-alejandro-magana.mp3', '/music/cat-walk-arulo.mp3'], // mall-lounge mix, Mixkit free licence. e.g. ['/music/track1.mp3', '/music/track2.mp3', '/music/track3.mp3'] (files in store/public/music/): play in turn, then repeat
   volume: 0.3, // 0..1, the level it fades up to (soft background level)
   fadeSeconds: 1.5,
-  credit: '', // e.g. 'Music: Title by Artist (CC BY 4.0)'
+  credit: 'Music: Arulo, Alejandro Magaña (Mixkit)', // e.g. 'Music: Title by Artist (CC BY 4.0)'
 }
 
 // Intro / loading screen (src/Intro.jsx): white logos, two per brand (8 for four brands), travel one continuous 3D

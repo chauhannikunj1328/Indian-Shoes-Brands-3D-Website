@@ -7,6 +7,8 @@ import { MUSIC } from './brands'
 // it off, that is remembered and it stays off on their next visit. It pauses while the tab is hidden.
 // Configured in brands.js (MUSIC). Nothing is shown or loaded while MUSIC.src is empty.
 
+// MUSIC.tracks = a list of files that play one after another and then start again (MUSIC.src = a single file is also accepted).
+const TRACKS = (MUSIC.tracks?.length ? MUSIC.tracks : MUSIC.src ? [MUSIC.src] : []).filter(Boolean)
 const KEY = 'indianshoes-music' // 'off' once the visitor has switched the music off
 const read = () => {
   try {
@@ -64,8 +66,15 @@ export default function MusicToggle() {
 
   const start = useCallback(() => {
     if (!audio.current) {
-      const a = new Audio(MUSIC.src)
-      a.loop = true
+      const a = new Audio(TRACKS[0])
+      let i = 0
+      a.loop = TRACKS.length === 1
+      // several tracks: move on to the next when one ends, then round again
+      a.addEventListener('ended', () => {
+        i = (i + 1) % TRACKS.length
+        a.src = TRACKS[i]
+        a.play().catch(() => {})
+      })
       a.volume = 0
       a.preload = 'auto'
       audio.current = a
@@ -85,7 +94,7 @@ export default function MusicToggle() {
   }, [fadeTo])
 
   useEffect(() => {
-    if (!MUSIC.src) return
+    if (!TRACKS.length) return
     // first interaction (not on the speaker button itself, that one has its own click) starts the music
     const gesture = (e) => {
       if (e.target?.closest?.('.music-toggle')) return
@@ -114,7 +123,7 @@ export default function MusicToggle() {
     }
   }, [start])
 
-  if (!MUSIC.src) return null
+  if (!TRACKS.length) return null
   return (
     <button
       type="button"

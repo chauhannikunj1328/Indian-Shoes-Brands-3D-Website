@@ -7,7 +7,7 @@ import { INTRO } from './brands'
 // Intro / loading screen that plays while the 3D store loads underneath it. It lasts exactly as long
 // as the store takes to load (plus the logos' exit), never a fixed time.
 //
-// Logos (WebGL, plain three.js): eight white logos (2 per brand: Neemans, Comet, Gully Labs, Bond Street) travel like a
+// Logos (WebGL, plain three.js): white logos (1 per brand on phones, 2 per brand on tablets and up: Neemans, Comet, Gully Labs, Bond Street) travel like a
 // train along ONE continuous 3D path at a steady speed - in from the left on a wave, into a tilted 3D ring where they
 // spread evenly and orbit. They keep orbiting for as long as the store is still loading; once it has
 // loaded they finish their current turn and leave to the right on a wave. A faint motion trail follows each logo.
@@ -15,7 +15,10 @@ import { INTRO } from './brands'
 // neighbours small, faded and blurred - over a thin bar. It shows the REAL loading progress from the start
 // and reaches 100 as the last logo leaves; then the IndianShoes wordmark shows and the screen fades out.
 
-const LOGO_COUNT = INTRO.logos.length * 2 // two white logos per brand (8 for four brands), alternating brand by brand
+// Breakpoint: phones (under 768 px wide) get ONE white logo per brand (4 for four brands); tablets and larger get TWO per brand (8),
+// alternating brand by brand. Decided once when the page opens (the loading screen only runs once).
+const PER_BRAND = window.matchMedia('(max-width: 767px)').matches ? 1 : 2
+const LOGO_COUNT = INTRO.logos.length * PER_BRAND
 const FLOW = 5.2 // seconds for the shortest run: wave in, 1.5 turns of the ring, wave out
 const TRAIL = [0.14, 0.28, 0.42] // motion-trail ghosts, distance behind each logo (world units)
 const TRAIL_OPACITY = [0.22, 0.11, 0.05]
