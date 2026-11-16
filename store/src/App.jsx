@@ -29,7 +29,7 @@ export default function App() {
     <>
       {/* Neutral tone mapping keeps whites white (the default ACES look greys them out). */}
       <Canvas
-        camera={{ position: [2, 4, 8], fov: 55, near: 0.3, far: 600 }} // a tighter depth range keeps distant surfaces from shimmering // ScrollCamera sets the real start view on the first frame
+        camera={{ position: [2, 4, 8], fov: 55, near: 1, far: 400 }} // a tight depth range keeps distant, overlapping wall panels from flickering (the camera never gets within 1 unit of anything) // ScrollCamera sets the real start view on the first frame
         dpr={DPR}
         gl={{ toneMapping: THREE.NeutralToneMapping }}
         shadows={EXPERIMENTS.gapsyLighting ? 'soft' : false} // gapsy experiment: light bands through the ceiling slots

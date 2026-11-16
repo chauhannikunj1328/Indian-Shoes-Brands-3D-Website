@@ -30,32 +30,43 @@ const ALL_BRANDS = [
     wallColor: '#ebe6dc',
     accent: '#222222',
     currency: 'INR',
-    // Warm stone block with the Neemans wordmark (traced from neemans.com's header) raised in charcoal.
-    // Assets: store/scripts/make-neemans-assets.py
+    // Block themed on Neemans' signature recycled-knit upper, in their terracotta brand colour: V-stitch knit on every
+    // face (with knit relief) and the cream wordmark raised in the middle. Assets: store/scripts/make-neemans-bondstreet-theme.py
+    // (wordmark: make-neemans-assets.py). (A hanging 3D Begin Walk Breeze was tried and removed: add `hangingSneaker3d` like Gully Labs' to bring a hero shoe back.)
     block: {
-      baseboard: '#2b2b2b',
+      front: {
+        texture: '/brands/neemans/knit_front.jpg',
+        tileWidth: 5, // world units per knit tile across
+        allFaces: true,
+        bump: '/brands/neemans/knit_bump.png',
+        bumpTile: 5, // must match tileWidth
+        bumpScale: 1.4,
+      },
+      baseboard: '#5a2412',
       sign: {
         shape: '/brands/neemans/logo_shape.json',
         outline: '/brands/neemans/logo_outline_shape.json',
-        outlineColor: '#9a8f7c', // taupe piping so the dark letters read on the stone
+        outlineColor: '#6b2a16', // deep brown piping so the cream letters read on the terracotta
         glow: '/brands/neemans/logo_glow.png',
         glowPad: 0.25,
         widthRatio: 0.7,
-        color: '#2a2a2a',
-        glowStrength: 0.12,
+        color: '#f6eddc',
+        glowStrength: 0.1,
       },
     },
-    // Bay: plain warm-white walls (minimal, so the shoes stand out) with a charcoal trim.
+    // Bay: very light ivory knit walls (minimal, so the shoes stand out) with a "Lighter On The Planet" strip on top
+    // (their recycled-bottle message) and a terracotta trim.
     bay: {
-      backPlain: true,
-      back: '/brands/neemans/bay_plain.jpg',
-      sides: '/brands/neemans/bay_plain.jpg',
-      sidesTile: 10,
-      trim: '#2b2b2b',
+      backGrid: true, // back wall uses the same knit as the side walls, with the tagline strip on top
+      tagline: '/brands/neemans/bay_tagline.png',
+      back: '/brands/neemans/bay_knit.jpg',
+      sides: '/brands/neemans/bay_knit.jpg',
+      sidesTile: 4, // world units per knit tile
+      trim: '#b4502f',
       label: '#9a9a96',
       // 24 women + 24 men from neemans.com, same display as the other brands (photos only: no 3D models yet)
       shelves: {
-        left: { list: '/brands/neemans/women_wall.json', heading: 'WOMEN', sign: { bg: '#2b2b2b' }, ledgeColor: '#d8cfbd', labelColor: '#3a3a38' },
+        left: { list: '/brands/neemans/women_wall.json', heading: 'WOMEN', sign: { bg: '#b4502f' }, ledgeColor: '#b4502f', labelColor: '#6b2a16' },
         // The left half of the back wall is a BRAND DISPLAY (video + a shop button) instead of shoes. The women's list below
       // is kept, so those shoes still have their pages, sitemap entries and llms.txt lines; they are just not on this wall.
       // To show the brand's film: put the file in public/brands/neemans/ and set `video` (e.g. '/brands/neemans/film.mp4').
@@ -76,8 +87,8 @@ const ALL_BRANDS = [
           buttonColor: '#2b2b2b',
         },
       },
-        backRight: { list: '/brands/neemans/men_back.json', heading: 'MEN', sign: { bg: '#2b2b2b' }, ledgeColor: '#d8cfbd', labelColor: '#3a3a38' },
-        right: { list: '/brands/neemans/mixed_right.json', extraLists: ['/brands/neemans/men_right.json'], heading: 'MIXED', sign: { bg: '#2b2b2b' }, ledgeColor: '#d8cfbd', labelColor: '#3a3a38' },
+        backRight: { list: '/brands/neemans/men_back.json', heading: 'MEN', sign: { bg: '#b4502f' }, ledgeColor: '#b4502f', labelColor: '#6b2a16' },
+        right: { list: '/brands/neemans/mixed_right.json', extraLists: ['/brands/neemans/men_right.json'], heading: 'MIXED', sign: { bg: '#b4502f' }, ledgeColor: '#b4502f', labelColor: '#6b2a16' },
       },
     },
   },
@@ -257,9 +268,15 @@ const ALL_BRANDS = [
     wallColor: '#1f3a9e',
     accent: '#1f3a9e',
     currency: 'INR',
-    // Royal-blue block with the white B + BOND STREET REDTAPE logo (cropped from their photos and traced).
-    // Assets: store/scripts/make-bondstreet-assets.py
+    // Royal-blue block with italic speed sweeps (the Bond Street logo is slanted) inside a thin white pinstripe frame,
+    // and the white B + BOND STREET REDTAPE logo raised in the middle.
+    // Assets: store/scripts/make-neemans-bondstreet-theme.py (logo: make-bondstreet-assets.py)
     block: {
+      front: {
+        texture: '/brands/bondstreet/front_sweep.jpg',
+        tileWidth: 10, // one image per block face
+        allFaces: true,
+      },
       baseboard: '#142a78',
       sign: {
         shape: '/brands/bondstreet/logo_shape.json',
@@ -272,13 +289,14 @@ const ALL_BRANDS = [
         glowStrength: 0.25,
       },
     },
-    // Bay: cool-white walls, blue trim. Their photos are square marketing shots (no clean side views), so the
-    // shelves show them as framed photo tiles (tile: true in the lists) on blue ledges. 48 men's sneakers.
+    // Bay: white walls with very faint blue pinstripes (minimal, so the shoes stand out), a "Comfort With Every Step"
+    // strip on top and a blue trim. Their photos are flat side views, shown on blue ledges. 48 men's sneakers.
     bay: {
-      backPlain: true,
-      back: '/brands/bondstreet/bay_plain.jpg',
-      sides: '/brands/bondstreet/bay_plain.jpg',
-      sidesTile: 10,
+      backGrid: true, // back wall uses the same pinstripes as the side walls, with the tagline strip on top
+      tagline: '/brands/bondstreet/bay_tagline.png',
+      back: '/brands/bondstreet/bay_pinstripe.jpg',
+      sides: '/brands/bondstreet/bay_pinstripe.jpg',
+      sidesTile: 4, // world units per pinstripe tile
       trim: '#1f3a9e',
       label: '#9a9a96',
       shelves: {
@@ -311,13 +329,25 @@ export const EXPERIMENTS = {
   gapsyLighting: true, // slotted light ceiling + wall-wash light, from gapsystudio.com (src/experiments/GapsyLighting.jsx)
 }
 
-// Entrance zone back wall (left of the first logo block). Neemans is first now, so it is warm white with a
-// charcoal baseboard to match its block. If Comet goes first again: its blue concrete + '#141f42' baseboard.
+// Entrance zone walls (the back wall left of the first logo block, and the left end wall): the same black concrete as the
+// loading screen (INTRO.background), with the IndianShoes wordmark raised in white in the middle of the big left end wall,
+// which the tour's first camera angle faces.
 export const ENTRANCE = {
   leftWall: true, // close the left end with a wall (the front of the walkway stays open)
-  wallFinish: '/brands/neemans/bay_plain.jpg', // warm white, matches the first block (Neemans). Comet blue: /brands/comet/block_concrete_blue.jpg
+  wallFinish: '/textures/loader_concrete_black.jpg', // = INTRO.background
   wallFinishTile: 10, // world units per texture tile
-  baseboard: '#2b2b2b', // Comet blue: '#141f42'
+  baseboard: '#151515',
+  // the IndianShoes wordmark (traced by store/scripts/make-cta-assets.py), raised on the back wall like the block logos
+  logo: {
+    shape: '/brands/indianshoes/logo_shape.json',
+    outline: '/brands/indianshoes/logo_outline_shape.json',
+    glow: '/brands/indianshoes/logo_glow.png',
+    color: '#ffffff',
+    outlineColor: '#5f6b8f', // soft blue-grey piping, so the white letters have an edge on the black
+    glowStrength: 0.16,
+    width: 8, // world units (the end wall it sits on is about 26 wide)
+    y: 0.55, // height as a fraction of the wall, like the block logos
+  },
 }
 
 // Floor finish. 'glass' = light grey polished glass that reflects the walls; 'concrete' = matte microcement.
@@ -409,13 +439,17 @@ export async function loadProducts(brandId) {
   return list.map((p) => ({ ...p, image: `/brands/${brandId}/${p.file}` }))
 }
 
-// Intro / loading screen (src/Intro.jsx): six white logos travel one continuous 3D path (wave in,
-// tilted ring, wave out), then the IndianShoes wordmark shows with the sliding loading %.
+// Intro / loading screen (src/Intro.jsx): white logos, two per brand (8 for four brands), travel one continuous 3D
+// path (wave in, tilted ring, wave out), then the IndianShoes wordmark shows with the sliding loading %.
+// One entry per brand here (in store order): the loader shows each twice. A new brand needs a white logo file
+// (all-white with a transparent background) and an entry below.
 // worldWidth = logo width in the intro's 3D scene (about 80 px on a laptop screen).
 export const INTRO = {
   logos: [
+    { white: '/brands/neemans/logo_white.png', aspect: 512 / 73, worldWidth: 1.0 },
     { white: '/brands/comet/logo_white.png', aspect: 512 / 229, worldWidth: 0.62 },
     { white: '/brands/gullylabs/logo_white.png', aspect: 512 / 153, worldWidth: 0.74 },
+    { white: '/brands/bondstreet/logo_white.png', aspect: 512 / 305, worldWidth: 0.5 },
   ],
   // black concrete, the same grain as the entrance walls (made from block_concrete_blue.jpg)
   background: '/textures/loader_concrete_black.jpg',

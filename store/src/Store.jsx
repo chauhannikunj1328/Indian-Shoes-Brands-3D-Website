@@ -608,7 +608,7 @@ function BrandBlock({ brand, slot }) {
       {/* focus light: a spotlight from the ceiling onto the floor in front of the block */}
       {brand.block?.focusLight && <FocusLight cx={cx} {...brand.block.focusLight} />}
 
-      <group position={[cx, WALL_HEIGHT * 0.55, 0.02]}>
+      <group position={[cx, WALL_HEIGHT * (brand.block?.logoY ?? 0.55), 0.02]}>
         {brand.block?.hideLogo ? null : sign ? (
           <HaloSign
             shapeUrl={sign.shape}
@@ -959,6 +959,22 @@ export default function Store() {
                 tile={ENTRANCE.wallFinishTile}
               />
               <TrimBaseboard position={[0, 0, slabZ]} rotationY={Math.PI / 2} width={slabD} color={ENTRANCE.baseboard} />
+              {/* the IndianShoes wordmark, raised in the middle of this big wall (the tour opens facing it) */}
+              {ENTRANCE.logo && (
+                <group position={[0.03, WALL_HEIGHT * ENTRANCE.logo.y, slabZ]} rotation={[0, Math.PI / 2, 0]}>
+                  <HaloSign
+                    shapeUrl={ENTRANCE.logo.shape}
+                    outlineUrl={ENTRANCE.logo.outline}
+                    outlineColor={ENTRANCE.logo.outlineColor}
+                    glowUrl={ENTRANCE.logo.glow}
+                    glowPad={0.25}
+                    width={ENTRANCE.logo.width}
+                    color={ENTRANCE.logo.color}
+                    glowStrength={ENTRANCE.logo.glowStrength}
+                    depth={0.14}
+                  />
+                </group>
+              )}
             </>
           )}
         </>

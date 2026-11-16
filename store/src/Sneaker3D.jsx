@@ -351,6 +351,12 @@ function GLBSneaker({ url, length, rotation = NO_ROTATION, logoUrl, logoY = -0.0
     const obj = scene.clone(true)
     obj.rotation.set(...rotation)
     obj.updateMatrixWorld(true)
+    // like the shelf shoes (ShoeWall.jsx): a model whose long side runs along z is turned a quarter so its length is along x
+    const first = new THREE.Box3().setFromObject(obj).getSize(new THREE.Vector3())
+    if (first.z > first.x) {
+      obj.rotation.y += Math.PI / 2
+      obj.updateMatrixWorld(true)
+    }
     obj.traverse((o) => {
       if (o.isMesh) {
         o.castShadow = true

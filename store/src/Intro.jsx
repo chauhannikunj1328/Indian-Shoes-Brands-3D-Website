@@ -7,14 +7,15 @@ import { INTRO } from './brands'
 // Intro / loading screen that plays while the 3D store loads underneath it. It lasts exactly as long
 // as the store takes to load (plus the logos' exit), never a fixed time.
 //
-// Logos (WebGL, plain three.js): six white logos (3 Comet + 3 Gully Labs) travel like a train along ONE
-// continuous 3D path at a steady speed - in from the left on a wave, into a tilted 3D ring where the six
+// Logos (WebGL, plain three.js): eight white logos (2 per brand: Neemans, Comet, Gully Labs, Bond Street) travel like a
+// train along ONE continuous 3D path at a steady speed - in from the left on a wave, into a tilted 3D ring where they
 // spread evenly and orbit. They keep orbiting for as long as the store is still loading; once it has
 // loaded they finish their current turn and leave to the right on a wave. A faint motion trail follows each logo.
 // Loader (Framer Motion): a sliding number strip at the bottom middle - the current % big and sharp, its
 // neighbours small, faded and blurred - over a thin bar. It shows the REAL loading progress from the start
 // and reaches 100 as the last logo leaves; then the IndianShoes wordmark shows and the screen fades out.
 
+const LOGO_COUNT = INTRO.logos.length * 2 // two white logos per brand (8 for four brands), alternating brand by brand
 const FLOW = 5.2 // seconds for the shortest run: wave in, 1.5 turns of the ring, wave out
 const TRAIL = [0.14, 0.28, 0.42] // motion-trail ghosts, distance behind each logo (world units)
 const TRAIL_OPACITY = [0.22, 0.11, 0.05]
@@ -57,9 +58,9 @@ function buildPath(hw, hh) {
   const inLen = inCurve.getLength()
   const outLen = outCurve.getLength()
   const turn = 2 * Math.PI * R // one full turn of the ring (it is a circle of radius ~R)
-  const gap = turn / 6 // six logos spread evenly round the ring
-  const tail = 5 * gap + TRAIL[TRAIL.length - 1] // distance from the first logo to the end of the last trail
-  const speed = (inLen + turn + outLen + 5 * gap) / FLOW
+  const gap = turn / LOGO_COUNT // the logos spread evenly round the ring
+  const tail = (LOGO_COUNT - 1) * gap + TRAIL[TRAIL.length - 1] // distance from the first logo to the end of the last trail
+  const speed = (inLen + turn + outLen + (LOGO_COUNT - 1) * gap) / FLOW
   return { inCurve, outCurve, inLen, outLen, turn, gap, tail, speed, R }
 }
 
@@ -115,7 +116,7 @@ function LogoTrain({ train }) {
     resize()
     window.addEventListener('resize', resize)
 
-    // six logos (Comet, Gully Labs, ...) + faint trail copies behind each
+    // LOGO_COUNT logos (two per brand, all white) + faint trail copies behind each
     const loader = new THREE.TextureLoader()
     const textures = INTRO.logos.map((l) => {
       const t = loader.load(l.white)
@@ -125,8 +126,8 @@ function LogoTrain({ train }) {
     })
     const planes = []
     const geos = INTRO.logos.map((l) => new THREE.PlaneGeometry(l.worldWidth, l.worldWidth / l.aspect))
-    for (let i = 0; i < 6; i++) {
-      const kind = i % 2
+    for (let i = 0; i < LOGO_COUNT; i++) {
+      const kind = i % INTRO.logos.length
       ;[0, ...TRAIL].forEach((behind, k) => {
         const mat = new THREE.MeshBasicMaterial({
           map: textures[kind],
