@@ -210,8 +210,11 @@ function Logo({ position, width }) {
   )
 }
 
+const QR_MIN_WIDTH = 1024 // the QR code is for laptops and larger screens; phones and tablets get the buttons only
+
 export default function CtaWall() {
   const aspect = useThree((s) => s.size.width / s.size.height)
+  const screenW = useThree((s) => s.size.width) // CSS pixels
   const visibleW = 2 * VIEW_DIST * Math.tan(THREE.MathUtils.degToRad(FOV / 2)) * aspect
   const portrait = aspect < 1
   const c = CTA.colors
@@ -223,8 +226,13 @@ export default function CtaWall() {
   if (portrait) {
     // one column, 7 units wide, scaled to fit the screen width
     const scale = Math.min(1, (visibleW * 0.9) / 7)
+    const px = (n) => (n * visibleW) / (scale * screenW) // n screen pixels, in this group's units
+    const BTN_Y = -0.5
+    const BTN_H = 0.66
     return (
       <group position={wall} rotation={[0, -Math.PI / 2, 0]} scale={scale}>
+        {/* with no QR code the block is shorter: nudge it down so it sits in the middle of the wall on screen */}
+        <group position={[0, -px(20), 0]}>
         <Logo position={[0, 3.25, 0]} width={4.6} />
         <Text
           position={[0, 2.35, 0.01]}
@@ -251,9 +259,11 @@ export default function CtaWall() {
         >
           {CTA.text}
         </Text>
-        <WallButton position={[0, -0.5, 0.01]} width={6.2} height={0.66} fontSize={0.25} {...wa} />
-        <WallButton position={[0, -1.3, 0.01]} width={6.2} height={0.66} fontSize={0.23} {...em} />
-        <EmbossedQr position={[0, -2.85, 0.01]} size={1.6} captionSize={0.14} />
+        {/* 8 px between the two buttons (a local unit is `scale * screenW / visibleW` pixels wide). No QR code on phones and
+            tablets: you scan a QR with a phone, so on a phone the WhatsApp button does the job. */}
+        <WallButton position={[0, BTN_Y, 0.01]} width={6.2} height={BTN_H} fontSize={0.25} {...wa} />
+        <WallButton position={[0, BTN_Y - BTN_H - px(8), 0.01]} width={6.2} height={BTN_H} fontSize={0.23} {...em} />
+        </group>
       </group>
     )
   }
@@ -294,7 +304,7 @@ export default function CtaWall() {
         <WallButton position={[-2.4, -1.0, 0.01]} width={3.3} height={0.72} fontSize={0.25} {...wa} />
         <WallButton position={[1.8, -1.0, 0.01]} width={4.5} height={0.72} fontSize={0.24} {...em} />
       </group>
-      <EmbossedQr position={[5.9, 1.7, 0.01]} size={2.0} captionSize={0.15} />
+      {screenW >= QR_MIN_WIDTH && <EmbossedQr position={[5.9, 1.7, 0.01]} size={2.0} captionSize={0.15} />}
     </group>
   )
 }

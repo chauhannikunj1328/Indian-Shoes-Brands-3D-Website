@@ -112,6 +112,30 @@ body,
 .site-header__icon:hover {
   background: rgba(255, 255, 255, 0.55);
 }
+/* "Get a 3D store": the PRIMARY call-to-action (blue, pulsing); it walks to the enquiry wall. "For Brands" beside it is the quieter, secondary button. */
+.site-header .site-header__enquire {
+  height: 36px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 999px;
+  background: #111; /* the primary CTA: black (our colour) with a soft pulse */
+  color: #fff;
+  box-shadow: 0 0 0 0 rgba(17, 17, 17, 0.45);
+  animation: cta-pulse 2.2s ease-out infinite;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: transform 0.15s, background 0.2s;
+}
+.site-header .site-header__enquire:hover {
+  background: #000;
+  transform: translateY(-1px);
+}
+.site-header__enquire-short {
+  display: none;
+}
 /* the music speaker is a <button>: same look as the icon links */
 .music-toggle {
   border: 0;
@@ -126,17 +150,14 @@ body,
 .site-header__cta {
   height: 36px;
   margin-left: 4px;
-  padding: 0 18px;
-  border-radius: 999px;
-  background: #2765fa !important; /* the CTA blue, with the same soft pulse the bottom-bar CTA had */
-  color: #fff;
-  box-shadow: 0 0 0 0 rgba(39, 101, 250, 0.55);
-  animation: cta-pulse 2.2s ease-out infinite;
+  padding: 0 12px;
+  background: transparent !important; /* secondary call-to-action: text only, no button */
+  color: #1f1f1f;
   font-size: 13px !important;
   font-weight: 600;
   letter-spacing: 0.02em;
   white-space: nowrap;
-  transition: transform 0.15s, background 0.2s;
+  transition: color 0.2s;
 }
 .site-header a.site-header__cta {
   display: inline-flex;
@@ -144,12 +165,10 @@ body,
   text-decoration: none;
 }
 .site-header__cta:hover {
-  transform: translateY(-1px);
-  background: #1b54e0 !important;
+  color: #000;
 }
 .site-header__cta.is-active {
-  background: #1b54e0 !important;
-  animation: none;
+  color: #000;
 }
 @media (max-width: 480px) {
   .site-header {
@@ -159,8 +178,17 @@ body,
   .site-header__logo {
     font-size: 18px;
   }
-  .site-header__icon--mail {
+  .site-header .site-header__enquire {
+    height: 32px;
+    padding: 0 11px;
+    font-size: 12px;
+    letter-spacing: 0.01em;
+  }
+  .site-header__enquire-long {
     display: none;
+  }
+  .site-header__enquire-short {
+    display: inline;
   }
   .site-header__icon {
     width: 32px;
@@ -168,7 +196,7 @@ body,
   }
   .site-header__cta {
     height: 32px;
-    padding: 0 12px;
+    padding: 0 6px;
     margin-left: 0;
     font-size: 12px !important;
     letter-spacing: 0.01em;
@@ -254,35 +282,35 @@ body,
   color: #fff;
 }
 
-/* call-to-action: bold blue, with a soft pulse so it stands out */
+/* call-to-action: bold black, with a soft pulse so it stands out */
 .tour-nav__cta {
   height: 34px;
   padding: 0 18px;
   margin-left: 4px;
   border-radius: 999px;
-  background: #2765fa;
+  background: #111;
   color: #fff;
-  box-shadow: 0 0 0 0 rgba(39, 101, 250, 0.55);
+  box-shadow: 0 0 0 0 rgba(17, 17, 17, 0.45);
   animation: cta-pulse 2.2s ease-out infinite;
   transition: transform 0.15s, background 0.2s;
 }
 .tour-nav__cta:hover {
   transform: translateY(-1px);
-  background: #1b54e0;
+  background: #000;
 }
 .tour-nav__cta.is-active {
-  background: #1b54e0;
+  background: #000;
   animation: none;
 }
 @keyframes cta-pulse {
   0% {
-    box-shadow: 0 0 0 0 rgba(39, 101, 250, 0.55);
+    box-shadow: 0 0 0 0 rgba(17, 17, 17, 0.45);
   }
   70% {
-    box-shadow: 0 0 0 10px rgba(39, 101, 250, 0);
+    box-shadow: 0 0 0 10px rgba(17, 17, 17, 0);
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(39, 101, 250, 0);
+    box-shadow: 0 0 0 0 rgba(17, 17, 17, 0);
   }
 }
 /* brand tabs + their dots; on laptops the wrapper is invisible to the layout */
@@ -531,32 +559,14 @@ canvas {
   line-height: 1.6;
 }
 .info-page a { color: #1d4fc9; }
-.info-header {
-  position: sticky;
-  top: 0;
-  z-index: 5;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 14px max(20px, calc((100% - 960px) / 2));
-  background: rgba(244, 244, 242, 0.88);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-}
-.info-logo {
-  font-family: 'Poppins', system-ui, sans-serif;
-  font-weight: 800;
-  font-size: 20px;
-  color: #141414 !important;
-  text-decoration: none;
-  white-space: nowrap;
-}
-.info-header nav { display: flex; gap: 22px; font-size: 15px; font-weight: 600; }
-.info-header nav a { text-decoration: none; color: #141414; }
-.info-header nav a:hover, .info-header nav a[aria-current] { color: #1d4fc9; }
-.info-main { max-width: 960px; margin: 0 auto; padding: 28px 20px 64px; }
+.info-main { max-width: 960px; margin: 0 auto; padding: 92px 20px 64px; } /* room for the floating header */
+.info-page .site-header a { text-decoration: none; }
+.info-page .site-header a.site-header__logo { color: #141414; font-size: 16px; font-weight: 400; letter-spacing: 0; } /* exactly what the 3D store's header logo (a button) renders */
+.info-page .site-header a.site-header__cta { color: #1f1f1f; }
+.info-page .site-header a.site-header__cta:hover, .info-page .site-header a.site-header__cta.is-active { color: #000; }
+.info-page .site-header a.site-header__enquire { display: inline-flex; align-items: center; color: #fff; }
+.info-page { scroll-behavior: smooth; }
+.info-page h2[id] { scroll-margin-top: 90px; }
 .info-main h1 {
   font-family: 'Poppins', system-ui, sans-serif;
   font-weight: 800;
@@ -586,7 +596,7 @@ canvas {
   background: transparent;
 }
 .info-btn:hover { background: rgba(0, 0, 0, 0.06); }
-.info-btn--primary { background: #1d4fc9; border-color: #1d4fc9; color: #fff !important; }
+.info-btn--primary { background: #111; border-color: #111; color: #fff !important; }
 .info-btn--primary:hover { background: #1740a3; }
 .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
 .info-card { background: #fff; border-radius: 20px; padding: 22px; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); }
@@ -629,5 +639,4 @@ canvas {
 .info-footer nav { display: flex; flex-wrap: wrap; gap: 8px 20px; margin: 10px 0; }
 @media (max-width: 560px) {
   .info-fields { grid-template-columns: 1fr; }
-  .info-header nav { gap: 14px; font-size: 14px; }
 }

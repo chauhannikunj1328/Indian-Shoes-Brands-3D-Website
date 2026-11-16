@@ -235,6 +235,9 @@ function pathForWindow() {
   return buildPath(hh * aspect, hh)
 }
 
+// the loading screen plays once per visit: coming back to the store from the For Brands page (no page reload) skips it
+let introSeen = false
+
 export default function Intro() {
   const { progress, active } = useProgress()
   const loadRef = useRef({ progress: 0, active: true })
@@ -250,10 +253,11 @@ export default function Intro() {
 
   const value = useMotionValue(0) // shown % (only ever goes up)
   const [showWordmark, setShowWordmark] = useState(false)
-  const [visible, setVisible] = useState(true)
+  const [visible, setVisible] = useState(!introSeen)
   const [logosDone, setLogosDone] = useState(reduce)
 
   useEffect(() => {
+    if (introSeen) return
     const onResize = () => {
       train.current.path = pathForWindow()
       if (train.current.exitAt !== Infinity) train.current.exitAt = exitFor(train.current.path, train.current.lead)
@@ -306,6 +310,7 @@ export default function Intro() {
       value.set(shown)
 
       if (shown >= 100 && trainDoneAt !== null && t - trainDoneAt >= HOLD) {
+        introSeen = true
         setVisible(false)
         return
       }

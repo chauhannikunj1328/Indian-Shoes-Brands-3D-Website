@@ -109,7 +109,7 @@ export default function BrandDisplay({ showcase, brand, brandName, active = true
   const [hover, setHover] = useState(false)
   const [down, setDown] = useState(false)
   const cap = useRef()
-  const capColor = showcase.ctaColor || '#2f6bff'
+  const capColor = showcase.ctaColor || '#141414'
   // the key slides in and out: raised at rest, a little lower on hover, flat when pressed
   useFrame((_, dt) => {
     if (!cap.current) return

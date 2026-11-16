@@ -24,13 +24,14 @@ const ASPECT_NARROW = 0.5 // at this aspect or narrower: full portrait fov
 const MIN_COVER = 9.5 // world units of width we want to see at the target (a whole block, or half a shoe wall, + margin)
 const MAX_BACKOFF = 1.6
 
-export default function ScrollCamera() {
-  const progress = useRef(0) // smoothed position along the tour, 0..1
+export default function ScrollCamera({ enabled = true }) {
+  const progress = useRef(getTarget()) // smoothed position along the tour, 0..1
   const pos = useRef(new THREE.Vector3())
   const look = useRef(new THREE.Vector3())
   const canvas = useThree((s) => s.gl.domElement)
 
   useEffect(() => {
+    if (!enabled) return // another page (For Brands...) is on top: leave the wheel, keys and drags to it
     const onWheel = (e) => {
       e.preventDefault()
       nudge(e.deltaY + e.deltaX) // vertical or horizontal trackpad swipes both move the tour
@@ -120,7 +121,7 @@ export default function ScrollCamera() {
       window.removeEventListener('pointercancel', onPointerUp)
       window.removeEventListener('click', swallowClickAfterDrag, true)
     }
-  }, [canvas])
+  }, [canvas, enabled])
 
   const size = useThree((s) => s.size)
   const dir = useRef(new THREE.Vector3())

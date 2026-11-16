@@ -1,11 +1,13 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useEffect, useSyncExternalStore } from 'react'
 import { MUSIC } from './brands'
 
 // Background music for the whole store, with a speaker button in the header.
 // Browsers refuse to play sound until the visitor has interacted with the page, so the music fades in on the visitor's FIRST click,
-// key press or tap (scrolling alone does not count for browsers). The speaker button then mutes / unmutes it. If a visitor switches
-// it off, that is remembered and it stays off on their next visit. It pauses while the tab is hidden.
-// Configured in brands.js (MUSIC). Nothing is shown or loaded while MUSIC.src is empty.
+// key press or tap (scrolling alone does not count for browsers) - but only for visitors who switched it on before. A new visitor hears
+// nothing until they press the speaker button; their choice (on or off) is remembered for the next visit. It pauses while the tab is hidden.
+// ONE player is shared by every page (the store and the For Brands / Privacy / Terms pages swap their headers without reloading,
+// see main.jsx), so the music keeps playing when you move between them.
+// Configured in brands.js (MUSIC). Nothing is shown or loaded while there are no tracks.
 
 // MUSIC.tracks = a list of files that play one after another and then start again (MUSIC.src = a single file is also accepted).
 const TRACKS = (MUSIC.tracks?.length ? MUSIC.tracks : MUSIC.src ? [MUSIC.src] : []).filter(Boolean)
@@ -41,87 +43,96 @@ function SpeakerIcon({ on }) {
   )
 }
 
+// ---------- the one shared player (module level, so it survives the header being swapped) ----------
+let audio = null
+let fade = null
+let playing = false
+let initDone = false
+let wantOn = read() === 'on' // the music is OFF by default: it only plays once the visitor has switched it on (remembered for next time)
+const listeners = new Set()
+const emit = () => listeners.forEach((fn) => fn())
+const subscribe = (fn) => (listeners.add(fn), () => listeners.delete(fn))
+const setPlaying = (v) => {
+  if (playing !== v) {
+    playing = v
+    emit()
+  }
+}
+
+function fadeTo(target, done) {
+  const a = audio
+  if (!a) return
+  clearInterval(fade)
+  const step = (MUSIC.volume / (MUSIC.fadeSeconds * 20)) * (target > a.volume ? 1 : -1)
+  fade = setInterval(() => {
+    const next = a.volume + step
+    if ((step > 0 && next >= target) || (step < 0 && next <= target)) {
+      a.volume = Math.max(0, Math.min(1, target))
+      clearInterval(fade)
+      done?.()
+    } else {
+      a.volume = Math.max(0, Math.min(1, next))
+    }
+  }, 50)
+}
+
+function start() {
+  if (!audio) {
+    const a = new Audio(TRACKS[0])
+    let i = 0
+    a.loop = TRACKS.length === 1
+    // several tracks: move on to the next when one ends, then round again
+    a.addEventListener('ended', () => {
+      i = (i + 1) % TRACKS.length
+      a.src = TRACKS[i]
+      a.play().catch(() => {})
+    })
+    a.volume = 0
+    a.preload = 'auto'
+    audio = a
+  }
+  audio
+    .play()
+    .then(() => {
+      setPlaying(true)
+      fadeTo(MUSIC.volume)
+    })
+    .catch(() => {}) // still blocked: the next click / key / tap tries again
+}
+
+function stop() {
+  setPlaying(false)
+  fadeTo(0, () => audio?.pause())
+}
+
+function init() {
+  if (initDone || !TRACKS.length) return
+  initDone = true
+  // first interaction (not on the speaker button itself, that one has its own click) starts the music
+  const events = ['pointerdown', 'keydown', 'touchend']
+  const gesture = (e) => {
+    if (e.target?.closest?.('.music-toggle')) return
+    if (!wantOn) return remove()
+    start()
+    remove()
+  }
+  const remove = () => events.forEach((n) => window.removeEventListener(n, gesture))
+  if (wantOn) {
+    events.forEach((n) => window.addEventListener(n, gesture))
+    start() // works straight away where the browser allows it
+  }
+  document.addEventListener('visibilitychange', () => {
+    if (!audio) return
+    if (document.hidden) audio.pause()
+    else if (wantOn && audio.paused) audio.play().catch(() => {})
+  })
+}
+
 export default function MusicToggle() {
-  const [on, setOn] = useState(false)
-  const audio = useRef(null)
-  const fade = useRef(null)
-  const wantOn = useRef(read() !== 'off') // false once the visitor has muted it
-
-  const fadeTo = useCallback((target, done) => {
-    const a = audio.current
-    if (!a) return
-    clearInterval(fade.current)
-    const step = (MUSIC.volume / (MUSIC.fadeSeconds * 20)) * (target > a.volume ? 1 : -1)
-    fade.current = setInterval(() => {
-      const next = a.volume + step
-      if ((step > 0 && next >= target) || (step < 0 && next <= target)) {
-        a.volume = Math.max(0, Math.min(1, target))
-        clearInterval(fade.current)
-        done?.()
-      } else {
-        a.volume = Math.max(0, Math.min(1, next))
-      }
-    }, 50)
-  }, [])
-
-  const start = useCallback(() => {
-    if (!audio.current) {
-      const a = new Audio(TRACKS[0])
-      let i = 0
-      a.loop = TRACKS.length === 1
-      // several tracks: move on to the next when one ends, then round again
-      a.addEventListener('ended', () => {
-        i = (i + 1) % TRACKS.length
-        a.src = TRACKS[i]
-        a.play().catch(() => {})
-      })
-      a.volume = 0
-      a.preload = 'auto'
-      audio.current = a
-    }
-    audio.current
-      .play()
-      .then(() => {
-        setOn(true)
-        fadeTo(MUSIC.volume)
-      })
-      .catch(() => {}) // still blocked: the next click / key / tap tries again
-  }, [fadeTo])
-
-  const stop = useCallback(() => {
-    setOn(false)
-    fadeTo(0, () => audio.current?.pause())
-  }, [fadeTo])
-
+  const on = useSyncExternalStore(subscribe, () => playing)
   useEffect(() => {
-    if (!TRACKS.length) return
-    // first interaction (not on the speaker button itself, that one has its own click) starts the music
-    const gesture = (e) => {
-      if (e.target?.closest?.('.music-toggle')) return
-      if (!wantOn.current) return remove()
-      start()
-      remove()
-    }
-    const events = ['pointerdown', 'keydown', 'touchend']
-    const remove = () => events.forEach((n) => window.removeEventListener(n, gesture))
-    if (wantOn.current) {
-      events.forEach((n) => window.addEventListener(n, gesture))
-      start() // works straight away where the browser allows it
-    }
-    const onVisibility = () => {
-      const a = audio.current
-      if (!a) return
-      if (document.hidden) a.pause()
-      else if (wantOn.current && a.paused) a.play().catch(() => {})
-    }
-    document.addEventListener('visibilitychange', onVisibility)
-    return () => {
-      remove()
-      document.removeEventListener('visibilitychange', onVisibility)
-      clearInterval(fade.current)
-      audio.current?.pause()
-    }
-  }, [start])
+    init()
+  }, [])
 
   if (!TRACKS.length) return null
   return (
@@ -133,11 +144,11 @@ export default function MusicToggle() {
       title={MUSIC.credit ? `${on ? 'Music on' : 'Music off'} · ${MUSIC.credit}` : on ? 'Music on' : 'Music off'}
       onClick={() => {
         if (on) {
-          wantOn.current = false
+          wantOn = false
           write('off')
           stop()
         } else {
-          wantOn.current = true
+          wantOn = true
           write('on')
           start()
         }

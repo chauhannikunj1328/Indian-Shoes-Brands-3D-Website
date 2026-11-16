@@ -20,7 +20,7 @@ const cx = STORE_LENGTH / 2
 const DEFAULT_LIGHT = { ambient: 1.6, hemisphere: 0.9, front: 1.3, fill: 0.45 }
 const LIGHT = EXPERIMENTS.gapsyLighting ? GAPSY_AMBIENT : DEFAULT_LIGHT // gapsy experiment
 
-export default function App() {
+export default function App({ paused = false }) {
   // /<brand> and /<brand>/<shoe> open the store at that brand / shoe (see src/routes.js)
   useEffect(() => {
     applyRoute()
@@ -31,6 +31,7 @@ export default function App() {
       <Canvas
         camera={{ position: [2, 4, 8], fov: 55, near: 1, far: 400 }} // a tight depth range keeps distant, overlapping wall panels from flickering (the camera never gets within 1 unit of anything) // ScrollCamera sets the real start view on the first frame
         dpr={DPR}
+        frameloop={paused ? 'never' : 'always'} // nothing is drawn while another page covers the store
         gl={{ toneMapping: THREE.NeutralToneMapping }}
         shadows={EXPERIMENTS.gapsyLighting ? 'soft' : false} // gapsy experiment: light bands through the ceiling slots
         // dev only: expose the scene state so the view can be inspected from the console
@@ -61,7 +62,7 @@ export default function App() {
         <directionalLight position={[-30, 5, 4]} intensity={LIGHT.fill} />
 
         {/* scrolling walks the camera from the entrance to the end of the hall */}
-        <ScrollCamera />
+        <ScrollCamera enabled={!paused} />
         <Suspense fallback={null}>
           <Store />
         </Suspense>

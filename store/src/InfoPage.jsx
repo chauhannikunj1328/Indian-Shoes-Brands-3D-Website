@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import MusicToggle from './MusicToggle'
 import { INFO_PAGES, EMAIL, WHATSAPP_BASE, WHATSAPP_NUMBER, UPDATED } from './content/pages.js'
 
 // The normal (non-3D) pages: /for-brands, /privacy, /terms. Text lives in src/content/pages.js, which the build also
@@ -141,15 +142,24 @@ export default function InfoPage({ path }) {
   const date = page.updated ? new Date(page.updated).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' }) : null
   return (
     <div className="info-page">
-      <header className="info-header">
-        <a className="info-logo" href="/" aria-label="IndianShoes: back to the 3D store">
-          <span lang="hi">इंडियन</span>
-          <span lang="en">Shoes</span>
+      {/* the same floating glass header as the 3D store: wordmark left, "For Brands" (text) and the black "Get a 3D store" button right */}
+      <header className="site-header">
+        <a className="site-header__logo" href="/" aria-label="IndianShoes: back to the 3D store">
+          <span lang="hi" className="site-header__word site-header__word--hi">
+            इंडियन
+          </span>
+          <span lang="en" className="site-header__word site-header__word--en">
+            Shoes
+          </span>
         </a>
-        <nav aria-label="Main">
-          <a href="/">3D store</a>
-          <a href="/for-brands" aria-current={path === '/for-brands' ? 'page' : undefined}>
-            For brands
+        <nav className="site-header__actions" aria-label="Main">
+          <MusicToggle />
+          <a className={`site-header__cta${path === '/for-brands' ? ' is-active' : ''}`} href="/for-brands" aria-current={path === '/for-brands' ? 'page' : undefined}>
+            For Brands
+          </a>
+          <a className="site-header__enquire" href="/for-brands#contact-h">
+            <span className="site-header__enquire-long">Get a 3D store</span>
+            <span className="site-header__enquire-short">Get a store</span>
           </a>
         </nav>
       </header>

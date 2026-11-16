@@ -1,4 +1,4 @@
-"""Favicon / app-icon set for IndianShoes: a white sneaker on the brand blue.
+"""Favicon / app-icon set for IndianShoes: a white sneaker on black.
 
 Run:  python3 store/scripts/make-icons.py      (needs PyMuPDF "fitz" and Pillow)
 Out:  store/public/{favicon.svg, favicon.ico, favicon-16.png, favicon-32.png, favicon-48.png,
@@ -11,7 +11,7 @@ import fitz
 from PIL import Image
 
 OUT = os.path.join(os.path.dirname(__file__), '..', 'public')
-BLUE = '#1d4fc9'
+BLUE = '#111111'
 
 # 64x64 artwork: a low sneaker in side view (toe on the right), laces cut out in the brand blue
 SHOE = (
