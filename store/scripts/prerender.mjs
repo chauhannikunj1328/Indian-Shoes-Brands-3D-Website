@@ -431,4 +431,75 @@ write(
     .join('\n')}\n</urlset>\n`,
 )
 
-console.log(`prerender: ${pages.length} pages (+404) and sitemap.xml with ${urls.length} URLs`)
+// ---------- llms.txt / llms-full.txt (for AI search and assistants, https://llmstxt.org) ----------
+// Plain markdown built from the same data as the pages. llms.txt is the short index; llms-full.txt lists every sneaker.
+const range = (b) => `${inr(b.min)} to ${inr(b.max)}`
+const aboutLines = [
+  `${SITE.name} is a 3D virtual sneaker store for Indian brands: visitors walk through a store in their browser, see each brand's sneakers on shelves, and go to the brand's official website to buy. ${totalShoes} sneakers from ${brands.length} brands are on display (${brandNames}), priced from ${inr(allMin)} to ${inr(allMax)}.`,
+]
+const factLines = [
+  `- Region and language: India, English. Prices are in Indian rupees (INR, ₹).`,
+  `- ${SITE.name} is not a retailer and does not sell shoes. Purchases happen on each brand's official website.`,
+  `- ${DISCLOSURE.split('. ').slice(1).join('. ')}`,
+  `- Prices and shoe lists come from each brand's website as of the last store update (${today}). Prices change, so confirm the current price on the brand's own site.`,
+  `- Contact: ${CTA.email}`,
+]
+const llms = [
+  `# ${SITE.name}`,
+  '',
+  `> ${SITE.tagline}. ${aboutLines[0]}`,
+  '',
+  '## Key facts',
+  '',
+  ...factLines,
+  '',
+  '## Brands in the store',
+  '',
+  ...brands.map(
+    (b) => `- [${b.name} sneakers](${abs(b.path)}): ${b.shoes.length} sneakers (${who(b)}), ${range(b)}. Official website: ${b.official}`,
+  ),
+  '',
+  '## Main pages',
+  '',
+  `- [Home: the 3D store](${abs('/')}): the interactive store; each page below opens it at that brand or shoe`,
+  `- [All brands](${abs('/brands')}): the brands on display`,
+  `- [Sitemap](${abs('/sitemap.xml')}): every page, including one page per sneaker`,
+  '',
+  '## Optional',
+  '',
+  `- [Full catalogue](${abs('/llms-full.txt')}): every sneaker with its price, type, page and the brand's own product link, plus common questions per brand`,
+  '',
+].join('\n')
+write('llms.txt', llms)
+
+const llmsFull = [
+  `# ${SITE.name}: full catalogue`,
+  '',
+  `> ${aboutLines[0]}`,
+  '',
+  '## Key facts',
+  '',
+  ...factLines,
+  '',
+  ...brands.flatMap((b) => [
+    `## ${b.name}`,
+    '',
+    `${brandDescription(b)} ${b.name} makes ${b.range}. Official website: ${b.official}. Brand page: ${abs(b.path)}`,
+    '',
+    ...['Women', 'Men']
+      .map((g) => ({ g, list: b.shoes.filter((x) => x.gender === g) }))
+      .filter((x) => x.list.length)
+      .flatMap((x) => [
+        `### ${b.name} ${x.g === 'Men' ? "men's" : "women's"} sneakers`,
+        '',
+        ...x.list.map((x2) => `- [${clean(x2.title)}](${abs(shoePath(x2))}): ${inr(x2.price_inr)}, ${x2.type}. Buy on ${poss(b.name)} site: ${x2.url}`),
+        '',
+      ]),
+    `### ${b.name}: common questions`,
+    '',
+    ...brandFaq(b).flatMap(([q, a]) => [`**${q}**`, a, '']),
+  ]),
+].join('\n')
+write('llms-full.txt', llmsFull)
+
+console.log(`prerender: ${pages.length} pages (+404), sitemap.xml with ${urls.length} URLs, llms.txt and llms-full.txt`)

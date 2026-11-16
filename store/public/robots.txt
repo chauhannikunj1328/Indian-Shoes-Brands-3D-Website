@@ -2,4 +2,5 @@
 User-agent: *
 Allow: /
 
+# AI assistants: a short index of the site is at /llms.txt and the full catalogue at /llms-full.txt
 Sitemap: https://www.theindianshoes.com/sitemap.xml
