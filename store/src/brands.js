@@ -382,7 +382,9 @@ export const ENTRANCE = {
     glow: '/brands/indianshoes/logo_glow.png',
     color: '#ffffff',
     outlineColor: '#5f6b8f', // soft blue-grey piping, so the white letters have an edge on the black
-    glowStrength: 0.16,
+    glowStrength: 0.16, // (no longer used: the halo behind the letters is off)
+    letterGlow: 0.4, // how brightly the letters themselves light up, 0 .. 1 (lower shows more of the shading, so the relief reads better)
+    depth: 0.34, // how far the letters stand out from the wall (world units): the emboss
     width: 8, // world units (the end wall it sits on is about 26 wide)
     y: 0.55, // height as a fraction of the wall, like the block logos
   },

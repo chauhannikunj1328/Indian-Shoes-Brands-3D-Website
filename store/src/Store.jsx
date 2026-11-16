@@ -284,6 +284,7 @@ export function HaloSign({
   glowStrength = 0.35,
   panel, // optional signboard behind the letters: { color, padX, padY, notch, depth }
   depth = SIGN_DEPTH, // letter thickness (per brand)
+  letterGlow = 0.05, // how much the letters themselves light up (emissive), 0 = lit only by the room
 }) {
   const { geometry, height } = useExtrudedLogoWithSize(shapeUrl, width, depth)
   // with a signboard, the letters sit on its face; otherwise they stand off the wall
@@ -306,7 +307,7 @@ export function HaloSign({
       {outlineUrl && <SignPiping url={outlineUrl} width={width} color={outlineColor} depth={depth} />}
       {/* raised letters */}
       <mesh geometry={geometry} position={[0, 0, lettersZ]} castShadow>
-        <meshStandardMaterial color={color} roughness={0.75} metalness={0} emissive={color} emissiveIntensity={0.05} />
+        <meshStandardMaterial color={color} roughness={0.75} metalness={0} emissive={color} emissiveIntensity={letterGlow} />
       </mesh>
     </group>
   )
@@ -971,8 +972,9 @@ export default function Store() {
                     glowPad={0.25}
                     width={ENTRANCE.logo.width}
                     color={ENTRANCE.logo.color}
-                    glowStrength={ENTRANCE.logo.glowStrength}
-                    depth={0.14}
+                    glowStrength={0} // no halo behind the wordmark: the letters themselves are lit
+                    letterGlow={ENTRANCE.logo.letterGlow}
+                    depth={ENTRANCE.logo.depth ?? 0.14}
                   />
                 </group>
               )}
