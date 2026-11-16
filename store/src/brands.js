@@ -339,6 +339,42 @@ export const ENTRANCE = {
   wallFinish: '/textures/entrance_concrete_v2.jpg',
   wallFinishTile: 5, // world units per texture tile (fine grain, like the loading screen)
   baseboard: '#151515',
+  // The entrance's back wall shows the four brands: their white logos in a row on top, and under each logo four small 3D shoes (two ledges, two shoes on each), like the shoe walls.
+  // For show only (nothing here is clickable). Logos come from INTRO.logos, in the same order as the brands.
+  showcase: [
+    {
+      shoes: [
+        { model: '/brands/neemans/models/begin-walk-breeze-for-men-ecru.glb', flip: true },
+        { model: '/brands/neemans/models/begin-walk-endurance-for-men-blue.glb', flip: true },
+        { model: '/brands/neemans/models/begin-walk-soothe-lace-ups-for-men-yellow.glb', flip: true },
+        { model: '/brands/neemans/models/hexa-glide-sneakers-for-men-green.glb', flip: true },
+      ],
+    },
+    {
+      shoes: [
+        { model: '/brands/comet/models/apex-hotrod.glb' },
+        { model: '/brands/comet/models/x-lows-malibu.glb' },
+        { model: '/brands/comet/models/apex-sub-zero.glb' },
+        { model: '/brands/comet/models/apex-red-velvet.glb' },
+      ],
+    },
+    {
+      shoes: [
+        { model: '/brands/gullylabs/models/gully-number-001-falak-blue-men.glb' },
+        { model: '/brands/gullylabs/models/gully-number-003-roja-pink-for-women.glb' },
+        { model: '/brands/gullylabs/models/gully-number-001-baaz-baadal-blue.glb' },
+        { model: '/brands/gullylabs/models/gully-number-001-saaj-orange-men.glb' },
+      ],
+    },
+    {
+      shoes: [
+        { model: '/brands/bondstreet/models/mens-white-ash-casual-sneakers.glb', flip: true },
+        { model: '/brands/bondstreet/models/mens-beige-brown-casual-sneakers.glb', flip: true },
+        { model: '/brands/bondstreet/models/mens-white-brown-casual-sneakers.glb', flip: true },
+        { model: '/brands/bondstreet/models/mens-off-white-green-casual-sneakers.glb', flip: true },
+      ],
+    },
+  ],
   // the IndianShoes wordmark (traced by store/scripts/make-cta-assets.py), raised on the back wall like the block logos
   logo: {
     shape: '/brands/indianshoes/logo_shape.json',

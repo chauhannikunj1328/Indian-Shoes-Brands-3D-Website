@@ -15,7 +15,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { BRANDS, CTA, brandStatusNote } from '../src/brands.js'
-import { INFO_PAGES, EMAIL, WHATSAPP_BASE } from '../src/content/pages.js'
+import { INFO_PAGES, NAV, EMAIL, WHATSAPP_BASE } from '../src/content/pages.js'
 import { buildAffiliateUrl, buildShopUrl } from '../src/affiliate.js'
 import { SITE, BRAND_SEO, DISCLOSURE } from '../seo/config.mjs'
 
@@ -152,10 +152,10 @@ const crumbsHtml = (items) =>
   `<nav aria-label="Breadcrumb"><ol>${items
     .map(([name, p], i) => (i === items.length - 1 ? `<li aria-current="page">${esc(name)}</li>` : `<li><a href="${p}">${esc(name)}</a></li>`))
     .join('')}</ol></nav>`
-const siteNav = `<nav aria-label="Main"><ul><li><a href="/">IndianShoes 3D store</a></li><li><a href="/brands">All brands</a></li><li><a href="/for-brands">For brands</a></li>${brands
+const siteNav = `<nav aria-label="Main"><ul><li><a href="/">IndianShoes 3D store</a></li><li><a href="/brands">All brands</a></li><li><a href="/for-brands">For brands</a></li><li><a href="/pricing">Pricing</a></li><li><a href="/about">About</a></li><li><a href="/contact">Contact</a></li><li><a href="/faq">FAQ</a></li>${brands
   .map((b) => `<li><a href="${b.path}">${esc(b.name)} sneakers</a></li>`)
   .join('')}</ul></nav>`
-const footerHtml = `<footer><p>${esc(DISCLOSURE)}</p><nav aria-label="Footer"><ul><li><a href="/for-brands">For brands</a></li><li><a href="/privacy">Privacy</a></li><li><a href="/terms">Terms</a></li></ul></nav><p>Contact: <a href="mailto:${CTA.email}">${CTA.email}</a></p></footer>`
+const footerHtml = `<footer><p>${esc(DISCLOSURE)}</p><nav aria-label="Footer"><ul>${NAV.flatMap((g) => g.items).filter(([, h]) => h !== '/').map(([label, h]) => `<li><a href="${h}">${esc(label)}</a></li>`).join('')}</ul></nav><p>Contact: <a href="mailto:${CTA.email}">${CTA.email}</a></p></footer>`
 const shell = (inner) => `<div id="seo-content" class="seo-content"><header><p><a href="/">${SITE.name}</a>: ${esc(SITE.tagline)}</p>${siteNav}</header><main>${inner}</main>${footerHtml}</div>`
 const shoeLinks = (list) => `<ul>${list.map((s) => `<li><a href="${shoePath(s)}">${esc(clean(s.title))}</a>, ${inr(s.price_inr)}</li>`).join('')}</ul>`
 
@@ -267,6 +267,12 @@ function blocksHtml(blocks) {
         return `<section><h2>${esc(b.h2)}</h2>${b.items.map((i) => `<h3>${esc(i.h3)}</h3><p>${esc(i.p)}</p>`).join('')}</section>`
       if (b.type === 'faq')
         return `<section><h2>${esc(b.h2)}</h2><dl>${b.items.map((i) => `<dt>${esc(i.q)}</dt><dd>${esc(i.a)}</dd>`).join('')}</dl></section>`
+      if (b.type === 'plans')
+        return `<section><h2>${esc(b.h2)}</h2>${b.items.map((pl) => `<h3>${esc(pl.name)}: ${esc(pl.price)}</h3><p>${esc(pl.note)}</p><ul>${pl.list.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>`).join('')}</section>`
+      if (b.type === 'table')
+        return `<section><h2>${esc(b.h2)}</h2><table><thead><tr>${b.head.map((h) => `<th>${esc(h)}</th>`).join('')}</tr></thead><tbody>${b.rows.map((r) => `<tr>${r.map((c) => `<td>${esc(c)}</td>`).join('')}</tr>`).join('')}</tbody></table>${b.note ? `<p>${esc(b.note)}</p>` : ''}</section>`
+      if (b.type === 'brands')
+        return `<section><h2>${esc(b.h2)}</h2><ul>${b.items.map((i) => `<li><h3><a href="${i.path}">${esc(i.name)}</a></h3><p>${esc(i.p)}</p></li>`).join('')}</ul></section>`
       if (b.type === 'contact')
         return `<section><h2>${esc(b.h2)}</h2><p>WhatsApp: <a href="${esc(whatsappHref)}">message us</a>. Email: <a href="mailto:${EMAIL}">${EMAIL}</a>.</p></section>`
       return `<section><h2>${esc(b.h2)}</h2>${(b.paragraphs ?? []).map((t) => `<p>${esc(t)}</p>`).join('')}${b.list ? `<ul>${b.list.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>` : ''}</section>`
@@ -274,6 +280,7 @@ function blocksHtml(blocks) {
     .join('')
 }
 for (const [p, page] of Object.entries(INFO_PAGES)) {
+  if (pages.some((x) => x.path === p)) continue // /brands has its own richer page above
   const faq = page.blocks.find((b) => b.type === 'faq')
   pages.push({
     path: p,
@@ -535,6 +542,13 @@ const llms = [
   `- [Home: the 3D store](${abs('/')}): the interactive store; each page below opens it at that brand or shoe`,
   `- [All brands](${abs('/brands')}): the brands on display`,
   `- [For brands](${abs('/for-brands')}): what IndianShoes offers sneaker brands (a 3D store, search-ready pages, click reports) and how to get in touch`,
+  `- [Pricing](${abs('/pricing')}): plans for brands (pilot, monthly, premium placement); prices are quoted per brand`,
+  `- [Sample report](${abs('/sample-report')}): an illustrative monthly report (made-up numbers)`,
+  `- [About](${abs('/about')}): what IndianShoes is and how it works`,
+  `- [Contact](${abs('/contact')}): WhatsApp and email`,
+  `- [FAQ](${abs('/faq')}): common questions from shoppers and brands`,
+  `- [Affiliate disclosure](${abs('/affiliate-disclosure')}): how affiliate links and sponsored placements work`,
+  `- [Remove or update a listing](${abs('/remove-or-update')}): how brand owners can change or remove their listing`,
   `- [Sitemap](${abs('/sitemap.xml')}): every page, including one page per sneaker`,
   '',
   '## Optional',

@@ -139,7 +139,7 @@ const streamOutsideLoader = (loader) => {
   loader.manager = shoeLoading
 }
 
-function ShoeModel({ url, width, turn = 0.35, flip = false }) {
+export function ShoeModel({ url, width, turn = 0.35, flip = false }) {
   const { scene } = useGLTF(url, false, false, streamOutsideLoader)
   // when this shoe leaves the screen's neighbourhood, give its geometry and textures back to the graphics card
   // (phones run out of memory if all ~190 shoes stay resident)

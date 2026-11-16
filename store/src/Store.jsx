@@ -1,3 +1,4 @@
+import EntranceShowcase from './EntranceShowcase'
 import { Suspense, useMemo, useState } from 'react'
 import * as THREE from 'three'
 import { useFrame, useLoader } from '@react-three/fiber'
@@ -991,6 +992,7 @@ export default function Store() {
             tile={ENTRANCE.wallFinishTile}
           />
           <TrimBaseboard position={[ENTRANCE_WIDTH / 2, 0, backZ]} width={ENTRANCE_WIDTH} color={ENTRANCE.baseboard} />
+          <EntranceShowcase z={backZ} />
         </>
       )}
 

@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { INTRO } from './brands'
 import { STOPS, subscribe, getTarget, goTo } from './tour'
 import MusicToggle from './MusicToggle'
+import MenuDrawer from './MenuDrawer'
 
 // Top glass header (same frosted glass as the bottom tour bar):
 //   left:  the इंडियनShoes wordmark - back to the store entrance
@@ -57,6 +58,7 @@ export default function SiteHeader() {
           <span className="site-header__enquire-long">Get a 3D store</span>
           <span className="site-header__enquire-short">Get a store</span>
         </button>
+        <MenuDrawer path="/" />
       </nav>
     </header>
   )

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import MusicToggle from './MusicToggle'
-import { INFO_PAGES, EMAIL, WHATSAPP_BASE, WHATSAPP_NUMBER, UPDATED } from './content/pages.js'
+import MenuDrawer from './MenuDrawer'
+import { INFO_PAGES, NAV, EMAIL, WHATSAPP_BASE, WHATSAPP_NUMBER, UPDATED } from './content/pages.js'
 
 // The normal (non-3D) pages: /for-brands, /privacy, /terms. Text lives in src/content/pages.js, which the build also
 // turns into crawlable HTML (scripts/prerender.mjs). No 3D code is loaded here, so these pages are light and fast.
@@ -116,6 +117,80 @@ function Block({ b }) {
           ))}
         </section>
       )
+    case 'plans':
+      return (
+        <section>
+          <h2>{b.h2}</h2>
+          <div className="info-plans">
+            {b.items.map((pl) => (
+              <div className={`info-card info-plan${pl.featured ? ' info-plan--featured' : ''}`} key={pl.name}>
+                <h3>{pl.name}</h3>
+                <p className="info-plan__price">{pl.price}</p>
+                <p className="info-small">{pl.note}</p>
+                <ul>
+                  {pl.list.map((li) => (
+                    <li key={li}>{li}</li>
+                  ))}
+                </ul>
+                <a className={`info-btn${pl.featured ? ' info-btn--primary' : ''}`} href="/pricing#contact-h">
+                  Ask for a quote
+                </a>
+              </div>
+            ))}
+          </div>
+        </section>
+      )
+    case 'table':
+      return (
+        <section>
+          <h2>{b.h2}</h2>
+          <div className="info-tablewrap">
+            <table className="info-table">
+              <thead>
+                <tr>
+                  {b.head.map((h) => (
+                    <th key={h} scope="col">
+                      {h}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {b.rows.map((r) => (
+                  <tr key={r[0]}>
+                    {r.map((c, i) => (i === 0 ? <th key={i} scope="row">{c}</th> : <td key={i}>{c}</td>))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          {b.note && <p className="info-small">{b.note}</p>}
+        </section>
+      )
+    case 'brands':
+      return (
+        <section>
+          <h2>{b.h2}</h2>
+          <div className="info-grid info-grid--brands">
+            {b.items.map((it) => (
+              <div className="info-card" key={it.name}>
+                <h3>{it.name}</h3>
+                <p>{it.p}</p>
+                <p className="info-actions">
+                  <a className="info-btn info-btn--primary" href={it.path}>
+                    See it in 3D
+                  </a>
+                  {it.official && (
+                    <a className="info-btn" href={it.official} target="_blank" rel="noopener">
+                      Official website
+                    </a>
+                  )}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )
     case 'contact':
       return <ContactForm h2={b.h2} />
     default:
@@ -157,10 +232,11 @@ export default function InfoPage({ path }) {
           <a className={`site-header__cta${path === '/for-brands' ? ' is-active' : ''}`} href="/for-brands" aria-current={path === '/for-brands' ? 'page' : undefined}>
             For Brands
           </a>
-          <a className="site-header__enquire" href="/for-brands#contact-h">
+          <a className="site-header__enquire" href="/contact">
             <span className="site-header__enquire-long">Get a 3D store</span>
             <span className="site-header__enquire-short">Get a store</span>
           </a>
+          <MenuDrawer path={path} />
         </nav>
       </header>
       <main className="info-main">
@@ -178,10 +254,11 @@ export default function InfoPage({ path }) {
           IndianShoes does not sell shoes. Some links are affiliate links: we may earn a commission if you buy through them, at no extra cost to you.
         </p>
         <nav aria-label="Footer">
-          <a href="/">3D store</a>
-          <a href="/for-brands">For brands</a>
-          <a href="/privacy">Privacy</a>
-          <a href="/terms">Terms</a>
+          {NAV.flatMap((g) => g.items).map(([label, href]) => (
+            <a key={href} href={href}>
+              {label}
+            </a>
+          ))}
           <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
         </nav>
         <p className="info-small">© {new Date(UPDATED).getFullYear()} IndianShoes</p>
