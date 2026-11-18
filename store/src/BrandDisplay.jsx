@@ -40,14 +40,27 @@ function VideoScreen({ src, onSize }) {
     video.preload = 'auto'
     video.setAttribute('muted', '')
     video.setAttribute('playsinline', '')
+    video.setAttribute('webkit-playsinline', '')
+    video.disablePictureInPicture = true
+    // phones (iPhones above all) only run a video reliably when it is in the page: keep it there, invisible and out of the way
+    Object.assign(video.style, { position: 'fixed', left: '0', top: '0', width: '2px', height: '2px', opacity: '0.01', pointerEvents: 'none', zIndex: '-1' })
+    video.setAttribute('aria-hidden', 'true')
+    document.body.appendChild(video)
     const t = new THREE.VideoTexture(video)
     t.colorSpace = THREE.SRGBColorSpace
     if (import.meta.env.DEV) (window.__brandVideos ??= []).push(video) // dev only: lets the console inspect the screens' videos
     let i = 0
+    // if the phone refuses to autoplay (Low Power Mode, data saver), try again on the visitor's first touch or key press
+    const gestures = ['pointerdown', 'touchend', 'keydown']
+    const retry = () => {
+      video.play().then(off).catch(() => {})
+    }
+    const off = () => gestures.forEach((n) => window.removeEventListener(n, retry))
+    const on = () => gestures.forEach((n) => window.addEventListener(n, retry))
     const play = () => {
       video.src = list[i]
       video.loop = list.length === 1 // one file: loop it; several: move on to the next when this one ends
-      video.play().catch(() => {})
+      video.play().catch(on)
     }
     const onEnded = () => {
       i = (i + 1) % list.length
@@ -70,10 +83,12 @@ function VideoScreen({ src, onSize }) {
       video.removeEventListener('ended', onEnded)
       video.removeEventListener('loadedmetadata', size)
       video.removeEventListener('volumechange', keepMuted)
+      off()
       // let go of the file when the visitor walks away
       video.pause()
       video.removeAttribute('src')
       video.load()
+      video.remove()
       t.dispose()
       if (import.meta.env.DEV && window.__brandVideos) window.__brandVideos = window.__brandVideos.filter((x) => x !== video)
       setTex(null)

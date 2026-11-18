@@ -59,10 +59,26 @@ const setPlaying = (v) => {
   }
 }
 
+// iPhones and iPads ignore a script's volume (audio.volume always reads 1), so a fade there would never finish and the music
+// could never be paused. Where the volume can't be set, skip the fade: start and stop at once.
+const CAN_FADE = (() => {
+  try {
+    const t = new Audio()
+    t.volume = 0.5
+    return t.volume === 0.5
+  } catch {
+    return false
+  }
+})()
+
 function fadeTo(target, done) {
   const a = audio
   if (!a) return
   clearInterval(fade)
+  if (!CAN_FADE) {
+    done?.()
+    return
+  }
   const step = (MUSIC.volume / (MUSIC.fadeSeconds * 20)) * (target > a.volume ? 1 : -1)
   fade = setInterval(() => {
     const next = a.volume + step
@@ -103,6 +119,10 @@ function start() {
 function stop() {
   setPlaying(false)
   fadeTo(0, () => audio?.pause())
+  // safety net: whatever happens to the fade, the music is paused shortly after the visitor turns it off
+  setTimeout(() => {
+    if (!playing) audio?.pause()
+  }, MUSIC.fadeSeconds * 1000 + 300)
 }
 
 function init() {
